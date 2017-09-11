@@ -24,7 +24,7 @@ typedef struct
 	uint8_t TxPowerLeftMiddle : 1;
 	
 	// 01    08    Dezimal-Punkt kHz links
-	uint8_t FrequencyLeftDecimalPoint : 1; //TODO: find better name
+	uint8_t FrequencyLeftDecimalPointKhz : 1;
 	
 	// 01    10    S-Meter links Balken 9
 	uint8_t SignalLeftBar9 : 1;
@@ -243,7 +243,7 @@ typedef struct
 	uint8_t Unknown0902 : 1;
 
 	// 09    01    Dezimal-Punkt MHz links
-	uint8_t MHzLeftDecimalPoint : 1; //TODO: find better name
+	uint8_t FrequencyLeftDecimalPointMhz : 1; 
 
 
 	// 10    80    ???
@@ -298,59 +298,159 @@ typedef struct
 
 	
 	// 12    80    ???
+	uint8_t Unknown1280 : 1;
+	
 	// 12    40    Frequenz links Stelle 2 Balken N
-	// 12    20    MUTE links
-	// 12    10    Frequenz links Stelle 2 Balken H
-	// 12    08    Frequenz links Stelle 2 Balken G
-	// 12    04    Frequenz links Stelle 2 Balken A
-	// 12    02    Frequenz links Stelle 2 Balken K
-	// 12    01    Frequenz links Stelle 2 Balken B
+	uint8_t FrequencyLeftPlace2BarN : 1;
 
+	// 12    20    MUTE links
+	uint8_t MuteLeft : 1;
+	
+	// 12    10    Frequenz links Stelle 2 Balken H
+	uint8_t FrequencyLeftPlace2BarH : 1;
+
+	// 12    08    Frequenz links Stelle 2 Balken G
+	uint8_t FrequencyLeftPlace2BarG : 1;
+
+	// 12    04    Frequenz links Stelle 2 Balken A
+	uint8_t FrequencyLeftPlace2BarA : 1;
+
+	// 12    02    Frequenz links Stelle 2 Balken K
+	uint8_t FrequencyLeftPlace2BarK : 1;
+
+	// 12    01    Frequenz links Stelle 2 Balken B
+	uint8_t FrequencyLeftPlace2BarB : 1;
+
+
+	
 	// 13    80    ???
+	uint8_t Unknown1380 : 1;
+	
 	// 13    40    Memory Tune links
+	uint8_t MemoryTuneLeft : 1;
+
 	// 13    20    Frequenz links Stelle 2 Balken F
+	uint8_t FrequencyLeftPlace2BarF : 1;
+
 	// 13    10    Frequenz links Stelle 2 Balken E
+	uint8_t FrequencyLeftPlace2BarE : 1;
+
 	// 13    08    Frequenz links Stelle 2 Balken Q
+	uint8_t FrequencyLeftPlace2BarQ : 1;
+
 	// 13    04    BUSY links
+	uint8_t BusyLeft : 1;
+
 	// 13    02    Frequenz links Stelle 2 Balken J+P
+	uint8_t FrequencyLeftPlace2BarJP : 1;
+
 	// 13    01    Frequenz links Stelle 2 Balken D
+	uint8_t FrequencyLeftPlace2BarD : 1;
+
 
 	// 14    80    ???
+	uint8_t Unknown1480 : 1;
+
 	// 14    40    Frequenz links Stelle 1 Balken H
+	uint8_t FrequencyLeftPlace1BarH : 1;
+
 	// 14    20    Frequenz links Stelle 1 Balken G
+	uint8_t FrequencyLeftPlace1BarG : 1;
+
 	// 14    10    Frequenz links Stelle 1 Balken A
+	uint8_t FrequencyLeftPlace1BarA : 1;
+
 	// 14    08    Frequenz links Stelle 1 Balken K
+	uint8_t FrequencyLeftPlace1BarK : 1;
+
 	// 14    04    Frequenz links Stelle 1 Balken B
+	uint8_t FrequencyLeftPlace1BarB : 1;
+
 	// 14    02    Frequenz links Stelle 1 Balken M
+	uint8_t FrequencyLeftPlace1BarM : 1;
+
 	// 14    01    Frequenz links Stelle 1 Balken C
+	uint8_t FrequencyLeftPlace1BarC : 1;
+
 
 	// 15    80    ???
+	uint8_t Unknown1580 : 1;
+
 	// 15    40    Frequenz links Stelle 1 Balken E
+	uint8_t FrequencyLeftPlace1BarE : 1;
+
 	// 15    20    Frequenz links Stelle 1 Balken Q
+	uint8_t FrequencyLeftPlace1BarQ : 1;
+
 	// 15    10    ???
+	uint8_t Unknown1510 : 1;
+
 	// 15    08    Frequenz links Stelle 1 Balken J+P
+	uint8_t FrequencyLeftPlace1BarJP : 1;
+
 	// 15    04    Frequenz links Stelle 1 Balken D
+	uint8_t FrequencyLeftPlace1BarD : 1;
+
 	// 15    02    Frequenz links Stelle 1 Balken N
+	uint8_t FrequencyLeftPlace1BarN : 1;
+
 	// 15    01    ???
+	uint8_t Unknown1501 : 1;
+
+	
 
 	// 16    80    ???
+	uint8_t Unknwon1680 : 1;
+
 	// 16    40    ???
+	uint8_t Unknown1640 : 1;
+
 	// 16    20    ???
+	uint8_t Unknown1620 : 1;
+
 	// 16    10    ???
+	uint8_t Unknown1610 : 1;
+
 	// 16    08    ???
+	uint8_t Unknown1608 : 1;
+
 	// 16    04    ???
+	uint8_t Unknown1604 : 1;
+
 	// 16    02    ???
+	uint8_t Unknown1602 : 1;
+
 	// 16    01    Frequenz links Stelle 1 Balken F
+	uint8_t FrequencyLeftPlace1BarF : 1;
+
+	
 
 	// 17    80    ???
-	// 17    40    Frequenz rechts Stelle 6 Balken M
-	// 17    20    Frequenz rechts Stelle 6 Balken C
-	// 17    10    S-Meter rechts Balken 9
-	// 17    08    Dezimal-Punkt kHz rechts
-	// 17    04    Middle TX Power rechts
-	// 17    02    ???
-	// 17    01    Kleine kHz 5 rechts
+	uint8_t Unknown1780 : 1;
 
+	// 17    40    Frequenz rechts Stelle 6 Balken M
+	uint8_t FrequencyRightPlace6BarM : 1;
+
+	// 17    20    Frequenz rechts Stelle 6 Balken C
+	uint8_t FrequencyRightPlace6BarC : 1;
+
+	// 17    10    S-Meter rechts Balken 9
+	uint8_t SignalRightBar9 : 1;
+
+	// 17    08    Dezimal-Punkt kHz rechts
+	uint8_t FrequencyRightDecimalPointKhz : 1;
+
+	// 17    04    Middle TX Power rechts
+	uint8_t TxPowerRightMiddle : 1;
+
+	// 17    02    ???
+	uint8_t Unknown1702 : 1;
+
+	// 17    01    Kleine kHz 5 rechts
+	uint8_t FrequencyRightFiveKhz : 1;
+
+
+	
 	// 18    80    ???
 	// 18    40    Frequenz rechts Stelle 6 Balken N
 	// 18    20    Low TX Power rechts
