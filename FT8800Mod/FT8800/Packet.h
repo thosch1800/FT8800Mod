@@ -140,7 +140,7 @@ typedef struct
 	uint8_t FrequencyLeftPlace5BarN : 1;
 	
 	// 05    01    9600 bps links
-	uint8_t DataLeft9600bps : 1;
+	uint8_t Data9600bpsLeft : 1;
 	
 
 	
@@ -551,7 +551,7 @@ typedef struct
 	uint8_t FrequencyRightPlace5BarN : 1;
 	
 	// 21    01    9600 bps rechts
-	uint8_t DataRight9600bps : 1;
+	uint8_t Data9600bpsRight : 1;
 	
 
 	// 22    80    ???
@@ -1166,10 +1166,10 @@ typedef struct
 	
 	uint8_t Byte09;
 
-	//LOW links                  : Byte 10 von 7F auf 61
+	//Low links                  : Byte 10 von 7F auf 61
 	//V/M links                  : Byte 10 von 7F auf 40
 	//HM links                   : Byte 10 von 7F auf 1F
-	//SCN links                  : Byte 10 von 7F auf 00
+	//Scn links                  : Byte 10 von 7F auf 00
 	union
 	{
 		uint8_t Byte10;
@@ -1179,7 +1179,7 @@ typedef struct
 	//Low rechts                 : Byte 11 von 7F auf 00
 	//V/M rechts                 : Byte 11 von 7F auf 1F
 	//HM rechts                  : Byte 11 von 7F auf 40
-	//SCN rechts                 : Byte 11 von 7F auf 61
+	//Scn rechts                 : Byte 11 von 7F auf 61
 	union
 	{
 		uint8_t Byte11;
