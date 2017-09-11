@@ -41,49 +41,133 @@ typedef struct
 	
 	
 	// 02    80    ???
+	uint8_t Unknown0280 : 1;
+	
 	// 02    40    Frequenz links Stelle 6 Balken N
+	uint8_t FrequencyLeftPlace6BarN : 1;
+	
 	// 02    20    Low TX Power links
+	uint8_t TyPowerLeftLow : 1;
+
 	// 02    10    Frequenz links Stelle 6 Balken H
+	uint8_t FrequencyLeftPlace6BarH : 1;
+
 	// 02    08    Frequenz links Stelle 6 Balken G
+	uint8_t FrequencyLeftPlace6BarG : 1;
+
 	// 02    04    Frequenz links Stelle 6 Balken A
+	uint8_t FrequencyLeftPlace6BarA : 1;
+
 	// 02    02    Frequenz links Stelle 6 Balken K
+	uint8_t FrequencyLeftPlace6BarK : 1;
+
 	// 02    01    Frequenz links Stelle 6 Balken B
+	uint8_t FrequencyLeftPlace6BarB : 1;
 
+	
+	
 	// 03    80    ???
+	uint8_t Unknown0380 : 1;
+	
 	// 03    40    S-Meter links Balken 7
+	uint8_t SignalLeftBar7 : 1;
+	
 	// 03    20    Frequenz links Stelle 6 Balken F
+	uint8_t FrequencyLeftPlace6BarF : 1;
+
 	// 03    10    Frequenz links Stelle 6 Balken E
+	uint8_t FrequencyLeftPlace6BarE : 1;
+
 	// 03    08    Frequenz links Stelle 6 Balken Q
+	uint8_t FrequencyLeftPlace6BarQ : 1;
+
 	// 03    04    S-Meter links Balken 8
+	uint8_t SignalLeftBar8 : 1;
+
 	// 03    02    Frequenz links Stelle 6 Balken J+P
+	uint8_t FrequencyLeftPlace6BarJP : 1;
+	
 	// 03    01    Frequenz links Stelle 6 Balken D
+	uint8_t FrequencyLeftPlace6BarD : 1;
+	
 
+	
 	// 04    80    ???
+	uint8_t Unknown0480 : 1;
+	
 	// 04    40    Frequenz links Stelle 5 Balken H
+	uint8_t FrequencyLeftPlace5BarH : 1;
+	
 	// 04    20    Frequenz links Stelle 5 Balken G
+	uint8_t FrequencyLeftPlace5BarG : 1;
+	
 	// 04    10    Frequenz links Stelle 5 Balken A
+	uint8_t FrequencyLeftPlace5BarA : 1;
+	
 	// 04    08    Frequenz links Stelle 5 Balken K
+	uint8_t FrequencyLeftPlace5BarK : 1;
+	
 	// 04    04    Frequenz links Stelle 5 Balken B
+	uint8_t FrequencyLeftPlace5BarB : 1;
+	
 	// 04    02    Frequenz links Stelle 5 Balken M
+	uint8_t FrequencyLeftPlace5BarM : 1;
+	
 	// 04    01    Frequenz links Stelle 5 Balken C
+	uint8_t FrequencyLeftPlace5BarC : 1;
+	
 
+	
 	// 05    80    ???
+	uint8_t Unknown0580 : 1;
+	
 	// 05    40    Frequenz links Stelle 5 Balken E
+	uint8_t FrequencyLeftPlace5BarE : 1;
+	
 	// 05    20    Frequenz links Stelle 5 Balken Q
+	uint8_t FrequencyLeftPlace5BarQ : 1;
+	
 	// 05    10    S-Meter links Balken 6
+	uint8_t SignalLeftBar6 : 1;
+	
 	// 05    08    Frequenz links Stelle 5 Balken J+P
+	uint8_t FrequencyLeftPlace5BarJP : 1;
+	
 	// 05    04    Frequenz links Stelle 5 Balken D
+	uint8_t FrequencyLeftPlace5BarD : 1;
+	
 	// 05    02    Frequenz links Stelle 5 Balken N
+	uint8_t FrequencyLeftPlace5BarN : 1;
+	
 	// 05    01    9600 bps links
+	uint8_t DataLeft9600bps : 1;
+	
 
+	
 	// 06    80    ???
+	uint8_t Unknown0680 : 1;
+	
 	// 06    40    Frequenz links Stelle 4 Balken A
+	uint8_t FrequencyLeftPlace4BarA : 1;
+	
 	// 06    20    Frequenz links Stelle 4 Balken K
+	uint8_t FrequencyLeftPlace4BarK : 1;
+
 	// 06    10    Frequenz links Stelle 4 Balken B
+	uint8_t FrequencyLeftPlace4BarB : 1;
+
 	// 06    08    Frequenz links Stelle 4 Balken M
+	uint8_t FrequencyLeftPlace4BarM : 1;
+
 	// 06    04    Frequenz links Stelle 4 Balken C
+	uint8_t FrequencyLeftPlace4BarC : 1;
+
 	// 06    02    S-Meter links Balken 5
+	uint8_t SignalLeftBar5 : 1;
+
 	// 06    01    Frequenz links Stelle 5 Balken F
+	uint8_t FrequencyLeftPlace5BarF : 1;
+
 
 	// 07    80    ???
 	// 07    40    S-Meter links Balken 4
@@ -432,9 +516,9 @@ typedef struct
 
 	//Squelch rechts             : Byte 4 offen 7F, geschlossen 00
 
-	//Lautstärke rechts          : Byte 5 leise 00, laut 7F
+	//LautstÃ¤rke rechts          : Byte 5 leise 00, laut 7F
 
-	//Lautstärke links           : Byte 7 leise 00, laut 7F
+	//LautstÃ¤rke links           : Byte 7 leise 00, laut 7F
 
 	//Squelch links              : Byte 8 offen 7F, geschlossen 00
 
@@ -451,8 +535,8 @@ typedef struct
 	//SET Knopf                  : Byte 12 von 00 auf 04
 	//VOL/SQL Taster links       : Byte 12 von 00 auf 08
 	//VOL/SQL Taster rechts      : Ein/Ausschalter, nur elektrisch als Signal auf Pin 2
-	//Linker Wahlknopf drücken   : Byte 12 von 00 auf 02
-	//Rechter Wahlknopf drücken  : Byte 12 von 00 auf 01
+	//Linker Wahlknopf drÃ¼cken   : Byte 12 von 00 auf 02
+	//Rechter Wahlknopf drÃ¼cken  : Byte 12 von 00 auf 01
 	
 	//Hyper Taste 1        : Byte 13 auf 01
 	//Hyper Taste 2        : Byte 13 auf 02
