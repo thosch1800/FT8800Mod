@@ -1,18 +1,8 @@
-/*
-* Packet.h
-*
-* Created: 08.09.2017 22:55:20
-*  Author: thosch
-*/
-
-
-#ifndef PACKET_H_
-#define PACKET_H_
-
-// see http://www.dg1sfj.de/index.php/funk/geraete/88-yaesu-ft-8800?showall=&start=2 for more information
+#ifndef MAINUNITTOPANELPACKETBYTES_H_
+#define MAINUNITTOPANELPACKETBYTES_H_
 
 #pragma pack(1)
-typedef struct
+struct MainUnitToPanelPacketBytes
 {
 	// 01    80    ???
 	uint8_t Unknown0180 : 1;
@@ -47,7 +37,7 @@ typedef struct
 	uint8_t FrequencyLeftPlace6BarN : 1;
 	
 	// 02    20    Low TX Power links
-	uint8_t TyPowerLeftLow : 1;
+	uint8_t TxPowerLeftLow : 1;
 
 	// 02    10    Frequenz links Stelle 6 Balken H
 	uint8_t FrequencyLeftPlace6BarH : 1;
@@ -243,7 +233,7 @@ typedef struct
 	uint8_t Unknown0902 : 1;
 
 	// 09    01    Dezimal-Punkt MHz links
-	uint8_t FrequencyLeftDecimalPointMhz : 1; 
+	uint8_t FrequencyLeftDecimalPointMhz : 1;
 
 
 	// 10    80    ???
@@ -576,7 +566,7 @@ typedef struct
 	uint8_t SignalRightBar5 : 1;
 	
 	// 22    01    Frequenz rechts Stelle 5 Balken F
-	uint8_t FrequencyRightPlace4BarF : 1;
+	uint8_t FrequencyRightPlace5BarF : 1;
 	
 	
 	
@@ -870,22 +860,22 @@ typedef struct
 	uint8_t Unknown4380 : 1;
 	
 	// 34    40    Kanal rechts Stelle 3 Balken F
-	uint8_t FrequencyRightPlace3BarF : 1;
+	uint8_t ChannelRightPlace3BarF : 1;
 	
 	// 34    20    Kanal rechts Stelle 3 Balken E
-	uint8_t FrequencyRightPlace3BarE : 1;
+	uint8_t ChannelRightPlace3BarE : 1;
 	
 	// 34    10    Kanal rechts Stelle 3 Balken A
-	uint8_t FrequencyRightPlace3BarA : 1;
+	uint8_t ChannelRightPlace3BarA : 1;
 	
 	// 34    08    Kanal rechts Stelle 3 Balken G
-	uint8_t FrequencyRightPlace3BarG : 1;
+	uint8_t ChannelRightPlace3BarG : 1;
 	
 	// 34    04    Kanal rechts Stelle 3 Balken B
-	uint8_t FrequencyRightPlace3BarB : 1;
+	uint8_t ChannelRightPlace3BarB : 1;
 	
 	// 34    02    Kanal rechts Stelle 3 Balken C
-	uint8_t FrequencyRightPlace3BarC : 1;
+	uint8_t ChannelRightPlace3BarC : 1;
 	
 	// 34    01    SKIP rechts
 	uint8_t SkipRight : 1;
@@ -896,25 +886,25 @@ typedef struct
 	uint8_t unknown3580 : 1;
 	
 	// 35    40    Kanal rechts Stelle 2 Balken E
-	uint8_t FrequencyRightPlace2BarE : 1;
+	uint8_t ChannelRightPlace2BarE : 1;
 	
 	// 35    20    Kanal rechts Stelle 2 Balken A
-	uint8_t FrequencyRightPlace2BarA : 1;
+	uint8_t ChannelRightPlace2BarA : 1;
 	
 	// 35    10    Kanal rechts Stelle 2 Balken G
-	uint8_t FrequencyRightPlace2BarG : 1;
+	uint8_t ChannelRightPlace2BarG : 1;
 	
 	// 35    08    Kanal rechts Stelle 2 Balken B
-	uint8_t FrequencyRightPlace2BarB : 1;
+	uint8_t ChannelRightPlace2BarB : 1;
 	
 	// 35    04    Kanal rechts Stelle 2 Balken C
-	uint8_t FrequencyRightPlace2BarC : 1;
+	uint8_t ChannelRightPlace2BarC : 1;
 	
 	// 35    02    Kanal rechts Stelle 1 Balken D
-	uint8_t FrequencyRightPlace1BarD : 1;
+	uint8_t ChannelRightPlace1BarD : 1;
 	
 	// 35    01    Kanal rechts Stelle 3 Balken D
-	uint8_t FrequencyRightPlace3BarD : 1;
+	uint8_t ChannelRightPlace3BarD : 1;
 	
 
 	
@@ -922,25 +912,25 @@ typedef struct
 	uint8_t Unknown3680 : 1;
 	
 	// 36    40    Kanal rechts Stelle 1 Balken A
-	uint8_t FrequencyRightPlace1BarA : 1;
+	uint8_t ChannelRightPlace1BarA : 1;
 	
 	// 36    20    Kanal rechts Stelle 1 Balken G
-	uint8_t FrequencyRightPlace1BarG : 1;
+	uint8_t ChannelRightPlace1BarG : 1;
 	
 	// 36    10    Kanal rechts Stelle 1 Balken B
-	uint8_t FrequencyRightPlace1BarB : 1;
+	uint8_t ChannelRightPlace1BarB : 1;
 	
 	// 36    08    Kanal rechts Stelle 1 Balken C
-	uint8_t FrequencyRightPlace1BarC : 1;
+	uint8_t ChannelRightPlace1BarC : 1;
 	
 	// 36    04    Kanal rechts Trennstrich
-	uint8_t FrequencyRightDividerBar : 1;
+	uint8_t ChannelRightDividerBar : 1;
 	
 	// 36    02    Kanal rechts Stelle 2 Balken D
-	uint8_t FrequencyRightPlace2BarD : 1;
+	uint8_t ChannelRightPlace2BarD : 1;
 	
 	// 36    01    Kanal rechts Stelle 2 Balken F
-	uint8_t FrequencyRightPlace2BarF : 1;
+	uint8_t ChannelRightPlace2BarF : 1;
 	
 
 	
@@ -963,10 +953,10 @@ typedef struct
 	uint8_t MainLeft : 1;
 	
 	// 37    02    Kanal rechts Stelle 1 Balken F
-	uint8_t FrequencyRightPlace1BarF : 1;
+	uint8_t ChannelRightPlace1BarF : 1;
 	
 	// 37    01    Kanal rechts Stelle 1 Balken E
-	uint8_t FrequencyRightPlace1BarE : 1;
+	uint8_t ChannelRightPlace1BarE : 1;
 
 	
 
@@ -974,16 +964,16 @@ typedef struct
 	uint8_t Unknown3880 : 1;
 	
 	// 38    40    Kanal links Stelle 3 Balken A
-	uint8_t FrequencyLeftPlace3BarA : 1;
+	uint8_t ChannelLeftPlace3BarA : 1;
 	
 	// 38    20    Kanal links Stelle 3 Balken G
-	uint8_t FrequencyLefttPlace3BarG : 1;
+	uint8_t ChannelLeftPlace3BarG : 1;
 	
 	// 38    10    Kanal links Stelle 3 Balken B
-	uint8_t FrequencyLeftPlace3BarB : 1;
+	uint8_t ChannelLeftPlace3BarB : 1;
 	
 	// 38    08    Kanal links Stelle 3 Balken C
-	uint8_t FrequencyLeftPlace3BarC : 1;
+	uint8_t ChannelLeftPlace3BarC : 1;
 	
 	// 38    04    SKIP links
 	uint8_t SkipLeft : 1;
@@ -1003,22 +993,22 @@ typedef struct
 	uint8_t Unknown3940 : 1;
 	
 	// 39    20    Kanal links Stelle 2 Balken B
-	uint8_t FrequencyLeftPlace2BarB : 1;
+	uint8_t ChannelLeftPlace2BarB : 1;
 	
 	// 39    10    Kanal links Stelle 2 Balken C
-	uint8_t FrequencyLeftPlace2BarC : 1;
+	uint8_t ChannelLeftPlace2BarC : 1;
 	
 	// 39    08    Kanal links Stelle 1 Balken D
-	uint8_t FrequencyLeftPlace1BarD : 1;
+	uint8_t ChannelLeftPlace1BarD : 1;
 	
 	// 39    04    Kanal links Stelle 3 Balken D
-	uint8_t FrequencyLeftPlace3BarD : 1;
+	uint8_t ChannelLeftPlace3BarD : 1;
 	
 	// 39    02    Kanal links Stelle 3 Balken F
-	uint8_t FrequencyLeftPlace3BarF : 1;
+	uint8_t ChannelLeftPlace3BarF : 1;
 	
 	// 39    01    Kanal links Stelle 3 Balken E
-	uint8_t FrequencyLeftPlace2BarE : 1;
+	uint8_t ChannelLeftPlace3BarE : 1;
 
 	
 
@@ -1026,16 +1016,16 @@ typedef struct
 	uint8_t Unknown4080 : 1;
 	
 	// 40    40    Kanal links Stelle 2 Balken F
-	uint8_t FrequencyLeftPlace2BarF : 1;
+	uint8_t ChannelLeftPlace2BarF : 1;
 	
 	// 40    20    Kanal links Stelle 2 Balken E
-	uint8_t FrequencyLeftPlace2BarE : 1;
+	uint8_t ChannelLeftPlace2BarE : 1;
 	
 	// 40    10    Kanal links Stelle 2 Balken A
-	uint8_t FrequencyLeftPlace2BarA : 1;
+	uint8_t ChannelLeftPlace2BarA : 1;
 	
 	// 40    08    Kanal links Stelle 2 Balken G
-	uint8_t FrequencyLeftPlace2BarG : 1;
+	uint8_t ChannelLeftPlace2BarG : 1;
 	
 	// 40    04    ???
 	uint8_t Unknown4004 : 1;
@@ -1052,25 +1042,25 @@ typedef struct
 	uint8_t Unknown4180 : 1;
 	
 	// 41    40    Kanal links Stelle 1 Balken E
-	uint8_t FrequencyLeftPlace1BarE : 1;
+	uint8_t ChannelLeftPlace1BarE : 1;
 	
 	// 41    20    Kanal links Stelle 1 Balken A
-	uint8_t FrequencyLeftPlace1BarA : 1;
+	uint8_t ChannelLeftPlace1BarA : 1;
 	
 	// 41    10    Kanal links Stelle 1 Balken G
-	uint8_t FrequencyLeftPlace1BarG : 1;
+	uint8_t ChannelLeftPlace1BarG : 1;
 	
 	// 41    08    Kanal links Stelle 1 Balken B
-	uint8_t FrequencyLeftPlace1BarB : 1;
+	uint8_t ChannelLeftPlace1BarB : 1;
 	
 	// 41    04    Kanal links Stelle 1 Balken C
-	uint8_t FrequencyLeftPlace1BarC : 1;
+	uint8_t ChannelLeftPlace1BarC : 1;
 	
 	// 41    02    Kanal links Trennstrich
-	uint8_t FrequencyLeftDividerBar : 1;
+	uint8_t ChannelLeftDividerBar : 1;
 	
 	// 41    01    Kanal links Stelle 2 Balken D
-	uint8_t FrequencyLeftPlace2BarD : 1;
+	uint8_t ChannelLeftPlace2BarD : 1;
 	
 
 	
@@ -1086,173 +1076,19 @@ typedef struct
 	// 42    10    ???
 	uint8_t Unknown4210 : 1;
 	
-	// 42    08    ##
-	uint8_t BacklightBit2 : 1;
-	
-	// 42    04    ## Helligkeit Hintergrundbeleuchtung
-	uint8_t BacklightBit1 : 1;
-	
-	// 42    02    ##
-	uint8_t BacklightBit0 : 1;
+	// 42    08/04/02    ## Helligkeit Hintergrundbeleuchtung
+	uint8_t Backlight : 3;
 	
 	// 42    01    Kanal links Stelle 1 Balken F
-	uint8_t FrequencyLeftPlace1BarF : 1;
+	uint8_t ChannelLeftPlace1BarF : 1;
+};
 
-	// Helligkeit Hintergrundbeleuchtung:
-	// Aus : xxxx000x
-	// DIM1: xxxx111x
-	// DIM2: xxxx011x
-	// DIM3: xxxx100x
-
-} MainUnitToPanelPacketBytes;
-
-#pragma pack(1)
-typedef struct
+enum BacklightValue
 {
-	//Linker Wahlknopf drehen    : Byte 1 normal auf 80
-	//bei Linksdrehung auf FF
-	//bei Rechtsdrehung auf 81
-	union
-	{
-		uint8_t Byte01;
-		uint8_t DialLeft;
-	};
-	
-	//Rechter Wahlknopf drehen   : Byte 2 normal auf 00
-	//bei Linksdrehung auf 7F
-	//bei Rechtsdrehung auf 01
-	union
-	{
-		uint8_t Byte02;
-		uint8_t DialRight;
-	};
-	
-	//PTT am Mikro        : Byte 3 von 7F auf 1B
-	union
-	{
-		uint8_t Byte03;
-		uint8_t PTT;
-	};
-
-	//Squelch rechts             : Byte 4 offen 7F, geschlossen 00
-	union
-	{
-		uint8_t Byte04;
-		uint8_t SquelchRight;
-	};
-
-	//Lautstärke rechts          : Byte 5 leise 00, laut 7F
-	union
-	{
-		uint8_t Byte05;
-		uint8_t VolumeRight;
-	};
-	
-	uint8_t Byte6;
-
-	//Lautstärke links           : Byte 7 leise 00, laut 7F
-	union
-	{
-		uint8_t Byte07;
-		uint8_t VolumeLeft;
-	};
-
-	//Squelch links              : Byte 8 offen 7F, geschlossen 00
-	union
-	{
-		uint8_t Byte08;
-		uint8_t SquelchLeft;
-	};
-	
-	uint8_t Byte09;
-
-	//Low links                  : Byte 10 von 7F auf 61
-	//V/M links                  : Byte 10 von 7F auf 40
-	//HM links                   : Byte 10 von 7F auf 1F
-	//Scn links                  : Byte 10 von 7F auf 00
-	union
-	{
-		uint8_t Byte10;
-		uint8_t KeysLeft;
-	};
-
-	//Low rechts                 : Byte 11 von 7F auf 00
-	//V/M rechts                 : Byte 11 von 7F auf 1F
-	//HM rechts                  : Byte 11 von 7F auf 40
-	//Scn rechts                 : Byte 11 von 7F auf 61
-	union
-	{
-		uint8_t Byte11;
-		uint8_t KeysRight;
-	};
-
-	//SET Knopf                  : Byte 12 von 00 auf 04
-	//VOL/SQL Taster links       : Byte 12 von 00 auf 08
-	//VOL/SQL Taster rechts      : Ein/Ausschalter, nur elektrisch als Signal auf Pin 2
-	//Linker Wahlknopf drücken   : Byte 12 von 00 auf 02
-	//Rechter Wahlknopf drücken  : Byte 12 von 00 auf 01
-	uint8_t Byte12;
-	
-	//Hyper Taste 1        : Byte 13 auf 01
-	//Hyper Taste 2        : Byte 13 auf 02
-	//Hyper Taste 3        : Byte 13 auf 03
-	//Hyper Taste 4        : Byte 13 auf 04
-	//Hyper Taste 5        : Byte 13 auf 05
-	//Hyper Taste 6        : Byte 13 auf 06
-	union
-	{
-		uint8_t Byte13;
-		uint8_t Hyper;
-	};
-
-	//1 am Mikro          : Byte 6 auf 03 und Byte 9 auf 1B
-	//2 am Mikro          : Byte 6 auf 03 und Byte 9 auf 32
-	//3 am Mikro          : Byte 6 auf 03 und Byte 9 auf 4B
-	//A am Mikro          : Byte 6 auf 03 und Byte 9 auf 66
-	//4 am Mikro          : Byte 6 auf 19 und Byte 9 auf 1B
-	//5 am Mikro          : Byte 6 auf 19 und Byte 9 auf 32
-	//6 am Mikro          : Byte 6 auf 19 und Byte 9 auf 4B
-	//B am Mikro          : Byte 6 auf 19 und Byte 9 auf 66
-	//7 am Mikro          : Byte 6 auf 31 und Byte 9 auf 1B
-	//8 am Mikro          : Byte 6 auf 31 und Byte 9 auf 32
-	//9 am Mikro          : Byte 6 auf 31 und Byte 9 auf 4B
-	//C am Mikro          : Byte 6 auf 31 und Byte 9 auf 66
-	//* am Mikro          : Byte 6 auf 4B und Byte 9 auf 1C
-	//0 am Mikro          : Byte 6 auf 4B und Byte 9 auf 33
-	//# am Mikro          : Byte 6 auf 4B und Byte 9 auf 4B
-	//D am Mikro          : Byte 6 auf 4B und Byte 9 auf 66
-
-	//P1 Taste am Mikro   : Byte 6 auf 63 und Byte 9 auf 1C
-	//P2 Taste am Mikro   : Byte 6 auf 63 und Byte 9 auf 33
-	//P3 Taste am Mikro   : Byte 6 auf 63 und Byte 9 auf 4C
-	//P4 Taste am Mikro   : Byte 6 auf 63 und Byte 9 auf 66
-
-	//UP-Taste am Mikro   : Byte 6 auf 1D und Byte 9 auf 06
-	//DOWN-Taste am Mikro : Byte 6 auf 34 und Byte 9 auf 06	
-} PanelToMainUnitPacketBytes;
-
-enum DialLeft { Normal = 0x80, Left = 0xFF, Right = 0x81 };
-enum DialRight { Normal = 0x00, Left = 0x7F, Right = 0x01 };
-
-class PanelToMainUnitPacket
-{
-public:
-	void SetVfoLeft() { packet.Byte12 = 0x02; }
-	void SetVfoRight() { packet.Byte12 = 0x01; }
-	
-	void Press1() { packet.Byte6 = 0x03; packet.Byte9 = 0x1B; }
-	void Press2() { packet.Byte6 = 0x03; packet.Byte9 = 0x32; }
-	void Press3() { packet.Byte6 = 0x03; packet.Byte9 = 0x4b; }
-	void Press4() { packet.Byte6 = 0x19; packet.Byte9 = 0x1B; }
-	void Press5() { packet.Byte6 = 0x19; packet.Byte9 = 0x32; }
-	void Press6() { packet.Byte6 = 0x19; packet.Byte9 = 0x4B; }
-	void Press7() { packet.Byte6 = 0x31; packet.Byte9 = 0x1B; }
-	void Press8() { packet.Byte6 = 0x31; packet.Byte9 = 0x32; }
-	void Press9() { packet.Byte6 = 0x31; packet.Byte9 = 0x4B; }
-	void Press0() { packet.Byte6 = 0x4B; packet.Byte9 = 0x33; }
-
-private:
-	PanelToMainUnitPacketBytes packetBytes;
+	Off =  0x000,
+	Dim1 = 0x111,
+	Dim2 = 0x011,
+	Dim3 = 0x100,
 };
 
 #endif /* PACKET_H_ */
