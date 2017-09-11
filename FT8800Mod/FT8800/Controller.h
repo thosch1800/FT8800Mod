@@ -21,7 +21,7 @@ class Controller
 	public: void Press8();
 	public: void Press9();
 	public: void Press0();
-	private: void Number(uint8_t byte06, uint8_t byte09);
+	private: void PressNumber(uint8_t byte06, uint8_t byte09);
 
 	public: void SelectVfo(bool left);
 	private: bool SelectedVfo(bool left);
