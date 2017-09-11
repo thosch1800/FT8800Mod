@@ -1,6 +1,8 @@
 #ifndef PANELTOMAINUNITPACKETBYTES_H_
 #define PANELTOMAINUNITPACKETBYTES_H_
 
+// http://www.dg1sfj.de/index.php/funk/geraete/88-yaesu-ft-8800?showall=&start=2
+
 #pragma pack(1)
 struct PanelToMainUnitPacketBytes
 {
@@ -32,7 +34,7 @@ struct PanelToMainUnitPacketBytes
 		uint8_t SquelchRight;
 	};
 
-	//Lautstärke rechts: Byte 5 leise 00, laut 7F
+	//LautstÃ¤rke rechts: Byte 5 leise 00, laut 7F
 	union
 	{
 		uint8_t Byte05;
@@ -41,7 +43,7 @@ struct PanelToMainUnitPacketBytes
 	
 	uint8_t Byte06;
 
-	//Lautstärke links: Byte 7 leise 00, laut 7F
+	//LautstÃ¤rke links: Byte 7 leise 00, laut 7F
 	union
 	{
 		uint8_t Byte07;
@@ -80,8 +82,8 @@ struct PanelToMainUnitPacketBytes
 	//SET Knopf                  : Byte 12 von 00 auf 04
 	//VOL/SQL Taster links       : Byte 12 von 00 auf 08
 	//VOL/SQL Taster rechts      : Ein/Ausschalter, nur elektrisch als Signal auf Pin 2
-	//Linker Wahlknopf drücken   : Byte 12 von 00 auf 02
-	//Rechter Wahlknopf drücken  : Byte 12 von 00 auf 01
+	//Linker Wahlknopf drÃ¼cken   : Byte 12 von 00 auf 02
+	//Rechter Wahlknopf drÃ¼cken  : Byte 12 von 00 auf 01
 	uint8_t Byte12;
 	
 	//Hyper Taste 1: Byte 13 auf 01
