@@ -14,29 +14,29 @@
 #pragma pack(1)
 typedef struct
 {
-	// 01    01    Kleine kHz 5 links
-	uint8_t FrequencyLeftFiveKhz : 1;
-	
-	// 01    02    Automatic Power Off Active
-	uint8_t AutomaticPowerOffActive : 1;
-	
-	// 01    04    Middle TX Power links
-	uint8_t TxPowerLeftMiddle : 1;
-	
-	// 01    08    Dezimal-Punkt kHz links
-	uint8_t FrequencyLeftDecimalPointKhz : 1;
-	
-	// 01    10    S-Meter links Balken 9
-	uint8_t SignalLeftBar9 : 1;
-	
-	// 01    20    Frequenz links Stelle 6 Balken C
-	uint8_t FrequencyLeftPlace6BarC : 1;
+	// 01    80    ???
+	uint8_t Unknown0180 : 1;
 	
 	// 01    40    Frequenz links Stelle 6 Balken M
 	uint8_t FrequencyLeftPlace6BarM : 1;
 	
-	// 01    80    ???
-	uint8_t Unknown0180 : 1;
+	// 01    20    Frequenz links Stelle 6 Balken C
+	uint8_t FrequencyLeftPlace6BarC : 1;
+
+	// 01    10    S-Meter links Balken 9
+	uint8_t SignalLeftBar9 : 1;
+	
+	// 01    08    Dezimal-Punkt kHz links
+	uint8_t FrequencyLeftDecimalPointKhz : 1;
+
+	// 01    04    Middle TX Power links
+	uint8_t TxPowerLeftMiddle : 1;
+
+	// 01    02    Automatic Power Off Active
+	uint8_t AutomaticPowerOffActive : 1;
+	
+	// 01    01    Kleine kHz 5 links
+	uint8_t FrequencyLeftFiveKhz : 1;
 	
 	
 	
@@ -1117,7 +1117,7 @@ typedef struct
 		uint8_t Byte01;
 		uint8_t DialLeft;
 	};
-
+	
 	//Rechter Wahlknopf drehen   : Byte 2 normal auf 00
 	//bei Linksdrehung auf 7F
 	//bei Rechtsdrehung auf 01
@@ -1230,5 +1230,29 @@ typedef struct
 	//UP-Taste am Mikro   : Byte 6 auf 1D und Byte 9 auf 06
 	//DOWN-Taste am Mikro : Byte 6 auf 34 und Byte 9 auf 06	
 } PanelToMainUnitPacketBytes;
+
+enum DialLeft { Normal = 0x80, Left = 0xFF, Right = 0x81 };
+enum DialRight { Normal = 0x00, Left = 0x7F, Right = 0x01 };
+
+class PanelToMainUnitPacket
+{
+public:
+	void SetVfoLeft() { packet.Byte12 = 0x02; }
+	void SetVfoRight() { packet.Byte12 = 0x01; }
+	
+	void Press1() { packet.Byte6 = 0x03; packet.Byte9 = 0x1B; }
+	void Press2() { packet.Byte6 = 0x03; packet.Byte9 = 0x32; }
+	void Press3() { packet.Byte6 = 0x03; packet.Byte9 = 0x4b; }
+	void Press4() { packet.Byte6 = 0x19; packet.Byte9 = 0x1B; }
+	void Press5() { packet.Byte6 = 0x19; packet.Byte9 = 0x32; }
+	void Press6() { packet.Byte6 = 0x19; packet.Byte9 = 0x4B; }
+	void Press7() { packet.Byte6 = 0x31; packet.Byte9 = 0x1B; }
+	void Press8() { packet.Byte6 = 0x31; packet.Byte9 = 0x32; }
+	void Press9() { packet.Byte6 = 0x31; packet.Byte9 = 0x4B; }
+	void Press0() { packet.Byte6 = 0x4B; packet.Byte9 = 0x33; }
+
+private:
+	PanelToMainUnitPacketBytes packetBytes;
+};
 
 #endif /* PACKET_H_ */
