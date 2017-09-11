@@ -1,9 +1,13 @@
 #include "Controller.h"
 
-public: Controller::Controller()
+Controller::Controller()
 {
-	this->pPanel = nullptr;
-	this->pDisplay = nullptr;
+}
+
+bool Controller::IsInitialized()
+{
+	bool isInitialized = pDisplay != nullptr && pPanel != nullptr;
+	return isInitialized;
 }
 
 void Controller::Press1() { Number(0x03, 0x1B); }
@@ -19,19 +23,17 @@ void Controller::Press0() { Number(0x4B, 0x33); }
 
 void Controller::Number(uint8_t byte06, uint8_t byte09)
 {
-	if(pPanel != nullptr)
-	{
-		pPanel->Byte06 = byte06;
-		pPanel->Byte09 = byte09;
-	}
+	pPanel->Byte06 = byte06;
+	pPanel->Byte09 = byte09;
 }
 
 void Controller::SelectVfo(bool left)
 {
-	if(pPanel != nullptr)
-	{
-		pPanel->Byte12 = left ? 0x02 : 0x01;
-	}
+	pPanel->Byte12 = left ? 0x02 : 0x01;
 }
 
-
+bool Controller::SelectedVfo(bool left)
+{
+	bool selected = left ? pDisplay->MainLeft : pDisplay->MainRight;
+	return selected;
+}

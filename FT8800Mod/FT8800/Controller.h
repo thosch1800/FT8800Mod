@@ -9,6 +9,8 @@ class Controller
 {
 	public: Controller();
 	
+	public: bool IsInitialized();
+	
 	public: void Press1();
 	public: void Press2();
 	public: void Press3();
@@ -19,11 +21,10 @@ class Controller
 	public: void Press8();
 	public: void Press9();
 	public: void Press0();
-
 	private: void Number(uint8_t byte06, uint8_t byte09);
 
 	public: void SelectVfo(bool left);
-
+	private: bool SelectedVfo(bool left);
 	
 	private: PanelToMainUnitPacketBytes* pPanel = nullptr;
 	private: MainUnitToPanelPacketBytes* pDisplay = nullptr;

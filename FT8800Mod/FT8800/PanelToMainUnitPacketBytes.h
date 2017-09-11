@@ -119,7 +119,7 @@ struct PanelToMainUnitPacketBytes
 	//P4 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 66
 
 	//UP-Taste am Mikro: Byte 6 auf 1D und Byte 9 auf 06
-	//DOWN-Taste am Mikro: Byte 6 auf 34 und Byte 9 auf 06	
+	//DOWN-Taste am Mikro: Byte 6 auf 34 und Byte 9 auf 06
 };
 
 #endif /* PANELTOMAINUNITPACKETBYTES_H_ */
