@@ -581,87 +581,238 @@ typedef struct
 	
 	
 	// 23    80    ???
-	uint8_t FrequencyRightPlace4Bar : 1;
+	uint8_t Unknown2380 : 1;
 	
 	// 23    40    S-Meter rechts Balken 4
+	uint8_t SignalRightBar4 : 1;
+	
 	// 23    20    Frequenz rechts Stelle 4 Balken J+P
+	uint8_t FrequencyRightPlace4BarJP : 1;
+	
 	// 23    10    Frequenz rechts Stelle 4 Balken D
+	uint8_t FrequencyRightPlace4BarD : 1;
+	
 	// 23    08    Frequenz rechts Stelle 4 Balken N
+	uint8_t FrequencyRightPlace4BarN : 1;
+	
 	// 23    04    DCS rechts
+	uint8_t DcsRight : 1;
+	
 	// 23    02    Frequenz rechts Stelle 4 Balken H
+	uint8_t FrequencyRightPlace4BarH : 1;
+	
 	// 23    01    Frequenz rechts Stelle 4 Balken G
+	uint8_t FrequencyRightPlace4BarG : 1;
+	
+	
 
 	// 24    80    ???
+	uint8_t Unknown2480 : 1;
+	
 	// 24    40    ???
+	uint8_t Unknown2440 : 1;
+	
 	// 24    20    ???
+	uint8_t Unknown2420 : 1;
+	
 	// 24    10    ???
+	uint8_t unknown2410 : 1;
+	
 	// 24    08    ???
+	uint8_t Unknown2408 : 1;
+	
 	// 24    04    Frequenz rechts Stelle 4 Balken F
+	uint8_t FrequencyRightPlace4BarF : 1;
+	
 	// 24    02    Frequenz rechts Stelle 4 Balken E
+	uint8_t FrequencyRightPlace4BarE : 1;
+	
 	// 24    01    Frequenz rechts Stelle 4 Balken Q
+	uint8_t FrequencyRightPlace4BarQ : 1;
+	
+	
 
 	// 25    80    ???
+	uint8_t Unknown2580 : 1;
+	
 	// 25    40    Frequenz rechts Stelle 3 Balken K
+	uint8_t FrequencyRightPlace3BarK : 1;
+	
 	// 25    20    Frequenz rechts Stelle 3 Balken B
+	uint8_t FrequencyRightPlace3BarB : 1;
+	
 	// 25    10    Frequenz rechts Stelle 3 Balken M
+	uint8_t FrequencyRightPlace3BarM : 1;
+	
 	// 25    08    Frequenz rechts Stelle 3 Balken C
+	uint8_t FrequencyRightPlace3BarC : 1;
+	
 	// 25    04    S-Meter rechts Balken 3
+	uint8_t SignalRightBar3 : 1;
+	
 	// 25    02    ???
+	uint8_t Unknown2502 : 1;
+	
 	// 25    01    Dezimal-Punkt MHz rechts
+	uint8_t FrequencyRightDecimalPointMhz : 1;
+	
+	
 
 	// 26    80    ???
+	uint8_t Unknwon2680 : 1;
+	
 	// 26    40    Frequenz rechts Stelle 3 Balken J+P
+	uint8_t FrequencyRightPlace3BarJP : 1;
+	
 	// 26    20    Frequenz rechts Stelle 3 Balken D
+	uint8_t FrequencyRightPlace3BarD : 1;
+	
 	// 26    10    Frequenz rechts Stelle 3 Balken N
+	uint8_t FrequencyRightPlace3BarN : 1;
+	
 	// 26    08    MUTE rechts
+	uint8_t MuteRight : 1;
+	
 	// 26    04    Frequenz rechts Stelle 3 Balken H
+	uint8_t FrequencyRightPlace3BarH : 1;
+	
 	// 26    02    Frequenz rechts Stelle 3 Balken G
+	uint8_t FrequencyRightPlace3BarG : 1;
+	
 	// 26    01    Frequenz rechts Stelle 3 Balken A
+	uint8_t FrequencyRightPlace3BarA : 1;
+	
 
+	
 	// 27    80    ???
+	uint8_t Unknown2780 : 1;
+	
 	// 27    40    Frequenz rechts Stelle 2 Balken M
+	uint8_t FrequencyRightPlace2BarM : 1;
+	
 	// 27    20    Frequenz rechts Stelle 2 Balken C
+	uint8_t FrequencyRightPlace2BarC : 1;
+	
 	// 27    10    S-Meter rechts Balken 1
+	uint8_t SignalRightBar1 : 1;
+	
 	// 27    08    Frequenz rechts Stelle 3 Balken F
+	uint8_t FrequencyRightPlace3BarF : 1;
+	
 	// 27    04    Frequenz rechts Stelle 3 Balken E
+	uint8_t FrequencyRightPlace3BarE : 1;
+	
 	// 27    02    Frequenz rechts Stelle 3 Balken Q
+	uint8_t FrequencyRightPlace3BarQ : 1;
+	
 	// 27    01    S-Meter rechts Balken 2
+	uint8_t SignalRightBar2 : 1;
+	
 
+	
 	// 28    80    ???
+	uint8_t Unknown2880 : 1;
+	
 	// 28    40    Frequenz rechts Stelle 2 Balken N
+	uint8_t FrequencyRightPlace2BarN : 1;
+	
 	// 28    20    Memory Tune rechts
+	uint8_t MemoryTuneRight : 1;
+	
 	// 28    10    Frequenz rechts Stelle 2 Balken H
+	uint8_t FrequencyRightPlace2BarH : 1;
+	
 	// 28    08    Frequenz rechts Stelle 2 Balken G
+	uint8_t FrequencyRightPlace2BarG : 1;
+	
 	// 28    04    Frequenz rechts Stelle 2 Balken A
+	uint8_t FrequencyRightPlace2BarA : 1;
+	
 	// 28    02    Frequenz rechts Stelle 2 Balken K
+	uint8_t FrequencyRightPlace2BarK : 1;
+	
 	// 28    01    Frequenz rechts Stelle 2 Balken B
+	uint8_t FrequencyRightPlace2BarB : 1;
+	
+	
 
 	// 29    80    ???
+	uint8_t Unknown2980 : 1;
+	
 	// 29    40    KEY2
+	uint8_t SecondaryMenuKey : 1;
+	
 	// 29    20    Frequenz rechts Stelle 2 Balken F
+	uint8_t FrequencyRightPlace2BarF : 1;
+	
 	// 29    10    Frequenz rechts Stelle 2 Balken E
+	uint8_t FrequencyRightPlace2BarE : 1;
+	
 	// 29    08    Frequenz rechts Stelle 2 Balken Q
+	uint8_t FrequencyRightPlace2BarQ : 1;
+	
 	// 29    04    BUSY rechts
+	uint8_t BusyRight : 1;
+	
 	// 29    02    Frequenz rechts Stelle 2 Balken J+P
+	uint8_t FrequencyRightPlace2BarJP : 1;
+	
 	// 29    01    Frequenz rechts Stelle 2 Balken D
+	uint8_t FrequencyRightPlace2BarD : 1;
+	
 
+	
 	// 30    80    ???
+	uint8_t Unknown3080 : 1;
+	
 	// 30    40    Frequenz rechts Stelle 1 Balken H
+	uint8_t FrequencyRightPlace1BarH : 1;
+	
 	// 30    20    Frequenz rechts Stelle 1 Balken G
+	uint8_t FrequencyRightPlace1BarG : 1;
+	
 	// 30    10    Frequenz rechts Stelle 1 Balken A
+	uint8_t FrequencyRightPlace1BarA : 1;
+	
 	// 30    08    Frequenz rechts Stelle 1 Balken K
+	uint8_t FrequencyRightPlace1BarK : 1;
+	
 	// 30    04    Frequenz rechts Stelle 1 Balken B
+	uint8_t FrequencyRightPlace1BarB : 1;
+	
 	// 30    02    Frequenz rechts Stelle 1 Balken M
+	uint8_t FrequencyRightPlace1BarM : 1;
+	
 	// 30    01    Frequenz rechts Stelle 1 Balken C
+	uint8_t FrequencyRightPlace1BarC : 1;
+	
 
+	
 	// 31    80    ???
+	uint8_t Unknown3180 : 1;
+	
 	// 31    40    Frequenz rechts Stelle 1 Balken E
+	uint8_t FrequencyRightPlace1BarE : 1;
+	
 	// 31    20    Frequenz rechts Stelle 1 Balken Q
+	uint8_t FrequencyRightPlace1BarQ : 1;
+	
 	// 31    10    Keypad Lock
+	uint8_t KeypadLocked : 1;
+	
 	// 31    08    Frequenz rechts Stelle 1 Balken J+P
+	uint8_t FrequencyRightPlace1BarJP : 1;
+	
 	// 31    04    Frequenz rechts Stelle 1 Balken D
+	uint8_t FrequencyRightPlace1BarD : 1;
+	
 	// 31    02    Frequenz rechts Stelle 1 Balken N
+	uint8_t FrequencyRightPlace1BarN : 1;
+	
 	// 31    01    SET
+	uint8_t SetKey : 1;
+
+	
 
 	// 32    80    ???
 	// 32    40    ???
