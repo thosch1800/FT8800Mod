@@ -815,58 +815,160 @@ typedef struct
 	
 
 	// 32    80    ???
+	uint8_t Unknown3280 : 1;
+	
 	// 32    40    ???
+	uint8_t Unknown3240 : 1;
+	
 	// 32    20    ???
+	uint8_t Unknown3220 : 1;
+	
 	// 32    10    ???
+	uint8_t Unknown3210 : 1;
+	
 	// 32    08    ???
+	uint8_t Unknwon3208 : 1;
+	
 	// 32    04    ???
+	uint8_t Unknown3204 : 1;
+	
 	// 32    02    ???
+	uint8_t Unknown3202 : 1;
+	
 	// 32    01    Frequenz rechts Stelle 1 Balken F
+	uint8_t FrequencyRightPlace1BarF : 1;
+
+	
 
 	// 33    80    ???
+	uint8_t Unknown3380 : 1;
+	
 	// 33    40    Preferential Memory rechts
+	uint8_t PreferentialMemoryRight : 1;
+	
 	// 33    20    DEC rechts
+	uint8_t DecRight : 1;
+	
 	// 33    10    ENC rechts
+	uint8_t EncRight : 1;
+	
 	// 33    08    Negativ rechts
+	uint8_t NegativeRight : 1;
+	
 	// 33    04    Positiv rechts
+	uint8_t PositiveRight : 1;
+	
 	// 33    02    TX rechts
+	uint8_t TxRight : 1;
+	
 	// 33    01    MAIN rechts
+	uint8_t MainRight : 1;
+	
 
+	
 	// 34    80    ???
+	uint8_t Unknown4380 : 1;
+	
 	// 34    40    Kanal rechts Stelle 3 Balken F
+	uint8_t FrequencyRightPlace3BarF : 1;
+	
 	// 34    20    Kanal rechts Stelle 3 Balken E
+	uint8_t FrequencyRightPlace3BarE : 1;
+	
 	// 34    10    Kanal rechts Stelle 3 Balken A
+	uint8_t FrequencyRightPlace3BarA : 1;
+	
 	// 34    08    Kanal rechts Stelle 3 Balken G
+	uint8_t FrequencyRightPlace3BarG : 1;
+	
 	// 34    04    Kanal rechts Stelle 3 Balken B
+	uint8_t FrequencyRightPlace3BarB : 1;
+	
 	// 34    02    Kanal rechts Stelle 3 Balken C
+	uint8_t FrequencyRightPlace3BarC : 1;
+	
 	// 34    01    SKIP rechts
+	uint8_t SkipRight : 1;
+	
 
+	
 	// 35    80    ???
+	uint8_t unknown3580 : 1;
+	
 	// 35    40    Kanal rechts Stelle 2 Balken E
+	uint8_t FrequencyRightPlace2BarE : 1;
+	
 	// 35    20    Kanal rechts Stelle 2 Balken A
+	uint8_t FrequencyRightPlace2BarA : 1;
+	
 	// 35    10    Kanal rechts Stelle 2 Balken G
+	uint8_t FrequencyRightPlace2BarG : 1;
+	
 	// 35    08    Kanal rechts Stelle 2 Balken B
+	uint8_t FrequencyRightPlace2BarB : 1;
+	
 	// 35    04    Kanal rechts Stelle 2 Balken C
+	uint8_t FrequencyRightPlace2BarC : 1;
+	
 	// 35    02    Kanal rechts Stelle 1 Balken D
+	uint8_t FrequencyRightPlace1BarD : 1;
+	
 	// 35    01    Kanal rechts Stelle 3 Balken D
+	uint8_t FrequencyRightPlace3BarD : 1;
+	
 
+	
 	// 36    80    ???
+	uint8_t Unknown3680 : 1;
+	
 	// 36    40    Kanal rechts Stelle 1 Balken A
+	uint8_t FrequencyRightPlace1BarA : 1;
+	
 	// 36    20    Kanal rechts Stelle 1 Balken G
+	uint8_t FrequencyRightPlace1BarG : 1;
+	
 	// 36    10    Kanal rechts Stelle 1 Balken B
+	uint8_t FrequencyRightPlace1BarB : 1;
+	
 	// 36    08    Kanal rechts Stelle 1 Balken C
+	uint8_t FrequencyRightPlace1BarC : 1;
+	
 	// 36    04    Kanal rechts Trennstrich
+	uint8_t FrequencyRightDividerBar : 1;
+	
 	// 36    02    Kanal rechts Stelle 2 Balken D
+	uint8_t FrequencyRightPlace2BarD : 1;
+	
 	// 36    01    Kanal rechts Stelle 2 Balken F
+	uint8_t FrequencyRightPlace2BarF : 1;
+	
 
+	
 	// 37    80    ???
+	uint8_t Unknown3780 : 1;
+	
 	// 37    40    ENC links
+	uint8_t EncLeft : 1;
+	
 	// 37    20    Negativ links
+	uint8_t NegativeLeft : 1;
+	
 	// 37    10    Positiv links
+	uint8_t PositiveLeft : 1;
+	
 	// 37    08    TX links
+	uint8_t TxLeft : 1;
+	
 	// 37    04    MAIN links
+	uint8_t MainLeft : 1;
+	
 	// 37    02    Kanal rechts Stelle 1 Balken F
+	uint8_t FrequencyRightPlace1BarF : 1;
+	
 	// 37    01    Kanal rechts Stelle 1 Balken E
+	uint8_t FrequencyRightPlace1BarE : 1;
+
+	
 
 	// 38    80    ???
 	// 38    40    Kanal links Stelle 3 Balken A
