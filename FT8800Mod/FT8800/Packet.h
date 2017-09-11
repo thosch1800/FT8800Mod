@@ -24,7 +24,7 @@ typedef struct
 	uint8_t TxPowerLeftMiddle : 1;
 	
 	// 01    08    Dezimal-Punkt kHz links
-	uint8_t FrequencyLeftDecimalPoint : 1;
+	uint8_t FrequencyLeftDecimalPoint : 1; //TODO: find better name
 	
 	// 01    10    S-Meter links Balken 9
 	uint8_t SignalLeftBar9 : 1;
@@ -170,50 +170,133 @@ typedef struct
 
 
 	// 07    80    ???
+	uint8_t Unknown0780 : 1;
+	
 	// 07    40    S-Meter links Balken 4
+	uint8_t SignalLeftBar4 : 1;
+
 	// 07    20    Frequenz links Stelle 4 Balken J+P
+	uint8_t FrequencyLeftPlace4BarJP : 1;
+
 	// 07    10    Frequenz links Stelle 4 Balken D
+	uint8_t FrequencyLeftPlace4BarD : 1;
+
 	// 07    08    Frequenz links Stelle 4 Balken N
+	uint8_t FrequencyLeftPlace4BarN : 1;
+
 	// 07    04    AM links
+	uint8_t AmplitudeModulationLeft : 1;
+
 	// 07    02    Frequenz links Stelle 4 Balken H
+	uint8_t FrequencyLeftPlace4BarH : 1;
+
 	// 07    01    Frequenz links Stelle 4 Balken G
+	uint8_t FrequencyLeftPlace4BarG : 1;
 
+
+	
 	// 08    80    ???
-	// 08    40    ???
-	// 08    20    ???
-	// 08    10    ???
-	// 08    08    ???
-	// 08    04    Frequenz links Stelle 4 Balken F
-	// 08    02    Frequenz links Stelle 4 Balken E
-	// 08    01    Frequenz links Stelle 4 Balken Q
+	uint8_t Unknown0880 : 1;
 
+	// 08    40    ???
+	uint8_t Unknown0840 : 1;
+
+	// 08    20    ???
+	uint8_t Unknown0820 : 1;
+
+	// 08    10    ???
+	uint8_t Unknown0810 : 1;
+
+	// 08    08    ???
+	uint8_t Unknown0808 : 1;
+
+	// 08    04    Frequenz links Stelle 4 Balken F
+	uint8_t FrequencyLeftPlace4BarF : 1;
+
+	// 08    02    Frequenz links Stelle 4 Balken E
+	uint8_t FrequencyLeftPlace4BarE : 1;
+	
+	// 08    01    Frequenz links Stelle 4 Balken Q
+	uint8_t FrequencyLeftPlace4BarQ : 1;
+
+	
+	
 	// 09    80    ???
+	uint8_t Unknown0980 : 1;
+
 	// 09    40    Frequenz links Stelle 3 Balken K
+	uint8_t FrequencyLeftPlace3BarK : 1;
+
 	// 09    20    Frequenz links Stelle 3 Balken B
+	uint8_t FrequencyLeftPlace3BarB : 1;
+
 	// 09    10    Frequenz links Stelle 3 Balken M
+	uint8_t FrequencyLeftPlace3BarM : 1;
+
 	// 09    08    Frequenz links Stelle 3 Balken C
+	uint8_t FrequencyLeftPlace3BarC : 1;
+
 	// 09    04    S-Meter links Balken 3
+	uint8_t SignalLeftBar3 : 1;
+
 	// 09    02    ???
+	uint8_t Unknown0902 : 1;
+
 	// 09    01    Dezimal-Punkt MHz links
+	uint8_t MHzLeftDecimalPoint : 1; //TODO: find better name
+
 
 	// 10    80    ???
+	uint8_t Unknown1080 : 1;
+
 	// 10    40    Frequenz links Stelle 3 Balken J+P
+	uint8_t FrequencyLeftPlace3BarJP : 1;
+
 	// 10    20    Frequenz links Stelle 3 Balken D
+	uint8_t FrequencyLeftPlace3BarD : 1;
+
 	// 10    10    Frequenz links Stelle 3 Balken N
+	uint8_t FrequencyLeftPlace3BarN : 1;
+
 	// 10    08    DCS links
+	uint8_t DcsLeft: 1;
+
 	// 10    04    Frequenz links Stelle 3 Balken H
+	uint8_t FrequencyLeftPlace3BarH : 1;
+
 	// 10    02    Frequenz links Stelle 3 Balken G
+	uint8_t FrequencyLeftPlace3BarG : 1;
+
 	// 10    01    Frequenz links Stelle 3 Balken A
+	uint8_t FrequencyLeftPlace3BarA : 1;
+
 
 	// 11    80    ???
-	// 11    40    Frequenz links Stelle 2 Balken M
-	// 11    20    Frequenz links Stelle 2 Balken C
-	// 11    10    S-Meter links Balken 1
-	// 11    08    Frequenz links Stelle 3 Balken F
-	// 11    04    Frequenz links Stelle 3 Balken E
-	// 11    02    Frequenz links Stelle 3 Balken Q
-	// 11    01    S-Meter links Balken 2
+	uint8_t Unknown1180 : 1;
 
+	// 11    40    Frequenz links Stelle 2 Balken M
+	uint8_t FrequencyLeftPlace2BarM : 1;
+
+	// 11    20    Frequenz links Stelle 2 Balken C
+	uint8_t FrequencyLeftPlace2BarC : 1;
+
+	// 11    10    S-Meter links Balken 1
+	uint8_t SignalLeftBar1 : 1;
+
+	// 11    08    Frequenz links Stelle 3 Balken F
+	uint8_t FrequencyLeftPlace3BarF : 1;
+
+	// 11    04    Frequenz links Stelle 3 Balken E
+	uint8_t FrequencyLeftPlace3BarE : 1;
+
+	// 11    02    Frequenz links Stelle 3 Balken Q
+	uint8_t FrequencyLeftPlace3BarQ : 1;
+
+	// 11    01    S-Meter links Balken 2
+	uint8_t SignalLeftBar2 : 1;
+
+
+	
 	// 12    80    ???
 	// 12    40    Frequenz links Stelle 2 Balken N
 	// 12    20    MUTE links
