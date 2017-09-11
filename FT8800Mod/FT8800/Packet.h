@@ -971,49 +971,134 @@ typedef struct
 	
 
 	// 38    80    ???
+	uint8_t Unknown3880 : 1;
+	
 	// 38    40    Kanal links Stelle 3 Balken A
+	uint8_t FrequencyLeftPlace3BarA : 1;
+	
 	// 38    20    Kanal links Stelle 3 Balken G
+	uint8_t FrequencyLefttPlace3BarG : 1;
+	
 	// 38    10    Kanal links Stelle 3 Balken B
+	uint8_t FrequencyLeftPlace3BarB : 1;
+	
 	// 38    08    Kanal links Stelle 3 Balken C
+	uint8_t FrequencyLeftPlace3BarC : 1;
+	
 	// 38    04    SKIP links
+	uint8_t SkipLeft : 1;
+	
 	// 38    02    Preferential Memory links
+	uint8_t PreferentialMemoryLeft : 1;
+	
 	// 38    01    DEC links
+	uint8_t DecLeft : 1;
+	
 
+	
 	// 39    80    ???
+	uint8_t Unknown3980 : 1;
+	
 	// 39    40    ???
+	uint8_t Unknown3940 : 1;
+	
 	// 39    20    Kanal links Stelle 2 Balken B
+	uint8_t FrequencyLeftPlace2BarB : 1;
+	
 	// 39    10    Kanal links Stelle 2 Balken C
+	uint8_t FrequencyLeftPlace2BarC : 1;
+	
 	// 39    08    Kanal links Stelle 1 Balken D
+	uint8_t FrequencyLeftPlace1BarD : 1;
+	
 	// 39    04    Kanal links Stelle 3 Balken D
+	uint8_t FrequencyLeftPlace3BarD : 1;
+	
 	// 39    02    Kanal links Stelle 3 Balken F
+	uint8_t FrequencyLeftPlace3BarF : 1;
+	
 	// 39    01    Kanal links Stelle 3 Balken E
+	uint8_t FrequencyLeftPlace2BarE : 1;
+
+	
 
 	// 40    80    ???
+	uint8_t Unknown4080 : 1;
+	
 	// 40    40    Kanal links Stelle 2 Balken F
+	uint8_t FrequencyLeftPlace2BarF : 1;
+	
 	// 40    20    Kanal links Stelle 2 Balken E
+	uint8_t FrequencyLeftPlace2BarE : 1;
+	
 	// 40    10    Kanal links Stelle 2 Balken A
+	uint8_t FrequencyLeftPlace2BarA : 1;
+	
 	// 40    08    Kanal links Stelle 2 Balken G
+	uint8_t FrequencyLeftPlace2BarG : 1;
+	
 	// 40    04    ???
+	uint8_t Unknown4004 : 1;
+	
 	// 40    02    ???
+	uint8_t Unknown4002 : 1;
+	
 	// 40    01    ???
+	uint8_t unknown4001 : 1;
+
+	
 
 	// 41    80    ???
+	uint8_t Unknown4180 : 1;
+	
 	// 41    40    Kanal links Stelle 1 Balken E
+	uint8_t FrequencyLeftPlace1BarE : 1;
+	
 	// 41    20    Kanal links Stelle 1 Balken A
+	uint8_t FrequencyLeftPlace1BarA : 1;
+	
 	// 41    10    Kanal links Stelle 1 Balken G
+	uint8_t FrequencyLeftPlace1BarG : 1;
+	
 	// 41    08    Kanal links Stelle 1 Balken B
+	uint8_t FrequencyLeftPlace1BarB : 1;
+	
 	// 41    04    Kanal links Stelle 1 Balken C
+	uint8_t FrequencyLeftPlace1BarC : 1;
+	
 	// 41    02    Kanal links Trennstrich
+	uint8_t FrequencyLeftDividerBar : 1;
+	
 	// 41    01    Kanal links Stelle 2 Balken D
+	uint8_t FrequencyLeftPlace2BarD : 1;
+	
 
+	
 	// 42    80    ???
+	uint8_t Unknown4280 : 1;
+	
 	// 42    40    ???
+	uint8_t Unknown4240 : 1;
+	
 	// 42    20    ???
+	uint8_t Unknown4220 : 1;
+	
 	// 42    10    ???
+	uint8_t Unknown4210 : 1;
+	
 	// 42    08    ##
+	uint8_t BacklightBit2 : 1;
+	
 	// 42    04    ## Helligkeit Hintergrundbeleuchtung
+	uint8_t BacklightBit1 : 1;
+	
 	// 42    02    ##
+	uint8_t BacklightBit0 : 1;
+	
 	// 42    01    Kanal links Stelle 1 Balken F
+	uint8_t FrequencyLeftPlace1BarF : 1;
+
+	
 
 	// Helligkeit Hintergrundbeleuchtung:
 	// Aus : xxxx000x
