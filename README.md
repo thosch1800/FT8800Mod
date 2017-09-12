@@ -4,7 +4,6 @@ This project is a modification to the Yaesu FT-8800, a dual VFO amateur radio tr
 
 Another feature is the ability to set the frequency through a CAT-like interface (e.g. from PC or smartphone).
 
-
-
+https://www.universal-radio.com/catalog/fm_txvrs/0080.html
 
 
