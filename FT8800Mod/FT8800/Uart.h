@@ -5,6 +5,8 @@ class Uart
 {
     public: void Write(uint8_t data);
     public: void Write(uint8_t data*, uint8_t dataLength);
+    
+    
 }
 
 #endif
