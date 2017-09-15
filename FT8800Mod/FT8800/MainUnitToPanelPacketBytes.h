@@ -608,7 +608,7 @@ struct MainUnitToPanelPacketBytes
 	uint8_t Unknown2420 : 1;
 	
 	// 24    10    ???
-	uint8_t unknown2410 : 1;
+	uint8_t Unknown2410 : 1;
 	
 	// 24    08    ???
 	uint8_t Unknown2408 : 1;
@@ -885,7 +885,7 @@ struct MainUnitToPanelPacketBytes
 
 	
 	// 35    80    ???
-	uint8_t unknown3580 : 1;
+	uint8_t Unknown3580 : 1;
 	
 	// 35    40    Kanal rechts Stelle 2 Balken E
 	uint8_t ChannelRightPlace2BarE : 1;
@@ -1036,7 +1036,7 @@ struct MainUnitToPanelPacketBytes
 	uint8_t Unknown4002 : 1;
 	
 	// 40    01    ???
-	uint8_t unknown4001 : 1;
+	uint8_t Unknown4001 : 1;
 
 	
 
