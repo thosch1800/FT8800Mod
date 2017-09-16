@@ -1,6 +1,8 @@
 #ifndef MAINUNITTOPANELPACKETBYTES_H_
 #define MAINUNITTOPANELPACKETBYTES_H_
 
+#include <stdint-gcc.h>
+
 // http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=3
 
 #pragma pack(1)
