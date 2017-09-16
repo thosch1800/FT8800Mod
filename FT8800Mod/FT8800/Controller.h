@@ -24,10 +24,10 @@ class Controller
 	private: void PressNumber(uint8_t byte06, uint8_t byte09);
 
 	public: void SelectVfo(bool left);
-	private: bool SelectedVfo(bool left);
+	public: bool SelectedVfo(bool left);
 	
-	private: PanelToMainUnitPacketBytes* pPanel = nullptr;
-	private: MainUnitToPanelPacketBytes* pDisplay = nullptr;
+	public: PanelToMainUnitPacketBytes* pPanel = nullptr;
+	public: MainUnitToPanelPacketBytes* pDisplay = nullptr;
 };
 
 #endif /* CONTROLLER_H_ */
