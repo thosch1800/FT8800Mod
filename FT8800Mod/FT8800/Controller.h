@@ -5,29 +5,30 @@
 #include "MainUnitToPanelPacketBytes.h"
 #include "PanelToMainUnitPacketBytes.h"
 
+enum Direction { None, Left, Right };
+enum Key { PTT,	Low, VM, HM, Scn, Set, DialKey, VolSql, H1, H2, H3, H4, H5, H6 };
+enum Number { Num0, Num1, Num2, Num3, Num4, Num5, Num6, Num7, Num8, Num9, NumA, NumB, NumC, NumD, NumStar, NumHash, NumP1, NumP2, NumP3, NumP4, NumUp, NumDown };
+
 class Controller
 {
 	public: Controller();
 	
 	public: bool IsInitialized();
-	
-	public: void Press1();
-	public: void Press2();
-	public: void Press3();
-	public: void Press4();
-	public: void Press5();
-	public: void Press6();
-	public: void Press7();
-	public: void Press8();
-	public: void Press9();
-	public: void Press0();
-	private: void PressNumber(uint8_t byte06, uint8_t byte09);
 
+	public: void Squelch(uint8_t value, bool left);
+	public: void Volume(uint8_t value, bool left);
+	private: uint8_t ToRange(uint8_t value, uint8_t min, uint8_t max);
+
+	public: void Turn(Direction direction, bool left);
+
+	public: void Press(Key key, bool left = true);
+	public: void Press(Number number);
+	
 	public: void SelectVfo(bool left);
 	public: bool SelectedVfo(bool left);
-	
-	public: PanelToMainUnitPacketBytes* pPanel = nullptr;
-	public: MainUnitToPanelPacketBytes* pDisplay = nullptr;
+
+	private: PanelToMainUnitPacketBytes* pPanel = nullptr;
+	private: MainUnitToPanelPacketBytes* pDisplay = nullptr;
 };
 
 #endif /* CONTROLLER_H_ */
