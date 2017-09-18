@@ -47,69 +47,58 @@ void Controller::Press(Key key, bool left)
 {
 	switch(key)
 	{
-		case PTT: pPanel->Byte03 = 0x1B; break;
+		case PTT: pPanel->PushToTalk = 0x1B; break;
 
-		case Low:     left ? pPanel->Byte10 = 0x61 : pPanel->Byte11 = 0x00; break;
-		case VM:      left ? pPanel->Byte10 = 0x40 : pPanel->Byte11 = 0x1F; break;
-		case HM:      left ? pPanel->Byte10 = 0x1F : pPanel->Byte11 = 0x40; break;
-		case Scn:     left ? pPanel->Byte10 = 0x00 : pPanel->Byte11 = 0x61; break;
+		case Low: left ? pPanel->KeysLeft = 0x61 : pPanel->KeysRight = 0x00; break;
+		case VM:  left ? pPanel->KeysLeft = 0x40 : pPanel->KeysRight = 0x1F; break;
+		case HM:  left ? pPanel->KeysLeft = 0x1F : pPanel->KeysRight = 0x40; break;
+		case Scn: left ? pPanel->KeysLeft = 0x00 : pPanel->KeysRight = 0x61; break;
 
-		case Set:     pPanel->Byte12 = 0x04; break;
-		case VolSql:  pPanel->Byte12 = left ? 0x08 : pPanel->Byte12; break; // right volume is power on/off
-		case DialKey: pPanel->Byte12 = left ? 0x02 : 0x01; break;
+		case Set:     pPanel->Keys = 0x04; break;
+		case DialKey: pPanel->Keys = left ? 0x02 : 0x01; break;
+		case VolSql:  if(left) pPanel->Keys = 0x08; break; //NOTE: right volume is power on/off
 
-		case H1:  pPanel->Byte13 = 0x01; break;
-		case H2:  pPanel->Byte13 = 0x02; break;
-		case H3:  pPanel->Byte13 = 0x03; break;
-		case H4:  pPanel->Byte13 = 0x04; break;
-		case H5:  pPanel->Byte13 = 0x05; break;
-		case H6:  pPanel->Byte13 = 0x06; break;
+		case H1:  pPanel->Hyper = 0x01; break;
+		case H2:  pPanel->Hyper = 0x02; break;
+		case H3:  pPanel->Hyper = 0x03; break;
+		case H4:  pPanel->Hyper = 0x04; break;
+		case H5:  pPanel->Hyper = 0x05; break;
+		case H6:  pPanel->Hyper = 0x06; break;
 	}
 }
 
 void Controller::Press(Number number)
 {
-	uint8_t byte06 = 0x00;
-	uint8_t byte09 = 0x00;
-
 	switch(number)
 	{
-		case Num1:    byte06 = 0x03; byte09 = 0x1B; break;
-		case Num2:    byte06 = 0x03; byte09 = 0x32; break;
-		case Num3:    byte06 = 0x03; byte09 = 0x4b; break;
-		case NumA:    byte06 = 0x03; byte09 = 0x66; break;
+		case Num1:    pPanel->Mic06 = 0x03; pPanel->Mic09 = 0x1B; break;
+		case Num2:    pPanel->Mic06 = 0x03; pPanel->Mic09 = 0x32; break;
+		case Num3:    pPanel->Mic06 = 0x03; pPanel->Mic09 = 0x4b; break;
+		case NumA:    pPanel->Mic06 = 0x03; pPanel->Mic09 = 0x66; break;
 		
-		case Num4:    byte06 = 0x19; byte09 = 0x1B; break;
-		case Num5:    byte06 = 0x19; byte09 = 0x32; break;
-		case Num6:    byte06 = 0x19; byte09 = 0x4B; break;
-		case NumB:    byte06 = 0x19; byte09 = 0x66; break;
+		case Num4:    pPanel->Mic06 = 0x19; pPanel->Mic09 = 0x1B; break;
+		case Num5:    pPanel->Mic06 = 0x19; pPanel->Mic09 = 0x32; break;
+		case Num6:    pPanel->Mic06 = 0x19; pPanel->Mic09 = 0x4B; break;
+		case NumB:    pPanel->Mic06 = 0x19; pPanel->Mic09 = 0x66; break;
 		
-		case Num7:    byte06 = 0x31; byte09 = 0x1B; break;
-		case Num8:    byte06 = 0x31; byte09 = 0x32; break;
-		case Num9:    byte06 = 0x31; byte09 = 0x4B; break;
-		case NumC:    byte06 = 0x31; byte09 = 0x66; break;
-
-		case NumStar: byte06 = 0x4B; byte09 = 0x1C; break;
-		case Num0:    byte06 = 0x4B; byte09 = 0x33; break;
-		case NumHash: byte06 = 0x4B; byte09 = 0x4B; break;
-		case NumD:    byte06 = 0x4B; byte09 = 0x66; break;
-
-		case NumP1:   byte06 = 0x63; byte09 = 0x1C; break;
-		case NumP2:   byte06 = 0x63; byte09 = 0x33; break;
-		case NumP3:   byte06 = 0x63; byte09 = 0x4B; break;
-		case NumP4:   byte06 = 0x63; byte09 = 0x66; break;
-
-		case NumDown: byte06 = 0x1D; byte09 = 0x06; break;
-		case NumUp:   byte06 = 0x34; byte09 = 0x06; break;
+		case Num7:    pPanel->Mic06 = 0x31; pPanel->Mic09 = 0x1B; break;
+		case Num8:    pPanel->Mic06 = 0x31; pPanel->Mic09 = 0x32; break;
+		case Num9:    pPanel->Mic06 = 0x31; pPanel->Mic09 = 0x4B; break;
+		case NumC:    pPanel->Mic06 = 0x31; pPanel->Mic09 = 0x66; break;
+		
+		case NumStar: pPanel->Mic06 = 0x4B; pPanel->Mic09 = 0x1C; break;
+		case Num0:    pPanel->Mic06 = 0x4B; pPanel->Mic09 = 0x33; break;
+		case NumHash: pPanel->Mic06 = 0x4B; pPanel->Mic09 = 0x4B; break;
+		case NumD:    pPanel->Mic06 = 0x4B; pPanel->Mic09 = 0x66; break;
+		
+		case NumP1:   pPanel->Mic06 = 0x63; pPanel->Mic09 = 0x1C; break;
+		case NumP2:   pPanel->Mic06 = 0x63; pPanel->Mic09 = 0x33; break;
+		case NumP3:   pPanel->Mic06 = 0x63; pPanel->Mic09 = 0x4B; break;
+		case NumP4:   pPanel->Mic06 = 0x63; pPanel->Mic09 = 0x66; break;
+		
+		case NumDown: pPanel->Mic06 = 0x1D; pPanel->Mic09 = 0x06; break;
+		case NumUp:   pPanel->Mic06 = 0x34; pPanel->Mic09 = 0x06; break;
 	}
-
-	pPanel->Byte06 = byte06;
-	pPanel->Byte09 = byte09;
-}
-
-void Controller::SelectVfo(bool left)
-{
-	pPanel->Byte12 = left ? 0x02 : 0x01;
 }
 
 bool Controller::SelectedVfo(bool left)

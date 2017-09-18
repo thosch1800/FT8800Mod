@@ -1,0 +1,16 @@
+M161C = [ ]
+BODLEVEL = DISABLED
+OCDEN = [ ]
+JTAGEN = [X]
+SPIEN = [X]
+WDTON = [ ]
+EESAVE = [X]
+BOOTSZ = 1024W_1C00
+BOOTRST = [ ]
+CKDIV8 = [ ]
+CKOUT = [ ]
+SUT_CKSEL = EXTXOSC_8MHZ_XX_16KCK_65MS
+
+EXTENDED = 0xFF (valid)
+HIGH = 0x91 (valid)
+LOW = 0xFF (valid)

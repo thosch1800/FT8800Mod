@@ -26,7 +26,7 @@ struct PanelToMainUnitPacketBytes
 	union
 	{
 		uint8_t Byte03;
-		uint8_t PTT;
+		uint8_t PushToTalk;
 	};
 
 	//Squelch rechts: Byte 4 offen 7F, geschlossen 00
@@ -42,8 +42,12 @@ struct PanelToMainUnitPacketBytes
 		uint8_t Byte05;
 		uint8_t VolumeRight;
 	};
-	
-	uint8_t Byte06;
+
+	union
+	{
+		uint8_t Byte06;
+		uint8_t Mic06;
+	};
 
 	//Lautstärke links: Byte 7 leise 00, laut 7F
 	union
@@ -59,7 +63,11 @@ struct PanelToMainUnitPacketBytes
 		uint8_t SquelchLeft;
 	};
 	
-	uint8_t Byte09;
+	union
+	{
+		uint8_t Byte09;
+		uint8_t Mic09;
+	};
 
 	//Low links: Byte 10 von 7F auf 61
 	//V/M links: Byte 10 von 7F auf 40
@@ -86,7 +94,11 @@ struct PanelToMainUnitPacketBytes
 	//VOL/SQL Taster rechts      : Ein/Ausschalter, nur elektrisch als Signal auf Pin 2
 	//Linker Wahlknopf drücken   : Byte 12 von 00 auf 02
 	//Rechter Wahlknopf drücken  : Byte 12 von 00 auf 01
-	uint8_t Byte12;
+	union
+	{
+		uint8_t Byte12;
+		uint8_t Keys;
+	};
 	
 	//Hyper Taste 1: Byte 13 auf 01
 	//Hyper Taste 2: Byte 13 auf 02
