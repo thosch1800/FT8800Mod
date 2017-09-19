@@ -1,18 +1,15 @@
-#include <stdint-gcc.h>
-#include "uart.h"
 #include "Controller.h"
-
-#define F_CPU 14745600
 
 int main()
 {
 	Controller controller;
 
+	controller.Initialize();
+	controller.WaitForPacketsInitialized();
 
-	while(1)
-	{
-		asm("NOP");
-	}
+	//TODO: add logic here
+
+	while(true) asm("NOP"); // keep main loop running
 
 	return 0;
 }

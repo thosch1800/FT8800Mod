@@ -1,13 +1,30 @@
 #include "Controller.h"
+#include <stdlib.h>
+#include <stdint-gcc.h>
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+extern "C"
+{
+	#include "uart.h"
+};
 
 Controller::Controller()
 {
 }
 
-bool Controller::IsInitialized()
+void Controller::Initialize()
 {
-	auto isInitialized = pDisplay != nullptr && pPanel != nullptr;
-	return isInitialized;
+	uart_init(UART_BAUD_SELECT(19200, F_CPU));
+	sei();
+}
+
+void Controller::WaitForPacketsInitialized()
+{
+	while(pDisplay == nullptr || pPanel == nullptr)
+	{
+		asm("NOP");
+	}
 }
 
 void Controller::Squelch(uint8_t value, bool left)
