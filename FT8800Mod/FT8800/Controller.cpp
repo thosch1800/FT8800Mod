@@ -125,3 +125,25 @@ bool Controller::SelectedVfo(bool left)
 	auto selected = left ? pDisplay->MainLeft : pDisplay->MainRight;
 	return selected != 0;
 }
+
+char Controller::Number(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
+{
+	if(!A &&  B &&  C && !D && !E && !F && !G) return '1';
+	if( A &&  B && !C &&  D &&  E && !F &&  G) return '2';
+	if( A &&  B &&  C &&  D && !E && !F &&  G) return '3';
+	if(!A &&  B &&  C && !D && !E &&  F &&  G) return '4';
+	if( A && !B &&  C &&  D && !E &&  F &&  G) return '5';
+	if( A && !B &&  C &&  D &&  E &&  F &&  G) return '6';
+	if( A &&  B &&  C && !D && !E && !F && !G) return '7';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G) return '8';
+	if( A &&  B &&  C &&  D && !E &&  F &&  G) return '9';
+	if( A &&  B &&  C &&  D &&  E &&  F && !G) return '0';
+	
+	return ' ';
+}
+
+char Controller::Character(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M,
+bool H, bool J, bool K, bool Q, bool P, bool N)
+{
+	return ' ';
+}
