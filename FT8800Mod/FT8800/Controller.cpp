@@ -1,5 +1,6 @@
 #include "Controller.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdint-gcc.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -16,6 +17,7 @@ Controller::Controller()
 void Controller::Initialize()
 {
 	uart_init(UART_BAUD_SELECT(19200, F_CPU));
+	uart1_init(UART_BAUD_SELECT(19200, F_CPU));
 	sei();
 }
 
