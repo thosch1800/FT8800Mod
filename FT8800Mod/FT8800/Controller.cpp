@@ -128,68 +128,110 @@ bool Controller::SelectedVfo(bool left)
 
 char Controller::Segment(uint8_t place, bool left, bool characterMode)
 {
-	if(left)
+	if(characterMode)
 	{
-		switch(place)
-		{
-			case 1: return Segment(
-				pDisplay->FrequencyLeftPlace1BarA, 
-				pDisplay->FrequencyLeftPlace1BarB, 
-				pDisplay->FrequencyLeftPlace1BarC, 
-				pDisplay->FrequencyLeftPlace1BarD, 
-				pDisplay->FrequencyLeftPlace1BarE, 
-				pDisplay->FrequencyLeftPlace1BarF, 
-				pDisplay->FrequencyLeftPlace1BarG);
-			
-			case 2: return Segment(
-				pDisplay->FrequencyLeftPlace2BarA, 
-				pDisplay->FrequencyLeftPlace2BarB, 
-				pDisplay->FrequencyLeftPlace2BarC, 
-				pDisplay->FrequencyLeftPlace2BarD, 
-				pDisplay->FrequencyLeftPlace2BarE, 
-				pDisplay->FrequencyLeftPlace2BarF, 
-				pDisplay->FrequencyLeftPlace2BarG);
-
-			case 3: return Segment(
-				pDisplay->FrequencyLeftPlace3BarA, 
-				pDisplay->FrequencyLeftPlace3BarB, 
-				pDisplay->FrequencyLeftPlace3BarC, 
-				pDisplay->FrequencyLeftPlace3BarD, 
-				pDisplay->FrequencyLeftPlace3BarE, 
-				pDisplay->FrequencyLeftPlace3BarF, 
-				pDisplay->FrequencyLeftPlace3BarG);
-
-			case 4: return Segment(
-				pDisplay->FrequencyLeftPlace4BarA, 
-				pDisplay->FrequencyLeftPlace4BarB, 
-				pDisplay->FrequencyLeftPlace4BarC, 
-				pDisplay->FrequencyLeftPlace4BarD, 
-				pDisplay->FrequencyLeftPlace4BarE, 
-				pDisplay->FrequencyLeftPlace4BarF, 
-				pDisplay->FrequencyLeftPlace4BarG);
-
-			case 5: return Segment(
-				pDisplay->FrequencyLeftPlace5BarA, 
-				pDisplay->FrequencyLeftPlace5BarB, 
-				pDisplay->FrequencyLeftPlace5BarC, 
-				pDisplay->FrequencyLeftPlace5BarD, 
-				pDisplay->FrequencyLeftPlace5BarE, 
-				pDisplay->FrequencyLeftPlace5BarF, 
-				pDisplay->FrequencyLeftPlace5BarG);
-
-			case 6: return Segment(
-				pDisplay->FrequencyLeftPlace6BarA, 
-				pDisplay->FrequencyLeftPlace6BarB, 
-				pDisplay->FrequencyLeftPlace6BarC, 
-				pDisplay->FrequencyLeftPlace6BarD, 
-				pDisplay->FrequencyLeftPlace6BarE, 
-				pDisplay->FrequencyLeftPlace6BarF, 
-				pDisplay->FrequencyLeftPlace6BarG);
-		}
+		//TODO: define character mode segments
 	}
 	else
 	{
-		// to be continued...
+		switch(place)
+		{
+			case 1: return left ?
+				Segment(pDisplay->FrequencyLeftPlace1BarA, 
+					pDisplay->FrequencyLeftPlace1BarB, 
+					pDisplay->FrequencyLeftPlace1BarC, 
+					pDisplay->FrequencyLeftPlace1BarD, 
+					pDisplay->FrequencyLeftPlace1BarE, 
+					pDisplay->FrequencyLeftPlace1BarF, 
+					pDisplay->FrequencyLeftPlace1BarG) :
+				Segment(pDisplay->FrequencyRightPlace1BarA, 
+					pDisplay->FrequencyRightPlace1BarB, 
+					pDisplay->FrequencyRightPlace1BarC, 
+					pDisplay->FrequencyRightPlace1BarD, 
+					pDisplay->FrequencyRightPlace1BarE, 
+					pDisplay->FrequencyRightPlace1BarF, 
+					pDisplay->FrequencyRightPlace1BarG);
+			
+			case 2: return left ?
+				Segment(pDisplay->FrequencyLeftPlace2BarA, 
+					pDisplay->FrequencyLeftPlace2BarB, 
+					pDisplay->FrequencyLeftPlace2BarC, 
+					pDisplay->FrequencyLeftPlace2BarD, 
+					pDisplay->FrequencyLeftPlace2BarE, 
+					pDisplay->FrequencyLeftPlace2BarF, 
+					pDisplay->FrequencyLeftPlace2BarG) :
+				Segment(pDisplay->FrequencyRightPlace2BarA, 
+					pDisplay->FrequencyRightPlace2BarB, 
+					pDisplay->FrequencyRightPlace2BarC, 
+					pDisplay->FrequencyRightPlace2BarD, 
+					pDisplay->FrequencyRightPlace2BarE, 
+					pDisplay->FrequencyRightPlace2BarF, 
+					pDisplay->FrequencyRightPlace2BarG);
+
+			case 3: return left ?
+				Segment(pDisplay->FrequencyLeftPlace3BarA, 
+					pDisplay->FrequencyLeftPlace3BarB, 
+					pDisplay->FrequencyLeftPlace3BarC, 
+					pDisplay->FrequencyLeftPlace3BarD, 
+					pDisplay->FrequencyLeftPlace3BarE, 
+					pDisplay->FrequencyLeftPlace3BarF, 
+					pDisplay->FrequencyLeftPlace3BarG) :
+				Segment(pDisplay->FrequencyRightPlace3BarA, 
+					pDisplay->FrequencyRightPlace3BarB, 
+					pDisplay->FrequencyRightPlace3BarC, 
+					pDisplay->FrequencyRightPlace3BarD, 
+					pDisplay->FrequencyRightPlace3BarE, 
+					pDisplay->FrequencyRightPlace3BarF, 
+					pDisplay->FrequencyRightPlace3BarG);
+			
+			case 4: return left ?
+				Segment(pDisplay->FrequencyLeftPlace4BarA, 
+					pDisplay->FrequencyLeftPlace4BarB, 
+					pDisplay->FrequencyLeftPlace4BarC, 
+					pDisplay->FrequencyLeftPlace4BarD, 
+					pDisplay->FrequencyLeftPlace4BarE, 
+					pDisplay->FrequencyLeftPlace4BarF, 
+					pDisplay->FrequencyLeftPlace4BarG) :
+				Segment(pDisplay->FrequencyRightPlace4BarA, 
+					pDisplay->FrequencyRightPlace4BarB, 
+					pDisplay->FrequencyRightPlace4BarC, 
+					pDisplay->FrequencyRightPlace4BarD, 
+					pDisplay->FrequencyRightPlace4BarE, 
+					pDisplay->FrequencyRightPlace4BarF, 
+					pDisplay->FrequencyRightPlace4BarG);
+			
+			case 5: return left ?
+				Segment(pDisplay->FrequencyLeftPlace5BarA, 
+					pDisplay->FrequencyLeftPlace5BarB, 
+					pDisplay->FrequencyLeftPlace5BarC, 
+					pDisplay->FrequencyLeftPlace5BarD, 
+					pDisplay->FrequencyLeftPlace5BarE, 
+					pDisplay->FrequencyLeftPlace5BarF, 
+					pDisplay->FrequencyLeftPlace5BarG) :
+				Segment(pDisplay->FrequencyRightPlace5BarA, 
+					pDisplay->FrequencyRightPlace5BarB, 
+					pDisplay->FrequencyRightPlace5BarC, 
+					pDisplay->FrequencyRightPlace5BarD, 
+					pDisplay->FrequencyRightPlace5BarE, 
+					pDisplay->FrequencyRightPlace5BarF, 
+					pDisplay->FrequencyRightPlace5BarG);
+
+			case 6: return left ?
+				Segment(pDisplay->FrequencyLeftPlace6BarA, 
+					pDisplay->FrequencyLeftPlace6BarB, 
+					pDisplay->FrequencyLeftPlace6BarC, 
+					pDisplay->FrequencyLeftPlace6BarD, 
+					pDisplay->FrequencyLeftPlace6BarE, 
+					pDisplay->FrequencyLeftPlace6BarF, 
+					pDisplay->FrequencyLeftPlace6BarG) :
+				Segment(pDisplay->FrequencyRightPlace6BarA, 
+					pDisplay->FrequencyRightPlace6BarB, 
+					pDisplay->FrequencyRightPlace6BarC, 
+					pDisplay->FrequencyRightPlace6BarD, 
+					pDisplay->FrequencyRightPlace6BarE, 
+					pDisplay->FrequencyRightPlace6BarF, 
+					pDisplay->FrequencyRightPlace6BarG);
+			
 	}
 }
 
@@ -228,6 +270,8 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G,
 	//   E  QPN  C    | /|\ |
 	//   E Q P N C    |/ | \|
 	//    DDDDDDDD     -----
+	
+	//TODO: define character mode segments
 	
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'A';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'B';
