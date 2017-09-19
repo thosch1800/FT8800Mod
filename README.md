@@ -4,7 +4,6 @@ This project is a modification to the Yaesu FT-8800, a dual VFO amateur radio tr
 
 Another feature is the ability to set the frequency through a CAT-like interface (e.g. from PC or smartphone).
 
-Yaesu FT-8800 https://www.universal-radio.com/catalog/fm_txvrs/0080.html
-
-Main2Panel http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=3
+Yaesu FT-8800 https://www.universal-radio.com/catalog/fm_txvrs/0080.html  
+Main2Panel http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=3  
 Panel2Main http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=2
