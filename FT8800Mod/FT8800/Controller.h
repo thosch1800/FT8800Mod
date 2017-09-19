@@ -14,21 +14,23 @@ enum class Number { Num0, Num1, Num2, Num3, Num4, Num5, Num6, Num7, Num8, Num9, 
 
 class Controller
 {
-	public: Controller();
+	public:
+	Controller();
 
-	public: void Initialize(); 
-	public: void WaitForPacketsInitialized();
+	void Initialize();
+	void WaitForPacketsInitialized();
 
-	public: void Squelch(uint8_t value, bool left);
-	public: void Volume(uint8_t value, bool left);
-	public: void Turn(Direction direction, bool left);
-	public: void Press(Key key, bool left = true);
-	public: void Press(Number number);
+	void Squelch(uint8_t value, bool left);
+	void Volume(uint8_t value, bool left);
+	void Turn(Direction direction, bool left);
+	void Press(Key key, bool left = true);
+	void Press(Number number);
 	
-	public: bool SelectedVfo(bool left);
+	bool SelectedVfo(bool left);
 
-	private: PanelToMainUnitPacketBytes* pPanel = nullptr;
-	private: MainUnitToPanelPacketBytes* pDisplay = nullptr;
+	private:
+	PanelToMainUnitPacketBytes* pPanel = nullptr;
+	MainUnitToPanelPacketBytes* pDisplay = nullptr;
 };
 
 #endif /* CONTROLLER_H_ */
