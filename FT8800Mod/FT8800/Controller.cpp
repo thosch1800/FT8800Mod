@@ -190,7 +190,6 @@ bool H, bool J, bool K, bool Q, bool P, bool N)
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Y';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Z';
 
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '0';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '1';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '2';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '3';
