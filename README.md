@@ -6,6 +6,4 @@ Another feature is the ability to set the frequency through a CAT-like interface
 
 https://www.universal-radio.com/catalog/fm_txvrs/0080.html
 
-
-[![Build status](https://ci.appveyor.com/api/projects/status/w0kb0gp8n8k2a53l/branch/master?svg=true)](https://ci.appveyor.com/project/thosch1800/FT8800Mod/branch/master) 
-[![Build Status](https://travis-ci.org/thosch1800/FT8800Mod.svg?branch=master)](https://travis-ci.org/thosch1800/FT8800Mod)
+CI (experimental): [![Build status](https://ci.appveyor.com/api/projects/status/w0kb0gp8n8k2a53l/branch/master?svg=true)](https://ci.appveyor.com/project/thosch1800/FT8800Mod/branch/master) [![Build Status](https://travis-ci.org/thosch1800/FT8800Mod.svg?branch=master)](https://travis-ci.org/thosch1800/FT8800Mod)
