@@ -126,7 +126,74 @@ bool Controller::SelectedVfo(bool left)
 	return selected != 0;
 }
 
-char Controller::Number(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
+char Controller::Segment(uint8_t place, bool left, bool characterMode)
+{
+	if(left)
+	{
+		switch(place)
+		{
+			case 1: return Segment(
+				pDisplay->FrequencyLeftPlace1BarA, 
+				pDisplay->FrequencyLeftPlace1BarB, 
+				pDisplay->FrequencyLeftPlace1BarC, 
+				pDisplay->FrequencyLeftPlace1BarD, 
+				pDisplay->FrequencyLeftPlace1BarE, 
+				pDisplay->FrequencyLeftPlace1BarF, 
+				pDisplay->FrequencyLeftPlace1BarG);
+			
+			case 2: return Segment(
+				pDisplay->FrequencyLeftPlace2BarA, 
+				pDisplay->FrequencyLeftPlace2BarB, 
+				pDisplay->FrequencyLeftPlace2BarC, 
+				pDisplay->FrequencyLeftPlace2BarD, 
+				pDisplay->FrequencyLeftPlace2BarE, 
+				pDisplay->FrequencyLeftPlace2BarF, 
+				pDisplay->FrequencyLeftPlace2BarG);
+
+			case 3: return Segment(
+				pDisplay->FrequencyLeftPlace3BarA, 
+				pDisplay->FrequencyLeftPlace3BarB, 
+				pDisplay->FrequencyLeftPlace3BarC, 
+				pDisplay->FrequencyLeftPlace3BarD, 
+				pDisplay->FrequencyLeftPlace3BarE, 
+				pDisplay->FrequencyLeftPlace3BarF, 
+				pDisplay->FrequencyLeftPlace3BarG);
+
+			case 4: return Segment(
+				pDisplay->FrequencyLeftPlace4BarA, 
+				pDisplay->FrequencyLeftPlace4BarB, 
+				pDisplay->FrequencyLeftPlace4BarC, 
+				pDisplay->FrequencyLeftPlace4BarD, 
+				pDisplay->FrequencyLeftPlace4BarE, 
+				pDisplay->FrequencyLeftPlace4BarF, 
+				pDisplay->FrequencyLeftPlace4BarG);
+
+			case 5: return Segment(
+				pDisplay->FrequencyLeftPlace5BarA, 
+				pDisplay->FrequencyLeftPlace5BarB, 
+				pDisplay->FrequencyLeftPlace5BarC, 
+				pDisplay->FrequencyLeftPlace5BarD, 
+				pDisplay->FrequencyLeftPlace5BarE, 
+				pDisplay->FrequencyLeftPlace5BarF, 
+				pDisplay->FrequencyLeftPlace5BarG);
+
+			case 6: return Segment(
+				pDisplay->FrequencyLeftPlace6BarA, 
+				pDisplay->FrequencyLeftPlace6BarB, 
+				pDisplay->FrequencyLeftPlace6BarC, 
+				pDisplay->FrequencyLeftPlace6BarD, 
+				pDisplay->FrequencyLeftPlace6BarE, 
+				pDisplay->FrequencyLeftPlace6BarF, 
+				pDisplay->FrequencyLeftPlace6BarG);
+		}
+	}
+	else
+	{
+		// to be continued...
+	}
+}
+
+char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
 {
 	//    AAAAAAAA
 	//   F        B
@@ -152,8 +219,7 @@ char Controller::Number(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
 	return ' ';
 }
 
-char Controller::Character(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M,
-bool H, bool J, bool K, bool Q, bool P, bool N)
+char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N)
 {
 	//    AAAAAAA      ----- 
 	//   F H J K B    |\ | /|
