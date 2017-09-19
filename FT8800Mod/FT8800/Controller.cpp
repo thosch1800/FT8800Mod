@@ -155,6 +155,14 @@ char Controller::Number(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
 char Controller::Character(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M,
 bool H, bool J, bool K, bool Q, bool P, bool N)
 {
+	//    AAAAAAA      ----- 
+	//   FH  J  KB    |\ | /|
+	//   F H J K B    | \|/ |
+	//     GG MM       -- --
+	//   E Q P N C    | /|\ |
+	//   EQ  P  NC    |/ | \|
+	//    DDDDDDDD     -----
+	
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'A';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'B';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'C';
