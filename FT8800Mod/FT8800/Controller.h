@@ -21,7 +21,6 @@ class Controller
 
 	public: void Squelch(uint8_t value, bool left);
 	public: void Volume(uint8_t value, bool left);
-	private: uint8_t ToRange(uint8_t value, uint8_t min, uint8_t max);
 	public: void Turn(Direction direction, bool left);
 	public: void Press(Key key, bool left = true);
 	public: void Press(Number number);
