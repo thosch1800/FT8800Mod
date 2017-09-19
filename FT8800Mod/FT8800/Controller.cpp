@@ -128,6 +128,16 @@ bool Controller::SelectedVfo(bool left)
 
 char Controller::Number(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
 {
+	//    AAAAAAAA
+	//   F        B
+	//   F        B
+	//   F        B
+	//    GGGGGGGG
+	//   E        C
+	//   E        C
+	//   E        C
+	//    DDDDDDDD
+	
 	if(!A &&  B &&  C && !D && !E && !F && !G) return '1';
 	if( A &&  B && !C &&  D &&  E && !F &&  G) return '2';
 	if( A &&  B &&  C &&  D && !E && !F &&  G) return '3';
