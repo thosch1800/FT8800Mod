@@ -156,11 +156,11 @@ char Controller::Character(bool A, bool B, bool C, bool D, bool E, bool F, bool 
 bool H, bool J, bool K, bool Q, bool P, bool N)
 {
 	//    AAAAAAA      ----- 
-	//   FH  J  KB    |\ | /|
-	//   F H J K B    | \|/ |
-	//     GG MM       -- --
-	//   E Q P N C    | /|\ |
-	//   EQ  P  NC    |/ | \|
+	//   F H J K B    |\ | /|
+	//   F  HJK  B    | \|/ |
+	//    GGG MMM      -- --
+	//   E  QPN  C    | /|\ |
+	//   E Q P N C    |/ | \|
 	//    DDDDDDDD     -----
 	
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'A';
