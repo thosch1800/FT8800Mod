@@ -29,6 +29,10 @@ class Controller
 	bool SelectedVfo(bool left);
 
 	private:
+	char Number(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool DP);
+	char Character(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M,
+		       bool H, bool J, bool K, bool Q, bool P, bool N);
+	
 	PanelToMainUnitPacketBytes* pPanel = nullptr;
 	MainUnitToPanelPacketBytes* pDisplay = nullptr;
 };
