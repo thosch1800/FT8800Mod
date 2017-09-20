@@ -27,11 +27,12 @@ class Controller
 	void Press(Number number);
 	
 	bool SelectedVfo(bool left);
+	char Segment(uint8_t place, bool left, bool characterMode = false);
 
 	private:
-	char Segment(uint8_t place, bool left, bool characterMode = false);
 	char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G);
-	char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N);
+	char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, 
+	               bool M, bool H, bool J, bool K, bool Q, bool P, bool N);
 	
 	PanelToMainUnitPacketBytes* pPanel = nullptr;
 	MainUnitToPanelPacketBytes* pDisplay = nullptr;
