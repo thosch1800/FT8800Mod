@@ -436,9 +436,9 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G,
 	if( A && !B && !C && !D && !E && !F && !G && !M && !H &&  J && !K && !Q &&  P && !N) return 'T';
 	if(!A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'U';
 	if(!A && !B && !C && !D &&  E &&  F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return 'V';
-	//if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'W';
-	//if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'X';
-	//if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'Y';
+	if(!A &&  B &&  C && !D &&  E &&  F && !G && !M && !H && !J && !K &&  Q && !P &&  N) return 'W';
+	if(!A && !B && !C && !D && !E && !F && !G && !M &&  H && !J &&  K &&  Q && !P &&  N) return 'X';
+	if(!A && !B && !C && !D && !E && !F && !G && !M &&  H && !J &&  K && !Q &&  P && !N) return 'Y';
 	//if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'Z';
 
 	//    AAAAAAA      ----- 
