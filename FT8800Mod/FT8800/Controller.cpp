@@ -130,7 +130,56 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
 {
 	if(channelMode)
 	{
-		//TODO: define character mode segments
+		switch(place)
+		{
+			case 1: return left ?
+				Segment(pDisplay->ChannelLeftPlace1BarA, 
+					pDisplay->ChannelLeftPlace1BarB, 
+					pDisplay->ChannelLeftPlace1BarC, 
+					pDisplay->ChannelLeftPlace1BarD, 
+					pDisplay->ChannelLeftPlace1BarE, 
+					pDisplay->ChannelLeftPlace1BarF, 
+					pDisplay->ChannelLeftPlace1BarG) :
+				Segment(pDisplay->ChannelRightPlace1BarA, 
+					pDisplay->ChannelRightPlace1BarB, 
+					pDisplay->ChannelRightPlace1BarC, 
+					pDisplay->ChannelRightPlace1BarD, 
+					pDisplay->ChannelRightPlace1BarE, 
+					pDisplay->ChannelRightPlace1BarF, 
+					pDisplay->ChannelRightPlace1BarG);
+
+			case 2: return left ?
+				Segment(pDisplay->ChannelLeftPlace2BarA, 
+					pDisplay->ChannelLeftPlace2BarB, 
+					pDisplay->ChannelLeftPlace2BarC, 
+					pDisplay->ChannelLeftPlace2BarD, 
+					pDisplay->ChannelLeftPlace2BarE, 
+					pDisplay->ChannelLeftPlace2BarF, 
+					pDisplay->ChannelLeftPlace2BarG) :
+				Segment(pDisplay->ChannelRightPlace2BarA, 
+					pDisplay->ChannelRightPlace2BarB, 
+					pDisplay->ChannelRightPlace2BarC, 
+					pDisplay->ChannelRightPlace2BarD, 
+					pDisplay->ChannelRightPlace2BarE, 
+					pDisplay->ChannelRightPlace2BarF, 
+					pDisplay->ChannelRightPlace2BarG);
+
+			case 3: return left ?
+				Segment(pDisplay->ChannelLeftPlace3BarA, 
+					pDisplay->ChannelLeftPlace3BarB, 
+					pDisplay->ChannelLeftPlace3BarC, 
+					pDisplay->ChannelLeftPlace3BarD, 
+					pDisplay->ChannelLeftPlace3BarE, 
+					pDisplay->ChannelLeftPlace3BarF, 
+					pDisplay->ChannelLeftPlace3BarG) :
+				Segment(pDisplay->ChannelRightPlace3BarA, 
+					pDisplay->ChannelRightPlace3BarB, 
+					pDisplay->ChannelRightPlace3BarC, 
+					pDisplay->ChannelRightPlace3BarD, 
+					pDisplay->ChannelRightPlace3BarE, 
+					pDisplay->ChannelRightPlace3BarF, 
+					pDisplay->ChannelRightPlace3BarG);
+		}
 	}
 	else
 	{
