@@ -203,14 +203,28 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
 					pDisplay->FrequencyLeftPlace3BarD, 
 					pDisplay->FrequencyLeftPlace3BarE, 
 					pDisplay->FrequencyLeftPlace3BarF, 
-					pDisplay->FrequencyLeftPlace3BarG) :
+					pDisplay->FrequencyLeftPlace3BarG,
+				       	pDisplay->FrequencyLeftPlace3BarM, 
+					pDisplay->FrequencyLeftPlace3BarH,
+					pDisplay->FrequencyLeftPlace3BarJ,
+					pDisplay->FrequencyLeftPlace3BarK,
+					pDisplay->FrequencyLeftPlace3BarQ,
+					pDisplay->FrequencyLeftPlace3BarP,
+					pDisplay->FrequencyLeftPlace3BarN) :
 				Segment(pDisplay->FrequencyRightPlace3BarA, 
 					pDisplay->FrequencyRightPlace3BarB, 
 					pDisplay->FrequencyRightPlace3BarC, 
 					pDisplay->FrequencyRightPlace3BarD, 
 					pDisplay->FrequencyRightPlace3BarE, 
 					pDisplay->FrequencyRightPlace3BarF, 
-					pDisplay->FrequencyRightPlace3BarG);
+					pDisplay->FrequencyRightPlace3BarG,
+					pDisplay->FrequencyRightPlace3BarM, 
+					pDisplay->FrequencyRightPlace3BarH,
+					pDisplay->FrequencyRightPlace3BarJ,
+					pDisplay->FrequencyRightPlace3BarK,
+					pDisplay->FrequencyRightPlace3BarQ,
+					pDisplay->FrequencyRightPlace3BarP,
+					pDisplay->FrequencyRightPlace3BarN));
 			
 			case 4: return left ?
 				Segment(pDisplay->FrequencyLeftPlace4BarA, 
@@ -219,14 +233,28 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
 					pDisplay->FrequencyLeftPlace4BarD, 
 					pDisplay->FrequencyLeftPlace4BarE, 
 					pDisplay->FrequencyLeftPlace4BarF, 
-					pDisplay->FrequencyLeftPlace4BarG) :
+					pDisplay->FrequencyLeftPlace4BarG,
+				       	pDisplay->FrequencyLeftPlace4BarM, 
+					pDisplay->FrequencyLeftPlace4BarH,
+					pDisplay->FrequencyLeftPlace4BarJ,
+					pDisplay->FrequencyLeftPlace4BarK,
+					pDisplay->FrequencyLeftPlace4BarQ,
+					pDisplay->FrequencyLeftPlace4BarP,
+					pDisplay->FrequencyLeftPlace4BarN) :
 				Segment(pDisplay->FrequencyRightPlace4BarA, 
 					pDisplay->FrequencyRightPlace4BarB, 
 					pDisplay->FrequencyRightPlace4BarC, 
 					pDisplay->FrequencyRightPlace4BarD, 
 					pDisplay->FrequencyRightPlace4BarE, 
 					pDisplay->FrequencyRightPlace4BarF, 
-					pDisplay->FrequencyRightPlace4BarG);
+					pDisplay->FrequencyRightPlace4BarG,
+					pDisplay->FrequencyRightPlace4BarM, 
+					pDisplay->FrequencyRightPlace4BarH,
+					pDisplay->FrequencyRightPlace4BarJ,
+					pDisplay->FrequencyRightPlace4BarK,
+					pDisplay->FrequencyRightPlace4BarQ,
+					pDisplay->FrequencyRightPlace4BarP,
+					pDisplay->FrequencyRightPlace4BarN));
 			
 			case 5: return left ?
 				Segment(pDisplay->FrequencyLeftPlace5BarA, 
@@ -235,14 +263,28 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
 					pDisplay->FrequencyLeftPlace5BarD, 
 					pDisplay->FrequencyLeftPlace5BarE, 
 					pDisplay->FrequencyLeftPlace5BarF, 
-					pDisplay->FrequencyLeftPlace5BarG) :
+					pDisplay->FrequencyLeftPlace5BarG,
+				       	pDisplay->FrequencyLeftPlace5BarM, 
+					pDisplay->FrequencyLeftPlace5BarH,
+					pDisplay->FrequencyLeftPlace5BarJ,
+					pDisplay->FrequencyLeftPlace5BarK,
+					pDisplay->FrequencyLeftPlace5BarQ,
+					pDisplay->FrequencyLeftPlace5BarP,
+					pDisplay->FrequencyLeftPlace5BarN) :
 				Segment(pDisplay->FrequencyRightPlace5BarA, 
 					pDisplay->FrequencyRightPlace5BarB, 
 					pDisplay->FrequencyRightPlace5BarC, 
 					pDisplay->FrequencyRightPlace5BarD, 
 					pDisplay->FrequencyRightPlace5BarE, 
 					pDisplay->FrequencyRightPlace5BarF, 
-					pDisplay->FrequencyRightPlace5BarG);
+					pDisplay->FrequencyRightPlace5BarG,
+					pDisplay->FrequencyRightPlace5BarM, 
+					pDisplay->FrequencyRightPlace5BarH,
+					pDisplay->FrequencyRightPlace5BarJ,
+					pDisplay->FrequencyRightPlace5BarK,
+					pDisplay->FrequencyRightPlace5BarQ,
+					pDisplay->FrequencyRightPlace5BarP,
+					pDisplay->FrequencyRightPlace5BarN));
 
 			case 6: return left ?
 				Segment(pDisplay->FrequencyLeftPlace6BarA, 
@@ -251,15 +293,28 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
 					pDisplay->FrequencyLeftPlace6BarD, 
 					pDisplay->FrequencyLeftPlace6BarE, 
 					pDisplay->FrequencyLeftPlace6BarF, 
-					pDisplay->FrequencyLeftPlace6BarG) :
+					pDisplay->FrequencyLeftPlace6BarG,
+				       	pDisplay->FrequencyLeftPlace6BarM, 
+					pDisplay->FrequencyLeftPlace6BarH,
+					pDisplay->FrequencyLeftPlace6BarJ,
+					pDisplay->FrequencyLeftPlace6BarK,
+					pDisplay->FrequencyLeftPlace6BarQ,
+					pDisplay->FrequencyLeftPlace6BarP,
+					pDisplay->FrequencyLeftPlace6BarN) :
 				Segment(pDisplay->FrequencyRightPlace6BarA, 
 					pDisplay->FrequencyRightPlace6BarB, 
 					pDisplay->FrequencyRightPlace6BarC, 
 					pDisplay->FrequencyRightPlace6BarD, 
 					pDisplay->FrequencyRightPlace6BarE, 
 					pDisplay->FrequencyRightPlace6BarF, 
-					pDisplay->FrequencyRightPlace6BarG);
-			
+					pDisplay->FrequencyRightPlace6BarG,
+					pDisplay->FrequencyRightPlace6BarM, 
+					pDisplay->FrequencyRightPlace6BarH,
+					pDisplay->FrequencyRightPlace6BarJ,
+					pDisplay->FrequencyRightPlace6BarK,
+					pDisplay->FrequencyRightPlace6BarQ,
+					pDisplay->FrequencyRightPlace6BarP,
+					pDisplay->FrequencyRightPlace6BarN));
 	}
 }
 
@@ -299,8 +354,6 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G,
 	//   E Q P N C    |/ | \|
 	//    DDDDDDDD     -----
 	
-	//TODO: define character mode segments
-	
 	if(!A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '1';
 	if( A &&  B && !C &&  D &&  E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '2';
 	if( A &&  B &&  C &&  D && !E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '3';
@@ -310,9 +363,10 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G,
 	if( A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '7';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '8';
 	if( A &&  B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '9';
-	if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return '0';
+	if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return '0';
 
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'A';
+	if( A &&  B &&  C && !D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return 'A';
+	//TODO: define remaining character mode segments
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'B';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'C';
 	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'D';
