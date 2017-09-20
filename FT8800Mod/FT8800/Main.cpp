@@ -1,11 +1,13 @@
 #include "Controller.h"
+#include "PacketUpdater.h"
 
 int main()
 {
 	Controller controller;
+	PacketUpdater packetUpdater;
 
-	controller.Initialize();
-	controller.WaitForPacketsInitialized();
+	packetUpdater.Initialize();
+	packetUpdater.WaitForPacketsInitialized();
 
 	//TODO: add logic here
 
