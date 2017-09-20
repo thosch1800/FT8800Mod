@@ -126,9 +126,9 @@ bool Controller::SelectedVfo(bool left)
 	return selected != 0;
 }
 
-char Controller::Segment(uint8_t place, bool left, bool characterMode)
+char Controller::Segment(uint8_t place, bool left, bool channelMode)
 {
-	if(characterMode)
+	if(channelMode)
 	{
 		//TODO: define character mode segments
 	}
@@ -143,14 +143,28 @@ char Controller::Segment(uint8_t place, bool left, bool characterMode)
 					pDisplay->FrequencyLeftPlace1BarD, 
 					pDisplay->FrequencyLeftPlace1BarE, 
 					pDisplay->FrequencyLeftPlace1BarF, 
-					pDisplay->FrequencyLeftPlace1BarG) :
+					pDisplay->FrequencyLeftPlace1BarG,
+				       	pDisplay->FrequencyLeftPlace1BarM, 
+					pDisplay->FrequencyLeftPlace1BarH,
+					pDisplay->FrequencyLeftPlace1BarJ,
+					pDisplay->FrequencyLeftPlace1BarK,
+					pDisplay->FrequencyLeftPlace1BarQ,
+					pDisplay->FrequencyLeftPlace1BarP,
+					pDisplay->FrequencyLeftPlace1BarN) :
 				Segment(pDisplay->FrequencyRightPlace1BarA, 
 					pDisplay->FrequencyRightPlace1BarB, 
 					pDisplay->FrequencyRightPlace1BarC, 
 					pDisplay->FrequencyRightPlace1BarD, 
 					pDisplay->FrequencyRightPlace1BarE, 
 					pDisplay->FrequencyRightPlace1BarF, 
-					pDisplay->FrequencyRightPlace1BarG);
+					pDisplay->FrequencyRightPlace1BarG,
+					pDisplay->FrequencyRightPlace1BarM, 
+					pDisplay->FrequencyRightPlace1BarH,
+					pDisplay->FrequencyRightPlace1BarJ,
+					pDisplay->FrequencyRightPlace1BarK,
+					pDisplay->FrequencyRightPlace1BarQ,
+					pDisplay->FrequencyRightPlace1BarP,
+					pDisplay->FrequencyRightPlace1BarN));
 			
 			case 2: return left ?
 				Segment(pDisplay->FrequencyLeftPlace2BarA, 
@@ -159,14 +173,28 @@ char Controller::Segment(uint8_t place, bool left, bool characterMode)
 					pDisplay->FrequencyLeftPlace2BarD, 
 					pDisplay->FrequencyLeftPlace2BarE, 
 					pDisplay->FrequencyLeftPlace2BarF, 
-					pDisplay->FrequencyLeftPlace2BarG) :
+					pDisplay->FrequencyLeftPlace2BarG,
+				       	pDisplay->FrequencyLeftPlace2BarM, 
+					pDisplay->FrequencyLeftPlace2BarH,
+					pDisplay->FrequencyLeftPlace2BarJ,
+					pDisplay->FrequencyLeftPlace2BarK,
+					pDisplay->FrequencyLeftPlace2BarQ,
+					pDisplay->FrequencyLeftPlace2BarP,
+					pDisplay->FrequencyLeftPlace2BarN) :
 				Segment(pDisplay->FrequencyRightPlace2BarA, 
 					pDisplay->FrequencyRightPlace2BarB, 
 					pDisplay->FrequencyRightPlace2BarC, 
 					pDisplay->FrequencyRightPlace2BarD, 
 					pDisplay->FrequencyRightPlace2BarE, 
 					pDisplay->FrequencyRightPlace2BarF, 
-					pDisplay->FrequencyRightPlace2BarG);
+					pDisplay->FrequencyRightPlace2BarG,
+					pDisplay->FrequencyRightPlace2BarM, 
+					pDisplay->FrequencyRightPlace2BarH,
+					pDisplay->FrequencyRightPlace2BarJ,
+					pDisplay->FrequencyRightPlace2BarK,
+					pDisplay->FrequencyRightPlace2BarQ,
+					pDisplay->FrequencyRightPlace2BarP,
+					pDisplay->FrequencyRightPlace2BarN));
 
 			case 3: return left ?
 				Segment(pDisplay->FrequencyLeftPlace3BarA, 
@@ -273,51 +301,51 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G,
 	
 	//TODO: define character mode segments
 	
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'A';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'B';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'C';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'D';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'E';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'F';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'G';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'H';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'I';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'J';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'K';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'L';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'M';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'N';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'O';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'P';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Q';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'R';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'S';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'T';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'U';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'V';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'W';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'X';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Y';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Z';
+	if(!A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '1';
+	if( A &&  B && !C &&  D &&  E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '2';
+	if( A &&  B &&  C &&  D && !E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '3';
+	if(!A &&  B &&  C && !D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '4';
+	if( A && !B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '5';
+	if( A && !B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '6';
+	if( A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '7';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '8';
+	if( A &&  B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '9';
+	if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return '0';
 
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '1';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '2';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '3';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '4';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '5';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '6';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '7';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '8';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '9';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '0';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'A';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'B';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'C';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'D';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'E';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'F';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'G';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'H';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'I';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'J';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'K';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'L';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'M';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'N';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'O';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'P';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Q';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'R';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'S';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'T';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'U';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'V';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'W';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'X';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Y';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return 'Z';
 
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '.';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return ',';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '+';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '-';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '*';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return '/';
-	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  H &&  J &&  K &&  Q &&  P &&  N) return ':';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return '.';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return ',';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return '+';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return '-';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return '*';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return '/';
+	if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return ':';
 
 	return ' ';
 }
