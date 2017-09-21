@@ -10,18 +10,26 @@ extern "C"
 	#include "uart.h"
 };
 
-void PacketUpdater::Initialize()
+PacketUpdater::PacketUpdater()
 {
-	uart_init(UART_BAUD_SELECT(19200, F_CPU));
-	uart1_init(UART_BAUD_SELECT(19200, F_CPU));
-	sei();
+	uart_init(UART_BAUD_SELECT(BAUD_RATE, F_CPU));
+	uart1_init(UART_BAUD_SELECT(BAUD_RATE, F_CPU));
 }
 
-void PacketUpdater::WaitForPacketsInitialized()
+uint8_t PacketUpdater::ReadMainByte(uint8_t* status)
 {
-	while(pDisplay == nullptr || pPanel == nullptr)
-	{
-		asm("NOP");
-	}
+	int value = uart_getc();
+
+	*status = (value >> 8);
+
+	return (uint8_t)value;
 }
 
+uint8_t PacketUpdater::ReadPanelByte(uint8_t* status)
+{
+	int value = uart1_getc();
+
+	*status = (value >> 8);
+
+	return (uint8_t)value;
+}

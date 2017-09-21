@@ -10,6 +10,16 @@ extern "C"
 	#include "uart.h"
 };
 
+void Controller::SetPanelToMainUnitPacket(void* pPacket)
+{
+	this->pDisplay = (MainUnitToPanelPacketBytes*)pPacket;
+}
+
+void Controller::SetMainUnitToPanelPacket(void* pPacket)
+{
+	this->pPanel = (PanelToMainUnitPacketBytes*)pPacket;
+}
+
 void Controller::Squelch(uint8_t value, bool left)
 {
 	if(left)	pPanel->SquelchLeft = value;   // 0x00 - 0x7F
