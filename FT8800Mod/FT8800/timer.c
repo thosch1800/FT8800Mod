@@ -1,4 +1,6 @@
 #include "timer.h"
+#include "callbacks.h"
+#include <avr/io.h>
 
 const uint8_t start0 = 0x30;
 const uint8_t start2 = 0x20;
@@ -31,6 +33,7 @@ void RestartTimer0()
 	}
 	if(indicate) PORTA ^= (1 << PA2); // toggle pin to indicate timer elapsed
 
+	OnByteReceived0();
 }
 
 void RestartTimer2()
@@ -42,6 +45,7 @@ void RestartTimer2()
 	}
 	if(indicate) PORTA ^= (1 << PA6); // toggle pin to indicate timer elapsed
 
+	OnByteReceived1();
 }
 
 ISR (TIMER0_OVF_vect)
@@ -49,6 +53,7 @@ ISR (TIMER0_OVF_vect)
 	if(measure) TCNT0 = start0; // restart timer immediately when measuring
 	if(indicate) PORTA ^= (1 << PA0); // toggle pin to indicate timer elapsed
 
+	OnFrameReceived0();
 }
 
 ISR (TIMER2_OVF_vect)
@@ -56,4 +61,5 @@ ISR (TIMER2_OVF_vect)
 	if(measure) TCNT2 = start2; // restart timer immediately when measuring
 	if(indicate) PORTA ^= (1 << PA4); // toggle pin to indicate timer elapsed
 
+	OnFrameReceived1();
 }

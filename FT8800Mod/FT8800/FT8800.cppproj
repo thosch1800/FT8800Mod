@@ -149,6 +149,12 @@
     <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="callbacks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="callbacks.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Controller.cpp">
       <SubType>compile</SubType>
     </Compile>

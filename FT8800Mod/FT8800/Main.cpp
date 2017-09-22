@@ -1,12 +1,8 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include <stdint-gcc.h>
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include <avr/pgmspace.h>
 #include "Controller.h"
 extern "C"
 {
+	#include "callbacks.h"
 	#include "timer.h"
 	#include "uart.h"
 	#include "uartUtils.h"
