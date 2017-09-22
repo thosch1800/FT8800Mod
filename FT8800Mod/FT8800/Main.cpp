@@ -1,28 +1,29 @@
 #include <stdint-gcc.h>
+#include <avr/interrupt.h>
 #include "Controller.h"
 extern "C"
 {
-	#include "MainUnitToPanelPacketBytes.h"
-	#include "PanelToMainUnitPacketBytes.h"
-	#include "callbacks.h"
-	#include "timer.h"
-	#include "uart.h"
-	#include "uartUtils.h"
+    #include "MainUnitToPanelPacketBytes.h"
+    #include "PanelToMainUnitPacketBytes.h"
+    #include "callbacks.h"
+    #include "timer.h"
+    #include "uart.h"
+    #include "uartUtils.h"
 };
 
 int main()
 {
-	Controller controller;
-	InitializeTimer();
-	InitializeUart();
-	sei();
+    Controller controller;
+    InitializeTimer();
+    InitializeUart();
+    sei();
 
-	do
-	{
-		//pPanel = (PanelToMainUnitPacketBytes*)(panelBuffer + panelStartIndex);
+    do
+    {
+        //pPanel = (PanelToMainUnitPacketBytes*)(panelBuffer + panelStartIndex);
 
-		//asm("NOP"); // breakpoint action: {panel->Byte01} {panel->Byte02} {panel->Byte03} {panel->Byte04} {panel->Byte05} {panel->Byte06} {panel->Byte07} {panel->Byte08} {panel->Byte09} {panel->Byte10} {panel->Byte11} {panel->Byte12} {panel->Byte13}
-	} while(true);
+        //asm("NOP"); // breakpoint action: {panel->Byte01} {panel->Byte02} {panel->Byte03} {panel->Byte04} {panel->Byte05} {panel->Byte06} {panel->Byte07} {panel->Byte08} {panel->Byte09} {panel->Byte10} {panel->Byte11} {panel->Byte12} {panel->Byte13}
+    } while(true);
 
-	return 0;
+    return 0;
 }

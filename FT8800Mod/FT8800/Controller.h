@@ -11,25 +11,25 @@ enum class Number { Num0, Num1, Num2, Num3, Num4, Num5, Num6, Num7, Num8, Num9, 
 
 class Controller
 {
-	public:
-	void SetPanelToMainUnitPacket(MainUnitToPanelPacketBytes packet);
-	void SetMainUnitToPanelPacket(PanelToMainUnitPacketBytes packet);
+    public:
+    void SetPanelToMainUnitPacket(MainUnitToPanelPacketBytes packet);
+    void SetMainUnitToPanelPacket(PanelToMainUnitPacketBytes packet);
 
-	void Squelch(uint8_t value, bool left);
-	void Volume(uint8_t value, bool left);
-	void Turn(Direction direction, bool left);
-	void Press(Key key, bool left = true);
-	void Press(Number number);
-	
-	bool SelectedVfo(bool left);
-	char Segment(uint8_t place, bool left, bool channelMode = false);
+    void Squelch(uint8_t value, bool left);
+    void Volume(uint8_t value, bool left);
+    void Turn(Direction direction, bool left);
+    void Press(Key key, bool left = true);
+    void Press(Number number);
+    
+    bool SelectedVfo(bool left);
+    char Segment(uint8_t place, bool left, bool channelMode = false);
 
-	private:
-	char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G);
-	char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N);
-	
-	PanelToMainUnitPacketBytes panel;
-	MainUnitToPanelPacketBytes display;
+    private:
+    char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G);
+    char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N);
+    
+    PanelToMainUnitPacketBytes panel;
+    MainUnitToPanelPacketBytes display;
 };
 
 #endif /* CONTROLLER_H_ */
