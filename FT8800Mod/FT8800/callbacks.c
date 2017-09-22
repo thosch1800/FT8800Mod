@@ -19,9 +19,9 @@ inline void OnByteReceived1()
 
 inline void OnFrameReceived0()
 {
-    if(buffer0.Index >= sizeof(PanelToMainUnitPacketBytes))
+    if(buffer0.Index >= sizeof(panel))
     {
-        memcpy(&panel, buffer0.Data, sizeof(PanelToMainUnitPacketBytes));
+        memcpy(&panel, buffer0.Data, sizeof(panel));
 
         Reset(&buffer0);
     }
@@ -29,9 +29,9 @@ inline void OnFrameReceived0()
 
 inline void OnFrameReceived1()
 {
-    if(buffer1.Index >= sizeof(MainUnitToPanelPacketBytes))
+    if(buffer1.Index >= sizeof(display))
     {
-        memcpy(&display, buffer1.Data, sizeof(MainUnitToPanelPacketBytes));
+        memcpy(&display, buffer1.Data, sizeof(display));
 
         Reset(&buffer1);
     }

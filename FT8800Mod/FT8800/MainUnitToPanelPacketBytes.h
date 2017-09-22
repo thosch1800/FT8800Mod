@@ -5,7 +5,7 @@
 
 // http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=3
 
-#pragma pack(1)
+//suppress warning #pragma pack(1)
 typedef struct
 {
     // 01    80    ???
