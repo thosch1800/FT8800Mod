@@ -12,8 +12,8 @@ enum class Number { Num0, Num1, Num2, Num3, Num4, Num5, Num6, Num7, Num8, Num9, 
 class Controller
 {
 	public:
-	void SetPanelToMainUnitPacket(void* pPacket);
-	void SetMainUnitToPanelPacket(void* pPacket);
+	void SetPanelToMainUnitPacket(MainUnitToPanelPacketBytes packet);
+	void SetMainUnitToPanelPacket(PanelToMainUnitPacketBytes packet);
 
 	void Squelch(uint8_t value, bool left);
 	void Volume(uint8_t value, bool left);
@@ -28,8 +28,8 @@ class Controller
 	char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G);
 	char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N);
 	
-	PanelToMainUnitPacketBytes* pPanel = nullptr;
-	MainUnitToPanelPacketBytes* pDisplay = nullptr;
+	PanelToMainUnitPacketBytes panel;
+	MainUnitToPanelPacketBytes display;
 };
 
 #endif /* CONTROLLER_H_ */

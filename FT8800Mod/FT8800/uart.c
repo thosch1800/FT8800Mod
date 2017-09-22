@@ -40,7 +40,7 @@ LICENSE:
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include "uart.h"
-
+#include "timer.h"
 
 /*
  *  constants and macros
@@ -399,6 +399,9 @@ Purpose:  called when the UART has received a character
         UART_RxBuf[tmphead] = data;
     }
     UART_LastRxError |= lastRxError;   
+
+	// start timer
+	RestartTimer0();
 }
 
 
@@ -586,7 +589,6 @@ Purpose:  called when the UART1 has received a character
     unsigned char usr;
     unsigned char lastRxError;
  
- 
     /* read UART status register and UART data register */ 
     usr  = UART1_STATUS;
     data = UART1_DATA;
@@ -607,6 +609,9 @@ Purpose:  called when the UART1 has received a character
         UART1_RxBuf[tmphead] = data;
     }
     UART1_LastRxError |= lastRxError;   
+
+	// start timer
+	RestartTimer2();
 }
 
 

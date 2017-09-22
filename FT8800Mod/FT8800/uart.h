@@ -46,7 +46,6 @@ LICENSE:
  *  @copyright (C) 2015 Peter Fleury, GNU General Public License Version 3
  */
  
-
 #include <avr/pgmspace.h>
 
 #if (__GNUC__ * 100 + __GNUC_MINOR__) < 405
