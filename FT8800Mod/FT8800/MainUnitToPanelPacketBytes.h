@@ -6,7 +6,7 @@
 // http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=3
 
 //#pragma pack(1) // commented to supress warning
-struct MainUnitToPanelPacketBytes
+typedef struct 
 {
 	// 01    80    ???
 	uint8_t Unknown0180 : 1;
@@ -1133,7 +1133,7 @@ struct MainUnitToPanelPacketBytes
 	
 	// 42    01    Kanal links Stelle 1 Balken F
 	uint8_t ChannelLeftPlace1BarF : 1;
-};
+} MainUnitToPanelPacketBytes;
 
 enum BacklightValue
 {

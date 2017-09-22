@@ -2,6 +2,8 @@
 #include "Controller.h"
 extern "C"
 {
+	#include "MainUnitToPanelPacketBytes.h"
+	#include "PanelToMainUnitPacketBytes.h"
 	#include "callbacks.h"
 	#include "timer.h"
 	#include "uart.h"

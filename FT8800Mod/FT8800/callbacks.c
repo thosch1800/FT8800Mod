@@ -1,5 +1,7 @@
 #include "callbacks.h"
 #include "uart.h"
+#include "MainUnitToPanelPacketBytes.h"
+#include "PanelToMainUnitPacketBytes.h"
 
 void OnByteReceived0()
 {
@@ -13,12 +15,28 @@ void OnByteReceived1()
 
 void OnFrameReceived0()
 {
-	Reset(&buffer0);
+	if(buffer0.Index >= 0)
+	{
+		if(buffer0.Index == sizeof(MainUnitToPanelPacketBytes))
+		{
+			//TODO: update controller data
+		}
+
+		Reset(&buffer0);
+	}
 }
 
 void OnFrameReceived1()
 {
-	Reset(&buffer1);
+	if(buffer1.Index >= 0)
+	{
+		if(buffer0.Index == sizeof(PanelToMainUnitPacketBytes))
+		{
+			//TODO: update controller data
+		}
+		
+		Reset(&buffer1);
+	}
 }
 
 void Reset(Buffer* buffer)

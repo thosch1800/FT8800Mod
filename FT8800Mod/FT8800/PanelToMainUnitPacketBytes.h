@@ -6,7 +6,7 @@
 // http://www.dg1sfj.de/index.php/funk/geraete/88-yaesu-ft-8800?showall=&start=2
 
 //#pragma pack(1) // commented to supress warning
-struct PanelToMainUnitPacketBytes
+typedef struct
 {
 	//Linker Wahlknopf drehen: Byte 1 normal auf 80, bei Linksdrehung auf FF, bei Rechtsdrehung auf 81
 	union
@@ -136,6 +136,6 @@ struct PanelToMainUnitPacketBytes
 
 	//UP-Taste am Mikro: Byte 6 auf 1D und Byte 9 auf 06
 	//DOWN-Taste am Mikro: Byte 6 auf 34 und Byte 9 auf 06
-};
+} PanelToMainUnitPacketBytes;
 
 #endif /* PANELTOMAINUNITPACKETBYTES_H_ */
