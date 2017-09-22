@@ -3,6 +3,9 @@
 #include "MainUnitToPanelPacketBytes.h"
 #include "PanelToMainUnitPacketBytes.h"
 
+extern PanelToMainUnitPacketBytes panel;
+extern MainUnitToPanelPacketBytes display;
+
 void OnByteReceived0()
 {
     TakeLock(&buffer0);
@@ -27,11 +30,10 @@ void OnFrameReceived0()
     {
         TakeLock(&buffer0);
 
-        asm("NOP"); // {buffer0.Data[0]} {buffer0.Data[1]} {buffer0.Data[2]} {buffer0.Data[3]} {buffer0.Data[4]} {buffer0.Data[5]} {buffer0.Data[6]} {buffer0.Data[7]} {buffer0.Data[8]} {buffer0.Data[9]} {buffer0.Data[10]} {buffer0.Data[11]} {buffer0.Data[12]} {buffer0.Data[13]}
-
-        //TODO: update controller data
+        memcpy_P(&panel, buffer0.Data, sizeof(PanelToMainUnitPacketBytes));
 
         Reset(&buffer0);
+
         ReleaseLock(&buffer0);
     }
 }
@@ -42,9 +44,7 @@ void OnFrameReceived1()
     {
         TakeLock(&buffer1);
 
-        asm("NOP");
-
-        //TODO: update controller data
+        memcpy_P(&display, buffer1.Data, sizeof(MainUnitToPanelPacketBytes));
 
         Reset(&buffer1);
 
@@ -52,7 +52,7 @@ void OnFrameReceived1()
     }
 }
 
-void Reset(Buffer* buffer)
+inline void Reset(Buffer* buffer)
 {
     for(uint8_t i = 0; i < sizeof(buffer->Data); ++i)
     {
@@ -62,17 +62,17 @@ void Reset(Buffer* buffer)
     buffer->Index = 0;
 }
 
-void TakeLock(Buffer* buffer)
+inline void TakeLock(Buffer* buffer)
 {
-    while(buffer->Lock > 0)
-    {
-        asm("NOP");
-    }
+    //while(buffer->Lock > 0)
+    //{
+    //asm("NOP");
+    //}
 
-    buffer->Lock = 1;
+    //buffer->Lock = 1;
 }
 
-void ReleaseLock(Buffer* buffer)
+inline void ReleaseLock(Buffer* buffer)
 {
-    buffer->Lock = 0;
+    //buffer->Lock = 0;
 }
