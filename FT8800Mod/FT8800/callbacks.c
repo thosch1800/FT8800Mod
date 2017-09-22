@@ -7,17 +7,17 @@
 extern PanelToMainUnitPacketBytes panel;
 extern MainUnitToPanelPacketBytes display;
 
-void OnByteReceived0()
+inline void OnByteReceived0()
 {
     buffer0.Data[buffer0.Index++] = uart_getc();
 }
 
-void OnByteReceived1()
+inline void OnByteReceived1()
 {
     buffer1.Data[buffer1.Index++] = uart1_getc();
 }
 
-void OnFrameReceived0()
+inline void OnFrameReceived0()
 {
     if(buffer0.Index >= sizeof(PanelToMainUnitPacketBytes))
     {
@@ -27,7 +27,7 @@ void OnFrameReceived0()
     }
 }
 
-void OnFrameReceived1()
+inline void OnFrameReceived1()
 {
     if(buffer1.Index >= sizeof(MainUnitToPanelPacketBytes))
     {
