@@ -9,96 +9,48 @@
 typedef struct
 {
     //Linker Wahlknopf drehen: Byte 1 normal auf 80, bei Linksdrehung auf FF, bei Rechtsdrehung auf 81
-    union
-    {
-        uint8_t Byte01;
-        uint8_t DialLeft;
-    };
+    uint8_t DialLeft;
     
     //Rechter Wahlknopf drehen: Byte 2 normal auf 00, bei Linksdrehung auf 7F, bei Rechtsdrehung auf 01
-    union
-    {
-        uint8_t Byte02;
-        uint8_t DialRight;
-    };
+    uint8_t DialRight;
     
     //PTT am Mikro: Byte 3 von 7F auf 1B
-    union
-    {
-        uint8_t Byte03;
-        uint8_t PushToTalk;
-    };
+    uint8_t PushToTalk;
 
     //Squelch rechts: Byte 4 offen 7F, geschlossen 00
-    union
-    {
-        uint8_t Byte04;
-        uint8_t SquelchRight;
-    };
+    uint8_t SquelchRight;
 
     //Lautstärke rechts: Byte 5 leise 00, laut 7F
-    union
-    {
-        uint8_t Byte05;
-        uint8_t VolumeRight;
-    };
+    uint8_t VolumeRight;
 
-    union
-    {
-        uint8_t Byte06;
-        uint8_t Mic06;
-    };
+    uint8_t Mic06;
 
     //Lautstärke links: Byte 7 leise 00, laut 7F
-    union
-    {
-        uint8_t Byte07;
-        uint8_t VolumeLeft;
-    };
+    uint8_t VolumeLeft;
 
     //Squelch links: Byte 8 offen 7F, geschlossen 00
-    union
-    {
-        uint8_t Byte08;
-        uint8_t SquelchLeft;
-    };
+    uint8_t SquelchLeft;
     
-    union
-    {
-        uint8_t Byte09;
-        uint8_t Mic09;
-    };
+    uint8_t Mic09;
 
     //Low links: Byte 10 von 7F auf 61
     //V/M links: Byte 10 von 7F auf 40
     //HM links : Byte 10 von 7F auf 1F
     //Scn links: Byte 10 von 7F auf 00
-    union
-    {
-        uint8_t Byte10;
-        uint8_t KeysLeft;
-    };
+    uint8_t KeysLeft;
 
     //Low rechts: Byte 11 von 7F auf 00
     //V/M rechts: Byte 11 von 7F auf 1F
     //HM rechts : Byte 11 von 7F auf 40
     //Scn rechts: Byte 11 von 7F auf 61
-    union
-    {
-        uint8_t Byte11;
-        uint8_t KeysRight;
-    };
+    uint8_t KeysRight;
 
     //SET Knopf                  : Byte 12 von 00 auf 04
     //VOL/SQL Taster links       : Byte 12 von 00 auf 08
     //VOL/SQL Taster rechts      : Ein/Ausschalter, nur elektrisch als Signal auf Pin 2
     //Linker Wahlknopf drücken   : Byte 12 von 00 auf 02
     //Rechter Wahlknopf drücken  : Byte 12 von 00 auf 01
-    union
-    {
-        uint8_t Byte12;
-        uint8_t Keys;
-    };
+    uint8_t Keys;
     
     //Hyper Taste 1: Byte 13 auf 01
     //Hyper Taste 2: Byte 13 auf 02
@@ -106,11 +58,7 @@ typedef struct
     //Hyper Taste 4: Byte 13 auf 04
     //Hyper Taste 5: Byte 13 auf 05
     //Hyper Taste 6: Byte 13 auf 06
-    union
-    {
-        uint8_t Byte13;
-        uint8_t Hyper;
-    };
+    uint8_t Hyper;
 
     //1 am Mikro: Byte 6 auf 03 und Byte 9 auf 1B
     //2 am Mikro: Byte 6 auf 03 und Byte 9 auf 32
