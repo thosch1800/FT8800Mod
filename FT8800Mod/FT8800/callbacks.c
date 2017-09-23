@@ -21,18 +21,18 @@ inline void OnByteReceived1()
 
 inline void OnFrameReceived0()
 {
-    if(buffer0.Index < sizeof(panel)) return; // continue collect data
+    if(buffer0.Index < sizeof(panel)) return; // incomplete frame - ignore
 
     if(buffer0.Index == sizeof(panel)) memcpy(&panel, buffer0.Data, sizeof(panel)); // copy frame data
 
-    buffer0.Index = 0; // reset index (no matter if packet received or not!)
+    buffer0.Index = 0; // reset index (no matter if frame received or not!)
 }
 
 inline void OnFrameReceived1()
 {
-    if(buffer1.Index < sizeof(display)) return; // continue collect data
+    if(buffer1.Index < sizeof(display)) return; // incomplete frame - ignore
 
     if(buffer1.Index == sizeof(display)) memcpy(&display, buffer1.Data, sizeof(display)); // copy frame data
 
-    buffer1.Index = 0; // reset index (no matter if packet received or not!)
+    buffer1.Index = 0; // reset index (no matter if frame received or not!)
 }
