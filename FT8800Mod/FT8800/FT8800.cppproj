@@ -142,6 +142,7 @@
     <ListValues>
       <Value>F_CPU=14745600UL</Value>
       <Value>DEBUG</Value>
+      <Value>MEASURE_TIMINGS___</Value>
     </ListValues>
   </avrgcc.compiler.symbols.DefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
@@ -160,6 +161,7 @@
     <ListValues>
       <Value>F_CPU=14745600UL</Value>
       <Value>DEBUG</Value>
+      <Value>MEASURE_TIMINGS___</Value>
     </ListValues>
   </avrgcccpp.compiler.symbols.DefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
