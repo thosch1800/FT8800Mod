@@ -15,6 +15,18 @@ extern "C"
 PanelToMainUnitPacketBytes panel;
 MainUnitToPanelPacketBytes display;
 
+/*  changes made to uart.h/uart.c
+
+    uart.h: 
+    increased buffer size
+    #define UART_TX_BUFFER_SIZE 128
+
+    uart.c:
+    added callbacks to ISRs
+    ISR (UART0_RECEIVE_INTERRUPT) => RestartTimer0();
+    ISR (UART1_RECEIVE_INTERRUPT) => RestartTimer1();
+*/
+
 int main()
 {
     #ifdef MEASURE_TIMINGS
