@@ -12,12 +12,7 @@ typedef struct
 Buffer buffer0;
 Buffer buffer1;
 
-void OnByteReceived0();
-void OnByteReceived1();
-
 void OnFrameReceived0();
 void OnFrameReceived1();
-
-void Reset(Buffer* buffer);
 
 #endif /* CALLBACKS_H_ */

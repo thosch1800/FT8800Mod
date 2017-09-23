@@ -4,35 +4,53 @@
 #include "PanelToMainUnitPacketBytes.h"
 #include <string.h>
 
+#ifdef MEASURE_TIMINGS
+#include <avr/io.h>
+#endif
+
 extern PanelToMainUnitPacketBytes panel;
 extern MainUnitToPanelPacketBytes display;
 
 //NOTE: all callbacks run in context of ISRs, see timer.c for more detailed information
 
-inline void OnByteReceived0()
-{
-    buffer0.Data[buffer0.Index++] = uart_getc();
-}
-
-inline void OnByteReceived1()
-{
-    buffer1.Data[buffer1.Index++] = uart1_getc();
-}
-
 inline void OnFrameReceived0()
 {
-    if(buffer0.Index < sizeof(panel)) return; // incomplete frame - ignore
+    buffer0.Index = 0;
 
-    if(buffer0.Index == sizeof(panel)) memcpy(&panel, buffer0.Data, sizeof(panel)); // copy frame data
+    unsigned int readValue = 0;
+    while(1)
+    {   // read existing
+        readValue = uart_getc();
+        if( readValue == UART_NO_DATA) { break; }
+        buffer0.Data[buffer0.Index++] = readValue;
+    }
 
-    buffer0.Index = 0; // reset index (no matter if frame received or not!)
+    if(buffer0.Index < sizeof(panel)) { return; } // not enough data
+
+    memcpy(&panel, buffer0.Data, sizeof(panel));
+
+    #ifdef MEASURE_TIMINGS
+    PORTA ^= (1 << PINA4);
+    #endif
 }
 
 inline void OnFrameReceived1()
 {
-    if(buffer1.Index < sizeof(display)) return; // incomplete frame - ignore
+    buffer1.Index = 0;
 
-    if(buffer1.Index == sizeof(display)) memcpy(&display, buffer1.Data, sizeof(display)); // copy frame data
+    unsigned int readValue = 0;
+    while(1)
+    {   // read existing
+        readValue = uart1_getc();
+        if( readValue == UART_NO_DATA) { break; }
+        buffer1.Data[buffer1.Index++] = readValue;
+    }
 
-    buffer1.Index = 0; // reset index (no matter if frame received or not!)
+    if(buffer1.Index < sizeof(display)) { return; } // not enough data
+
+    memcpy(&display, buffer1.Data, sizeof(display));
+
+    #ifdef MEASURE_TIMINGS
+    PORTA ^= (1 << PINA5);
+    #endif
 }
