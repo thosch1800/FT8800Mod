@@ -183,10 +183,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyLeftPlace1BarG,
             pDisplay->FrequencyLeftPlace1BarM,
             pDisplay->FrequencyLeftPlace1BarH,
-            pDisplay->FrequencyLeftPlace1BarJ,
+            pDisplay->FrequencyLeftPlace1BarJP,
             pDisplay->FrequencyLeftPlace1BarK,
             pDisplay->FrequencyLeftPlace1BarQ,
-            pDisplay->FrequencyLeftPlace1BarP,
+            pDisplay->FrequencyLeftPlace1BarJP,
             pDisplay->FrequencyLeftPlace1BarN) :
             Segment(
             pDisplay->FrequencyRightPlace1BarA,
@@ -198,10 +198,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyRightPlace1BarG,
             pDisplay->FrequencyRightPlace1BarM,
             pDisplay->FrequencyRightPlace1BarH,
-            pDisplay->FrequencyRightPlace1BarJ,
+            pDisplay->FrequencyRightPlace1BarJP,
             pDisplay->FrequencyRightPlace1BarK,
             pDisplay->FrequencyRightPlace1BarQ,
-            pDisplay->FrequencyRightPlace1BarP,
+            pDisplay->FrequencyRightPlace1BarJP,
             pDisplay->FrequencyRightPlace1BarN);
             
             case 2: return left ?
@@ -215,10 +215,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyLeftPlace2BarG,
             pDisplay->FrequencyLeftPlace2BarM,
             pDisplay->FrequencyLeftPlace2BarH,
-            pDisplay->FrequencyLeftPlace2BarJ,
+            pDisplay->FrequencyLeftPlace2BarJP,
             pDisplay->FrequencyLeftPlace2BarK,
             pDisplay->FrequencyLeftPlace2BarQ,
-            pDisplay->FrequencyLeftPlace2BarP,
+            pDisplay->FrequencyLeftPlace2BarJP,
             pDisplay->FrequencyLeftPlace2BarN) :
             Segment(
             pDisplay->FrequencyRightPlace2BarA,
@@ -230,10 +230,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyRightPlace2BarG,
             pDisplay->FrequencyRightPlace2BarM,
             pDisplay->FrequencyRightPlace2BarH,
-            pDisplay->FrequencyRightPlace2BarJ,
+            pDisplay->FrequencyRightPlace2BarJP,
             pDisplay->FrequencyRightPlace2BarK,
             pDisplay->FrequencyRightPlace2BarQ,
-            pDisplay->FrequencyRightPlace2BarP,
+            pDisplay->FrequencyRightPlace2BarJP,
             pDisplay->FrequencyRightPlace2BarN);
 
             case 3: return left ?
@@ -247,10 +247,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyLeftPlace3BarG,
             pDisplay->FrequencyLeftPlace3BarM,
             pDisplay->FrequencyLeftPlace3BarH,
-            pDisplay->FrequencyLeftPlace3BarJ,
+            pDisplay->FrequencyLeftPlace3BarJP,
             pDisplay->FrequencyLeftPlace3BarK,
             pDisplay->FrequencyLeftPlace3BarQ,
-            pDisplay->FrequencyLeftPlace3BarP,
+            pDisplay->FrequencyLeftPlace3BarJP,
             pDisplay->FrequencyLeftPlace3BarN) :
             Segment(
             pDisplay->FrequencyRightPlace3BarA,
@@ -262,10 +262,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyRightPlace3BarG,
             pDisplay->FrequencyRightPlace3BarM,
             pDisplay->FrequencyRightPlace3BarH,
-            pDisplay->FrequencyRightPlace3BarJ,
+            pDisplay->FrequencyRightPlace3BarJP,
             pDisplay->FrequencyRightPlace3BarK,
             pDisplay->FrequencyRightPlace3BarQ,
-            pDisplay->FrequencyRightPlace3BarP,
+            pDisplay->FrequencyRightPlace3BarJP,
             pDisplay->FrequencyRightPlace3BarN);
             
             case 4: return left ?
@@ -279,10 +279,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyLeftPlace4BarG,
             pDisplay->FrequencyLeftPlace4BarM,
             pDisplay->FrequencyLeftPlace4BarH,
-            pDisplay->FrequencyLeftPlace4BarJ,
+            pDisplay->FrequencyLeftPlace4BarJP,
             pDisplay->FrequencyLeftPlace4BarK,
             pDisplay->FrequencyLeftPlace4BarQ,
-            pDisplay->FrequencyLeftPlace4BarP,
+            pDisplay->FrequencyLeftPlace4BarJP,
             pDisplay->FrequencyLeftPlace4BarN) :
             Segment(
             pDisplay->FrequencyRightPlace4BarA,
@@ -294,10 +294,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyRightPlace4BarG,
             pDisplay->FrequencyRightPlace4BarM,
             pDisplay->FrequencyRightPlace4BarH,
-            pDisplay->FrequencyRightPlace4BarJ,
+            pDisplay->FrequencyRightPlace4BarJP,
             pDisplay->FrequencyRightPlace4BarK,
             pDisplay->FrequencyRightPlace4BarQ,
-            pDisplay->FrequencyRightPlace4BarP,
+            pDisplay->FrequencyRightPlace4BarJP,
             pDisplay->FrequencyRightPlace4BarN);
             
             case 5: return left ?
@@ -311,10 +311,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyLeftPlace5BarG,
             pDisplay->FrequencyLeftPlace5BarM,
             pDisplay->FrequencyLeftPlace5BarH,
-            pDisplay->FrequencyLeftPlace5BarJ,
+            pDisplay->FrequencyLeftPlace5BarJP,
             pDisplay->FrequencyLeftPlace5BarK,
             pDisplay->FrequencyLeftPlace5BarQ,
-            pDisplay->FrequencyLeftPlace5BarP,
+            pDisplay->FrequencyLeftPlace5BarJP,
             pDisplay->FrequencyLeftPlace5BarN) :
             Segment(
             pDisplay->FrequencyRightPlace5BarA,
@@ -326,10 +326,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyRightPlace5BarG,
             pDisplay->FrequencyRightPlace5BarM,
             pDisplay->FrequencyRightPlace5BarH,
-            pDisplay->FrequencyRightPlace5BarJ,
+            pDisplay->FrequencyRightPlace5BarJP,
             pDisplay->FrequencyRightPlace5BarK,
             pDisplay->FrequencyRightPlace5BarQ,
-            pDisplay->FrequencyRightPlace5BarP,
+            pDisplay->FrequencyRightPlace5BarJP,
             pDisplay->FrequencyRightPlace5BarN);
 
             case 6: return left ?
@@ -343,10 +343,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyLeftPlace6BarG,
             pDisplay->FrequencyLeftPlace6BarM,
             pDisplay->FrequencyLeftPlace6BarH,
-            pDisplay->FrequencyLeftPlace6BarJ,
+            pDisplay->FrequencyLeftPlace6BarJP,
             pDisplay->FrequencyLeftPlace6BarK,
             pDisplay->FrequencyLeftPlace6BarQ,
-            pDisplay->FrequencyLeftPlace6BarP,
+            pDisplay->FrequencyLeftPlace6BarJP,
             pDisplay->FrequencyLeftPlace6BarN) :
             Segment(
             pDisplay->FrequencyRightPlace6BarA,
@@ -358,10 +358,10 @@ char Controller::Segment(uint8_t place, bool left, bool channelMode)
             pDisplay->FrequencyRightPlace6BarG,
             pDisplay->FrequencyRightPlace6BarM,
             pDisplay->FrequencyRightPlace6BarH,
-            pDisplay->FrequencyRightPlace6BarJ,
+            pDisplay->FrequencyRightPlace6BarJP,
             pDisplay->FrequencyRightPlace6BarK,
             pDisplay->FrequencyRightPlace6BarQ,
-            pDisplay->FrequencyRightPlace6BarP,
+            pDisplay->FrequencyRightPlace6BarJP,
             pDisplay->FrequencyRightPlace6BarN);
         }
     }
