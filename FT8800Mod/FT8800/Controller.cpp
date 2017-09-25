@@ -101,10 +101,32 @@ void Controller::Press(Number number)
     }
 }
 
-bool Controller::SelectedVfo(bool left)
+bool Controller::IsVfoMode(bool left)
 {
-    auto selected = left ? pDisplay->MainLeft : pDisplay->MainRight;
-    return selected != 0;
+    char channel = Segment(3, left, true);
+    bool isVfoMode = channel == ' ';
+    return isVfoMode;
+}
+
+bool Controller::IsChannelMode(bool left) { return !IsVfoMode(left); }
+
+bool Controller::IsMain(bool left)
+{
+    bool isSelected = left ? pDisplay->MainLeft : pDisplay->MainRight;
+    return isSelected;
+}
+
+bool Controller::IsInInputMode(bool left)
+{
+    char frequencyCharSix = Segment(6, left);
+    bool isInInputMode = frequencyCharSix == '\n';
+    return isInInputMode;
+}
+
+bool Controller::IsBusy(bool left)
+{
+    bool isBusy = left ? pDisplay->BusyLeft : pDisplay->BusyRight;
+    return isBusy;
 }
 
 char Controller::Segment(uint8_t place, bool left, bool channelMode)
@@ -405,17 +427,6 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G,
     //   E Q P N C    |/ | \|
     //    DDDDDDDD     -----
     
-    if(!A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '1';
-    if( A &&  B && !C &&  D &&  E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '2';
-    if( A &&  B &&  C &&  D && !E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '3';
-    if(!A &&  B &&  C && !D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '4';
-    if( A && !B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '5';
-    if( A && !B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '6';
-    if( A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '7';
-    if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '8';
-    if( A &&  B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '9';
-    if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return '0';
-
     if( A &&  B &&  C && !D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return 'A';
     if( A &&  B &&  C &&  D && !E && !F && !G &&  M && !H &&  J && !K && !Q &&  P && !N) return 'B';
     if( A && !B && !C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'C';
@@ -451,13 +462,33 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G,
     //   E Q P N C    |/ | \|
     //    DDDDDDDD     -----
     
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '.';
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return ',';
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '+';
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '-';
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '*';
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '/';
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return ':';
+    if(!A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '1';
+    if( A &&  B && !C &&  D &&  E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '2';
+    if( A &&  B &&  C &&  D && !E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '3';
+    if(!A &&  B &&  C && !D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '4';
+    if( A && !B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '5';
+    if( A && !B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '6';
+    if( A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '7';
+    if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '8';
+    if( A &&  B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '9';
+    if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return '0';
+
+    if(!A && !B && !C && !D && !E && !F &&  G &&  M && !H &&  J && !K && !Q &&  P && !N) return '+';
+    if(!A && !B && !C && !D && !E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '-';
+    if(!A && !B && !C && !D && !E && !F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return '*';
+    if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return '/';
+    if(!A && !B && !C && !D && !E && !F && !G && !M &&  H && !J && !K &&  Q && !P && !N) return '>';
+    if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J &&  K && !Q && !P &&  N) return '<';
+    if(!A && !B && !C && !D && !E && !F && !G && !M && !H &&  J && !K && !Q &&  P && !N) return ':';
+    if(!A && !B && !C &&  D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '_';
+    if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J &&  K && !Q && !P && !N) return '´';
+    if( A &&  B &&  C &&  D &&  E && !F &&  G && !M && !H && !J && !K && !Q && !P &&  N) return '@';
+    if( A && !B && !C &&  D &&  E && !F &&  G && !M &&  H && !J &&  K && !Q && !P &&  N) return '&';
+    if( A && !B &&  C &&  D && !E &&  F &&  G &&  M && !H &&  J && !K && !Q &&  P && !N) return '$';
+
+    if(!A && !B && !C && !D && !E && !F &&  G && !M && !H && !J && !K && !Q && !P && !N) return '\n';
+
+    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '';
 
     return ' ';
 }

@@ -21,10 +21,14 @@ class Controller
     void Press(Key key, bool left = true);
     void Press(Number number);
     
-    bool SelectedVfo(bool left);
-    char Segment(uint8_t place, bool left, bool channelMode = false);
+    bool IsVfoMode(bool left);
+    bool IsChannelMode(bool left);
+    bool IsMain(bool left);
+    bool IsInInputMode(bool left);
+    bool IsBusy(bool left);
 
     private:
+    char Segment(uint8_t place, bool left, bool channelMode = false);
     char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G);
     char Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N);
     
