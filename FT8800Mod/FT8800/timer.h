@@ -3,7 +3,7 @@
 
 void InitializeTimer();
 
-void RestartTimer0();
-void RestartTimer2();
+void OnByteReceivedUart0();
+void OnByteReceivedUart1();
 
 #endif /* TIMER_H_ */

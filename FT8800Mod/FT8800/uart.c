@@ -400,8 +400,7 @@ Purpose:  called when the UART has received a character
     }
     UART_LastRxError |= lastRxError;
 
-    // start timer
-    RestartTimer0();
+    OnByteReceivedUart0();
 }
 
 
@@ -610,8 +609,7 @@ void uart_init(unsigned int baudrate)
                         }
                         UART1_LastRxError |= lastRxError;
 
-                        // start timer
-                        RestartTimer2();
+                        OnByteReceivedUart1();
                     }
 
 
