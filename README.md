@@ -10,4 +10,6 @@ Main2Panel http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=3
 Panel2Main http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=2
 
 Current activity:
-- Today (2017/09/23) the first packets were received. 
+- Today (2017/09/23) the first packets were successfully received:
+![img_20170923_171857_584](https://user-images.githubusercontent.com/30317420/30795108-322c3ce0-a1cc-11e7-9dea-8a86e293e2a6.jpg)
+The picture shows the left S-Meter (1-9) at the STK600 LED bar (1-8).
