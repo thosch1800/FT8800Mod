@@ -111,8 +111,23 @@ bool Controller::IsVfoMode(bool left)
 bool Controller::IsChannelMode(bool left) { return !IsVfoMode(left); }
 
 bool Controller::IsMain(bool left)
-{
-    bool isSelected = left ? pDisplay->MainLeft : pDisplay->MainRight;
+{   //NOTE: the 'main' label is blinking after VFO change - therefore we save the last known state.
+
+    bool isSelectedLeft = pDisplay->MainLeft;
+    bool isSelectedRight = pDisplay->MainRight;
+
+    if(!(isSelectedLeft || isSelectedRight))
+    {   // use last known activity
+        isSelectedLeft = mainLastKnownActivityLeft;
+        isSelectedRight = mainLastKnownActivityRight;
+    }
+    else
+    {   // update last known activity
+        mainLastKnownActivityLeft = isSelectedLeft;
+        mainLastKnownActivityRight = isSelectedRight;
+    }
+
+    bool isSelected = left ? isSelectedLeft : isSelectedRight;
     return isSelected != 0;
 }
 

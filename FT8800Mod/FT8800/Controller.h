@@ -34,6 +34,8 @@ class Controller
     
     PanelToMainUnitPacketBytes* pPanel;
     MainUnitToPanelPacketBytes* pDisplay;
+    bool mainLastKnownActivityLeft = false;
+    bool mainLastKnownActivityRight = false;
 };
 
 #endif /* CONTROLLER_H_ */
