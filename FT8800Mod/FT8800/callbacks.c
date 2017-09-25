@@ -51,6 +51,6 @@ inline void OnFrameReceived1()
     memcpy(&display, buffer1.Data, sizeof(display));
 
     #ifdef MEASURE_TIMINGS
-    PORTA ^= (1 << PINA5);
+    PORTA ^= (1 << PINA6);
     #endif
 }
