@@ -1,13 +1,15 @@
 #include "timer.h"
 #include "callbacks.h"
 #include <avr/interrupt.h>
-
-#ifdef MEASURE_TIMINGS
 #include <avr/io.h>
-#endif
 
 void InitializeTimer()
 {
+    #ifdef MEASURE_TIMINGS
+    DDRA = 0xFF; // use port A as output
+    PORTA = 0xFF; // reset all pins
+    #endif
+
     TIMSK |= (1 << TOIE2); // enable timer 2 interrupt
     TIMSK |= (1 << TOIE0); // enable timer 0 interrupt
 }

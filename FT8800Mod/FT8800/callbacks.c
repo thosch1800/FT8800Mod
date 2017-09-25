@@ -3,10 +3,7 @@
 #include "MainUnitToPanelPacketBytes.h"
 #include "PanelToMainUnitPacketBytes.h"
 #include <string.h>
-
-#ifdef MEASURE_TIMINGS
 #include <avr/io.h>
-#endif
 
 extern PanelToMainUnitPacketBytes panel;
 extern MainUnitToPanelPacketBytes display;
