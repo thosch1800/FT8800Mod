@@ -226,10 +226,10 @@
     <Compile Include="uart.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="uartUtils.c">
+    <Compile Include="utilities.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="uartUtils.h">
+    <Compile Include="utilities.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

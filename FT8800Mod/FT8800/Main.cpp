@@ -9,7 +9,7 @@ extern "C"
     #include "callbacks.h"
     #include "timer.h"
     #include "uart.h"
-    #include "uartUtils.h"
+    #include "utilities.h"
 }
 
 PanelToMainUnitPacketBytes panel;
@@ -17,35 +17,28 @@ MainUnitToPanelPacketBytes display;
 
 int main()
 {
-    #ifdef MEASURE_TIMINGS
-    DDRA = 0xFF; // use port A as output
-    PORTA = 0xFF; // reset all pins
-    #endif
-
     Controller controller;
     controller.SetMainUnitToPanelPacket(&display);
     controller.SetPanelToMainUnitPacket(&panel);
 
     InitializeTimer();
     InitializeUart();
+
     sei();
 
     DDRA = 0xFF; // use port A as output
-    PORTA = 0xFF; // reset all pins
+    PORTA = 0x0; // reset all pins
 
     while(true)
     {
-        PORTA =
-        ~(
-        display.SignalLeftBar1 << PINA0 |
-        display.SignalLeftBar2 << PINA1 |
-        display.SignalLeftBar3 << PINA2 |
-        display.SignalLeftBar4 << PINA3 |
-        display.SignalLeftBar5 << PINA4 |
-        display.SignalLeftBar6 << PINA5 |
-        display.SignalLeftBar7 << PINA6 |
-        display.SignalLeftBar8 << PINA7
-        );
+        SetPortAPin(PINA0, controller.IsMain(true));
+        SetPortAPin(PINA1, controller.IsMain(false));
+        SetPortAPin(PINA2, controller.IsBusy(true));
+        SetPortAPin(PINA3, controller.IsBusy(false));
+        SetPortAPin(PINA4, controller.IsVfoMode(true));
+        SetPortAPin(PINA5, controller.IsVfoMode(false));
+        SetPortAPin(PINA6, controller.IsInInputMode(true));
+        SetPortAPin(PINA7, controller.IsInInputMode(false));
     }
 
     while(true) { }

@@ -113,20 +113,20 @@ bool Controller::IsChannelMode(bool left) { return !IsVfoMode(left); }
 bool Controller::IsMain(bool left)
 {
     bool isSelected = left ? pDisplay->MainLeft : pDisplay->MainRight;
-    return isSelected;
+    return isSelected != 0;
 }
 
 bool Controller::IsInInputMode(bool left)
 {
     char frequencyCharSix = Segment(6, left);
     bool isInInputMode = frequencyCharSix == '\n';
-    return isInInputMode;
+    return isInInputMode != 0;
 }
 
 bool Controller::IsBusy(bool left)
 {
     bool isBusy = left ? pDisplay->BusyLeft : pDisplay->BusyRight;
-    return isBusy;
+    return isBusy != 0;
 }
 
 char Controller::Segment(uint8_t place, bool left, bool channelMode)
