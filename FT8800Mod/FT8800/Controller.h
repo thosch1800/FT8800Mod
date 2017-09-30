@@ -12,8 +12,7 @@ enum class Number { Num0, Num1, Num2, Num3, Num4, Num5, Num6, Num7, Num8, Num9, 
 class Controller
 {
     public:
-    void SetPanelToMainUnitPacket(PanelToMainUnitPacketBytes* pPacket);
-    void SetMainUnitToPanelPacket(MainUnitToPanelPacketBytes* pPacket);
+    Controller(PanelToMainUnitPacketBytes* pPanelPacket, MainUnitToPanelPacketBytes* pDisplayPacket);
 
     void Squelch(uint8_t value, bool left);
     void Volume(uint8_t value, bool left);

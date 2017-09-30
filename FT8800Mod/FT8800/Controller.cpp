@@ -1,13 +1,9 @@
 #include "Controller.h"
 
-void Controller::SetPanelToMainUnitPacket(PanelToMainUnitPacketBytes* pPacket)
+Controller::Controller(PanelToMainUnitPacketBytes* pPanelPacket, MainUnitToPanelPacketBytes* pDisplayPacket)
 {
-    pPanel = pPacket;
-}
-
-void Controller::SetMainUnitToPanelPacket(MainUnitToPanelPacketBytes* pPacket)
-{
-    pDisplay = pPacket;
+    pPanel = pPanelPacket;
+    pDisplay = pDisplayPacket;
 }
 
 void Controller::Squelch(uint8_t value, bool left)
