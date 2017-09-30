@@ -4,44 +4,55 @@
 
 extern "C"
 {
+    #include "state.h"
     #include "MainUnitToPanelPacketBytes.h"
     #include "PanelToMainUnitPacketBytes.h"
     #include "callbacks.h"
     #include "timer.h"
     #include "uart.h"
     #include "utilities.h"
+    #include "mux.h"
 }
 
+State panelState;
 PanelToMainUnitPacketBytes panel;
+uint8_t* pPanel = (uint8_t*)&panel;
+
+State displayState;
 MainUnitToPanelPacketBytes display;
+uint8_t* pDisplay = (uint8_t*)&display;
 
 int main()
 {
-    Controller controller;
-    controller.SetMainUnitToPanelPacket(&display);
-    controller.SetPanelToMainUnitPacket(&panel);
-
+    Controller controller(&panel, &display);
     InitializeTimer();
     InitializeUart();
+    InitializeMux();
 
     sei();
 
-    DDRA = 0xFF; // use port A as output
-    PORTA = 0x0; // reset all pins
+    panelState = ReadyToReceive;
+    displayState = ReadyToReceive;
 
     while(true)
     {
-        SetPortAPin(PINA0, controller.IsMain(true));
-        SetPortAPin(PINA1, controller.IsMain(false));
-        SetPortAPin(PINA2, controller.IsBusy(true));
-        SetPortAPin(PINA3, controller.IsBusy(false));
-        SetPortAPin(PINA4, controller.IsVfoMode(true));
-        SetPortAPin(PINA5, controller.IsVfoMode(false));
-        SetPortAPin(PINA6, controller.IsInInputMode(true));
-        SetPortAPin(PINA7, controller.IsInInputMode(false));
+        if(panelState == Received)
+        {
+            //TODO: add logic here
+
+            for(uint8_t i = 0; i < sizeof(panel); ++i) uart_putc(pPanel[i]);
+            panelState = ReadyToReceive;
+        }
+        
+        if(displayState == Received)
+        {
+            //TODO: add logic here
+
+            for(uint8_t i = 0; i < sizeof(display); ++i) uart1_putc(pDisplay[i]);
+            displayState = ReadyToReceive;
+        }
     }
 
-    while(true) { }
     return 0;
 }
 

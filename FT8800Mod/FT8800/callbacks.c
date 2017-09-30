@@ -1,12 +1,17 @@
+#include <stdint-gcc.h>
+#include <string.h>
+#include <avr/io.h>
 #include "callbacks.h"
 #include "uart.h"
 #include "MainUnitToPanelPacketBytes.h"
 #include "PanelToMainUnitPacketBytes.h"
-#include <string.h>
-#include <avr/io.h>
+#include "mux.h"
+#include "state.h"
 
 extern PanelToMainUnitPacketBytes panel;
 extern MainUnitToPanelPacketBytes display;
+extern enum State panelState;
+extern enum State displayState;
 
 //NOTE: all callbacks run in context of ISRs, see timer.c for more detailed information
 
@@ -24,7 +29,12 @@ inline void OnFrameReceived0()
 
     if(buffer0.Index < sizeof(panel)) { return; } // not enough data
 
-    memcpy(&panel, buffer0.Data, sizeof(panel));
+    if(panelState == ReadyToReceive)
+    {
+        SetMuxBit0(1);
+        memcpy(&panel, buffer0.Data, sizeof(panel));
+        panelState = Received;
+    }
 
     #ifdef MEASURE_TIMINGS
     PORTA ^= (1 << PINA4);
@@ -45,7 +55,12 @@ inline void OnFrameReceived1()
 
     if(buffer1.Index < sizeof(display)) { return; } // not enough data
 
-    memcpy(&display, buffer1.Data, sizeof(display));
+    if(displayState == ReadyToReceive)
+    {
+        SetMuxBit1(1);
+        memcpy(&display, buffer1.Data, sizeof(display));
+        displayState = Received;
+    }
 
     #ifdef MEASURE_TIMINGS
     PORTA ^= (1 << PINA6);
