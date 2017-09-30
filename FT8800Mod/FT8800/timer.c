@@ -6,7 +6,7 @@
 void InitializeTimer()
 {
     #ifdef MEASURE_TIMINGS
-    DDRA = 0xFF; // use port A as output
+    DDRA = 1 << DDA6 | 1 << DDA4 | 1 << DDA2 | 1 << DDA0;
     PORTA = 0xFF; // reset all pins
     #endif
 
