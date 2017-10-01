@@ -12,7 +12,7 @@ Panel2Main http://www.dg1sfj.de/funk/geraete/88-yaesu-ft-8800?showall=&start=2
 Current activity:
 - 2017/09/30: During the last days I built a breadboard PCB prototype to play around with the rig. There are two modular jacks to be able to intercept the communication between main unit and panel (and back) and two mini-DIN jacks to get the modems PTT signal. Thanks to the multiplexer (CD4052) I can fully intercept the communication and manipulate the packets. Today I read the displayed values and overrode them. Some commands do not work as expected so there is work left. Next topic: modem PTT detection. 
 ![img_20170930_222655_507](https://user-images.githubusercontent.com/30317420/31059077-df932218-a6fe-11e7-9501-76856c2eafc3.jpg)
-I did not get any modular jacks for soldering so I had to go the MacGyver way...
+I did not get any modular jacks for soldering so I had to go the MacGyver way - OK for a prototype I guess...
 
 - 2017/09/23: the first packets were successfully received:
 ![img_20170923_171857_584](https://user-images.githubusercontent.com/30317420/30795108-322c3ce0-a1cc-11e7-9dea-8a86e293e2a6.jpg)
