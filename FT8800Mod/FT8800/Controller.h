@@ -27,13 +27,14 @@ class Controller
     bool IsBusy(bool left);
 
     private:
-    char GetFrequency(uint8_t place, bool left);
     char GetChannel(uint8_t place, bool left);
-
     char GetSegment(bool A, bool B, bool C, bool D, bool E, bool F, bool G);
-    
-    char GetSegment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N);
-    void SetSegment(char character, bool* A, bool* B, bool* C, bool* D, bool* E, bool* F, bool* G, bool* M, bool* H, bool* J, bool* K, bool* Q, bool* P, bool* N);
+
+    char GetFrequency(uint8_t place, bool left);
+    void SetFrequency(char character, uint8_t place, bool left);
+
+    char GetSegment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool JP, bool K, bool Q, bool N);
+    void SetSegment(char character, bool* A, bool* B, bool* C, bool* D, bool* E, bool* F, bool* G, bool* M, bool* H, bool* JP, bool* K, bool* Q, bool* N);
     
     PanelToMainUnitPacketBytes* pPanel;
     MainUnitToPanelPacketBytes* pDisplay;
