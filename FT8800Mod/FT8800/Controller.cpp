@@ -1,4 +1,5 @@
 #include "Controller.h"
+#include "segment.h"
 
 Controller::Controller(PanelToMainUnitPacketBytes* pPanelPacket, MainUnitToPanelPacketBytes* pDisplayPacket)
 {
@@ -99,7 +100,7 @@ void Controller::Press(Number number)
 
 bool Controller::IsVfoMode(bool left)
 {
-    char channel = Segment(3, left, true);
+    char channel = GetChannel(3, left);
     bool isVfoMode = channel == ' ';
     return isVfoMode;
 }
@@ -129,7 +130,7 @@ bool Controller::IsMain(bool left)
 
 bool Controller::IsInInputMode(bool left)
 {
-    char frequencyCharSix = Segment(6, left);
+    char frequencyCharSix = GetFrequency(6, left);
     bool isInInputMode = frequencyCharSix == '\n';
     return isInInputMode != 0;
 }
@@ -140,269 +141,269 @@ bool Controller::IsBusy(bool left)
     return isBusy != 0;
 }
 
-char Controller::Segment(uint8_t place, bool left, bool channelMode)
+char Controller::GetChannel(uint8_t place, bool left)
 {
-    if(channelMode)
+    switch(place)
     {
-        switch(place)
-        {
-            case 1: return left ?
-            Segment(
-            pDisplay->ChannelLeftPlace1BarA,
-            pDisplay->ChannelLeftPlace1BarB,
-            pDisplay->ChannelLeftPlace1BarC,
-            pDisplay->ChannelLeftPlace1BarD,
-            pDisplay->ChannelLeftPlace1BarE,
-            pDisplay->ChannelLeftPlace1BarF,
-            pDisplay->ChannelLeftPlace1BarG) :
-            Segment(
-            pDisplay->ChannelRightPlace1BarA,
-            pDisplay->ChannelRightPlace1BarB,
-            pDisplay->ChannelRightPlace1BarC,
-            pDisplay->ChannelRightPlace1BarD,
-            pDisplay->ChannelRightPlace1BarE,
-            pDisplay->ChannelRightPlace1BarF,
-            pDisplay->ChannelRightPlace1BarG);
+        case 1: return left ?
+        GetSegment(
+        pDisplay->ChannelLeftPlace1BarA,
+        pDisplay->ChannelLeftPlace1BarB,
+        pDisplay->ChannelLeftPlace1BarC,
+        pDisplay->ChannelLeftPlace1BarD,
+        pDisplay->ChannelLeftPlace1BarE,
+        pDisplay->ChannelLeftPlace1BarF,
+        pDisplay->ChannelLeftPlace1BarG) :
+        GetSegment(
+        pDisplay->ChannelRightPlace1BarA,
+        pDisplay->ChannelRightPlace1BarB,
+        pDisplay->ChannelRightPlace1BarC,
+        pDisplay->ChannelRightPlace1BarD,
+        pDisplay->ChannelRightPlace1BarE,
+        pDisplay->ChannelRightPlace1BarF,
+        pDisplay->ChannelRightPlace1BarG);
 
-            case 2: return left ?
-            Segment(
-            pDisplay->ChannelLeftPlace2BarA,
-            pDisplay->ChannelLeftPlace2BarB,
-            pDisplay->ChannelLeftPlace2BarC,
-            pDisplay->ChannelLeftPlace2BarD,
-            pDisplay->ChannelLeftPlace2BarE,
-            pDisplay->ChannelLeftPlace2BarF,
-            pDisplay->ChannelLeftPlace2BarG) :
-            Segment(
-            pDisplay->ChannelRightPlace2BarA,
-            pDisplay->ChannelRightPlace2BarB,
-            pDisplay->ChannelRightPlace2BarC,
-            pDisplay->ChannelRightPlace2BarD,
-            pDisplay->ChannelRightPlace2BarE,
-            pDisplay->ChannelRightPlace2BarF,
-            pDisplay->ChannelRightPlace2BarG);
+        case 2: return left ?
+        GetSegment(
+        pDisplay->ChannelLeftPlace2BarA,
+        pDisplay->ChannelLeftPlace2BarB,
+        pDisplay->ChannelLeftPlace2BarC,
+        pDisplay->ChannelLeftPlace2BarD,
+        pDisplay->ChannelLeftPlace2BarE,
+        pDisplay->ChannelLeftPlace2BarF,
+        pDisplay->ChannelLeftPlace2BarG) :
+        GetSegment(
+        pDisplay->ChannelRightPlace2BarA,
+        pDisplay->ChannelRightPlace2BarB,
+        pDisplay->ChannelRightPlace2BarC,
+        pDisplay->ChannelRightPlace2BarD,
+        pDisplay->ChannelRightPlace2BarE,
+        pDisplay->ChannelRightPlace2BarF,
+        pDisplay->ChannelRightPlace2BarG);
 
-            case 3: return left ?
-            Segment(
-            pDisplay->ChannelLeftPlace3BarA,
-            pDisplay->ChannelLeftPlace3BarB,
-            pDisplay->ChannelLeftPlace3BarC,
-            pDisplay->ChannelLeftPlace3BarD,
-            pDisplay->ChannelLeftPlace3BarE,
-            pDisplay->ChannelLeftPlace3BarF,
-            pDisplay->ChannelLeftPlace3BarG) :
-            Segment(
-            pDisplay->ChannelRightPlace3BarA,
-            pDisplay->ChannelRightPlace3BarB,
-            pDisplay->ChannelRightPlace3BarC,
-            pDisplay->ChannelRightPlace3BarD,
-            pDisplay->ChannelRightPlace3BarE,
-            pDisplay->ChannelRightPlace3BarF,
-            pDisplay->ChannelRightPlace3BarG);
-        }
+        case 3: return left ?
+        GetSegment(
+        pDisplay->ChannelLeftPlace3BarA,
+        pDisplay->ChannelLeftPlace3BarB,
+        pDisplay->ChannelLeftPlace3BarC,
+        pDisplay->ChannelLeftPlace3BarD,
+        pDisplay->ChannelLeftPlace3BarE,
+        pDisplay->ChannelLeftPlace3BarF,
+        pDisplay->ChannelLeftPlace3BarG) :
+        GetSegment(
+        pDisplay->ChannelRightPlace3BarA,
+        pDisplay->ChannelRightPlace3BarB,
+        pDisplay->ChannelRightPlace3BarC,
+        pDisplay->ChannelRightPlace3BarD,
+        pDisplay->ChannelRightPlace3BarE,
+        pDisplay->ChannelRightPlace3BarF,
+        pDisplay->ChannelRightPlace3BarG);
     }
-    else
-    {
-        switch(place)
-        {
-            case 1: return left ?
-            Segment(
-            pDisplay->FrequencyLeftPlace1BarA,
-            pDisplay->FrequencyLeftPlace1BarB,
-            pDisplay->FrequencyLeftPlace1BarC,
-            pDisplay->FrequencyLeftPlace1BarD,
-            pDisplay->FrequencyLeftPlace1BarE,
-            pDisplay->FrequencyLeftPlace1BarF,
-            pDisplay->FrequencyLeftPlace1BarG,
-            pDisplay->FrequencyLeftPlace1BarM,
-            pDisplay->FrequencyLeftPlace1BarH,
-            pDisplay->FrequencyLeftPlace1BarJP,
-            pDisplay->FrequencyLeftPlace1BarK,
-            pDisplay->FrequencyLeftPlace1BarQ,
-            pDisplay->FrequencyLeftPlace1BarJP,
-            pDisplay->FrequencyLeftPlace1BarN) :
-            Segment(
-            pDisplay->FrequencyRightPlace1BarA,
-            pDisplay->FrequencyRightPlace1BarB,
-            pDisplay->FrequencyRightPlace1BarC,
-            pDisplay->FrequencyRightPlace1BarD,
-            pDisplay->FrequencyRightPlace1BarE,
-            pDisplay->FrequencyRightPlace1BarF,
-            pDisplay->FrequencyRightPlace1BarG,
-            pDisplay->FrequencyRightPlace1BarM,
-            pDisplay->FrequencyRightPlace1BarH,
-            pDisplay->FrequencyRightPlace1BarJP,
-            pDisplay->FrequencyRightPlace1BarK,
-            pDisplay->FrequencyRightPlace1BarQ,
-            pDisplay->FrequencyRightPlace1BarJP,
-            pDisplay->FrequencyRightPlace1BarN);
-            
-            case 2: return left ?
-            Segment(
-            pDisplay->FrequencyLeftPlace2BarA,
-            pDisplay->FrequencyLeftPlace2BarB,
-            pDisplay->FrequencyLeftPlace2BarC,
-            pDisplay->FrequencyLeftPlace2BarD,
-            pDisplay->FrequencyLeftPlace2BarE,
-            pDisplay->FrequencyLeftPlace2BarF,
-            pDisplay->FrequencyLeftPlace2BarG,
-            pDisplay->FrequencyLeftPlace2BarM,
-            pDisplay->FrequencyLeftPlace2BarH,
-            pDisplay->FrequencyLeftPlace2BarJP,
-            pDisplay->FrequencyLeftPlace2BarK,
-            pDisplay->FrequencyLeftPlace2BarQ,
-            pDisplay->FrequencyLeftPlace2BarJP,
-            pDisplay->FrequencyLeftPlace2BarN) :
-            Segment(
-            pDisplay->FrequencyRightPlace2BarA,
-            pDisplay->FrequencyRightPlace2BarB,
-            pDisplay->FrequencyRightPlace2BarC,
-            pDisplay->FrequencyRightPlace2BarD,
-            pDisplay->FrequencyRightPlace2BarE,
-            pDisplay->FrequencyRightPlace2BarF,
-            pDisplay->FrequencyRightPlace2BarG,
-            pDisplay->FrequencyRightPlace2BarM,
-            pDisplay->FrequencyRightPlace2BarH,
-            pDisplay->FrequencyRightPlace2BarJP,
-            pDisplay->FrequencyRightPlace2BarK,
-            pDisplay->FrequencyRightPlace2BarQ,
-            pDisplay->FrequencyRightPlace2BarJP,
-            pDisplay->FrequencyRightPlace2BarN);
 
-            case 3: return left ?
-            Segment(
-            pDisplay->FrequencyLeftPlace3BarA,
-            pDisplay->FrequencyLeftPlace3BarB,
-            pDisplay->FrequencyLeftPlace3BarC,
-            pDisplay->FrequencyLeftPlace3BarD,
-            pDisplay->FrequencyLeftPlace3BarE,
-            pDisplay->FrequencyLeftPlace3BarF,
-            pDisplay->FrequencyLeftPlace3BarG,
-            pDisplay->FrequencyLeftPlace3BarM,
-            pDisplay->FrequencyLeftPlace3BarH,
-            pDisplay->FrequencyLeftPlace3BarJP,
-            pDisplay->FrequencyLeftPlace3BarK,
-            pDisplay->FrequencyLeftPlace3BarQ,
-            pDisplay->FrequencyLeftPlace3BarJP,
-            pDisplay->FrequencyLeftPlace3BarN) :
-            Segment(
-            pDisplay->FrequencyRightPlace3BarA,
-            pDisplay->FrequencyRightPlace3BarB,
-            pDisplay->FrequencyRightPlace3BarC,
-            pDisplay->FrequencyRightPlace3BarD,
-            pDisplay->FrequencyRightPlace3BarE,
-            pDisplay->FrequencyRightPlace3BarF,
-            pDisplay->FrequencyRightPlace3BarG,
-            pDisplay->FrequencyRightPlace3BarM,
-            pDisplay->FrequencyRightPlace3BarH,
-            pDisplay->FrequencyRightPlace3BarJP,
-            pDisplay->FrequencyRightPlace3BarK,
-            pDisplay->FrequencyRightPlace3BarQ,
-            pDisplay->FrequencyRightPlace3BarJP,
-            pDisplay->FrequencyRightPlace3BarN);
-            
-            case 4: return left ?
-            Segment(
-            pDisplay->FrequencyLeftPlace4BarA,
-            pDisplay->FrequencyLeftPlace4BarB,
-            pDisplay->FrequencyLeftPlace4BarC,
-            pDisplay->FrequencyLeftPlace4BarD,
-            pDisplay->FrequencyLeftPlace4BarE,
-            pDisplay->FrequencyLeftPlace4BarF,
-            pDisplay->FrequencyLeftPlace4BarG,
-            pDisplay->FrequencyLeftPlace4BarM,
-            pDisplay->FrequencyLeftPlace4BarH,
-            pDisplay->FrequencyLeftPlace4BarJP,
-            pDisplay->FrequencyLeftPlace4BarK,
-            pDisplay->FrequencyLeftPlace4BarQ,
-            pDisplay->FrequencyLeftPlace4BarJP,
-            pDisplay->FrequencyLeftPlace4BarN) :
-            Segment(
-            pDisplay->FrequencyRightPlace4BarA,
-            pDisplay->FrequencyRightPlace4BarB,
-            pDisplay->FrequencyRightPlace4BarC,
-            pDisplay->FrequencyRightPlace4BarD,
-            pDisplay->FrequencyRightPlace4BarE,
-            pDisplay->FrequencyRightPlace4BarF,
-            pDisplay->FrequencyRightPlace4BarG,
-            pDisplay->FrequencyRightPlace4BarM,
-            pDisplay->FrequencyRightPlace4BarH,
-            pDisplay->FrequencyRightPlace4BarJP,
-            pDisplay->FrequencyRightPlace4BarK,
-            pDisplay->FrequencyRightPlace4BarQ,
-            pDisplay->FrequencyRightPlace4BarJP,
-            pDisplay->FrequencyRightPlace4BarN);
-            
-            case 5: return left ?
-            Segment(
-            pDisplay->FrequencyLeftPlace5BarA,
-            pDisplay->FrequencyLeftPlace5BarB,
-            pDisplay->FrequencyLeftPlace5BarC,
-            pDisplay->FrequencyLeftPlace5BarD,
-            pDisplay->FrequencyLeftPlace5BarE,
-            pDisplay->FrequencyLeftPlace5BarF,
-            pDisplay->FrequencyLeftPlace5BarG,
-            pDisplay->FrequencyLeftPlace5BarM,
-            pDisplay->FrequencyLeftPlace5BarH,
-            pDisplay->FrequencyLeftPlace5BarJP,
-            pDisplay->FrequencyLeftPlace5BarK,
-            pDisplay->FrequencyLeftPlace5BarQ,
-            pDisplay->FrequencyLeftPlace5BarJP,
-            pDisplay->FrequencyLeftPlace5BarN) :
-            Segment(
-            pDisplay->FrequencyRightPlace5BarA,
-            pDisplay->FrequencyRightPlace5BarB,
-            pDisplay->FrequencyRightPlace5BarC,
-            pDisplay->FrequencyRightPlace5BarD,
-            pDisplay->FrequencyRightPlace5BarE,
-            pDisplay->FrequencyRightPlace5BarF,
-            pDisplay->FrequencyRightPlace5BarG,
-            pDisplay->FrequencyRightPlace5BarM,
-            pDisplay->FrequencyRightPlace5BarH,
-            pDisplay->FrequencyRightPlace5BarJP,
-            pDisplay->FrequencyRightPlace5BarK,
-            pDisplay->FrequencyRightPlace5BarQ,
-            pDisplay->FrequencyRightPlace5BarJP,
-            pDisplay->FrequencyRightPlace5BarN);
-
-            case 6: return left ?
-            Segment(
-            pDisplay->FrequencyLeftPlace6BarA,
-            pDisplay->FrequencyLeftPlace6BarB,
-            pDisplay->FrequencyLeftPlace6BarC,
-            pDisplay->FrequencyLeftPlace6BarD,
-            pDisplay->FrequencyLeftPlace6BarE,
-            pDisplay->FrequencyLeftPlace6BarF,
-            pDisplay->FrequencyLeftPlace6BarG,
-            pDisplay->FrequencyLeftPlace6BarM,
-            pDisplay->FrequencyLeftPlace6BarH,
-            pDisplay->FrequencyLeftPlace6BarJP,
-            pDisplay->FrequencyLeftPlace6BarK,
-            pDisplay->FrequencyLeftPlace6BarQ,
-            pDisplay->FrequencyLeftPlace6BarJP,
-            pDisplay->FrequencyLeftPlace6BarN) :
-            Segment(
-            pDisplay->FrequencyRightPlace6BarA,
-            pDisplay->FrequencyRightPlace6BarB,
-            pDisplay->FrequencyRightPlace6BarC,
-            pDisplay->FrequencyRightPlace6BarD,
-            pDisplay->FrequencyRightPlace6BarE,
-            pDisplay->FrequencyRightPlace6BarF,
-            pDisplay->FrequencyRightPlace6BarG,
-            pDisplay->FrequencyRightPlace6BarM,
-            pDisplay->FrequencyRightPlace6BarH,
-            pDisplay->FrequencyRightPlace6BarJP,
-            pDisplay->FrequencyRightPlace6BarK,
-            pDisplay->FrequencyRightPlace6BarQ,
-            pDisplay->FrequencyRightPlace6BarJP,
-            pDisplay->FrequencyRightPlace6BarN);
-        }
-    }
-    
     return ' ';
 }
 
-char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
+char Controller::GetFrequency(uint8_t place, bool left)
+{
+    switch(place)
+    {
+        case 1: return left ?
+        GetSegment(
+        pDisplay->FrequencyLeftPlace1BarA,
+        pDisplay->FrequencyLeftPlace1BarB,
+        pDisplay->FrequencyLeftPlace1BarC,
+        pDisplay->FrequencyLeftPlace1BarD,
+        pDisplay->FrequencyLeftPlace1BarE,
+        pDisplay->FrequencyLeftPlace1BarF,
+        pDisplay->FrequencyLeftPlace1BarG,
+        pDisplay->FrequencyLeftPlace1BarM,
+        pDisplay->FrequencyLeftPlace1BarH,
+        pDisplay->FrequencyLeftPlace1BarJP,
+        pDisplay->FrequencyLeftPlace1BarK,
+        pDisplay->FrequencyLeftPlace1BarQ,
+        pDisplay->FrequencyLeftPlace1BarJP,
+        pDisplay->FrequencyLeftPlace1BarN) :
+        GetSegment(
+        pDisplay->FrequencyRightPlace1BarA,
+        pDisplay->FrequencyRightPlace1BarB,
+        pDisplay->FrequencyRightPlace1BarC,
+        pDisplay->FrequencyRightPlace1BarD,
+        pDisplay->FrequencyRightPlace1BarE,
+        pDisplay->FrequencyRightPlace1BarF,
+        pDisplay->FrequencyRightPlace1BarG,
+        pDisplay->FrequencyRightPlace1BarM,
+        pDisplay->FrequencyRightPlace1BarH,
+        pDisplay->FrequencyRightPlace1BarJP,
+        pDisplay->FrequencyRightPlace1BarK,
+        pDisplay->FrequencyRightPlace1BarQ,
+        pDisplay->FrequencyRightPlace1BarJP,
+        pDisplay->FrequencyRightPlace1BarN);
+        
+        case 2: return left ?
+        GetSegment(
+        pDisplay->FrequencyLeftPlace2BarA,
+        pDisplay->FrequencyLeftPlace2BarB,
+        pDisplay->FrequencyLeftPlace2BarC,
+        pDisplay->FrequencyLeftPlace2BarD,
+        pDisplay->FrequencyLeftPlace2BarE,
+        pDisplay->FrequencyLeftPlace2BarF,
+        pDisplay->FrequencyLeftPlace2BarG,
+        pDisplay->FrequencyLeftPlace2BarM,
+        pDisplay->FrequencyLeftPlace2BarH,
+        pDisplay->FrequencyLeftPlace2BarJP,
+        pDisplay->FrequencyLeftPlace2BarK,
+        pDisplay->FrequencyLeftPlace2BarQ,
+        pDisplay->FrequencyLeftPlace2BarJP,
+        pDisplay->FrequencyLeftPlace2BarN) :
+        GetSegment(
+        pDisplay->FrequencyRightPlace2BarA,
+        pDisplay->FrequencyRightPlace2BarB,
+        pDisplay->FrequencyRightPlace2BarC,
+        pDisplay->FrequencyRightPlace2BarD,
+        pDisplay->FrequencyRightPlace2BarE,
+        pDisplay->FrequencyRightPlace2BarF,
+        pDisplay->FrequencyRightPlace2BarG,
+        pDisplay->FrequencyRightPlace2BarM,
+        pDisplay->FrequencyRightPlace2BarH,
+        pDisplay->FrequencyRightPlace2BarJP,
+        pDisplay->FrequencyRightPlace2BarK,
+        pDisplay->FrequencyRightPlace2BarQ,
+        pDisplay->FrequencyRightPlace2BarJP,
+        pDisplay->FrequencyRightPlace2BarN);
+
+        case 3: return left ?
+        GetSegment(
+        pDisplay->FrequencyLeftPlace3BarA,
+        pDisplay->FrequencyLeftPlace3BarB,
+        pDisplay->FrequencyLeftPlace3BarC,
+        pDisplay->FrequencyLeftPlace3BarD,
+        pDisplay->FrequencyLeftPlace3BarE,
+        pDisplay->FrequencyLeftPlace3BarF,
+        pDisplay->FrequencyLeftPlace3BarG,
+        pDisplay->FrequencyLeftPlace3BarM,
+        pDisplay->FrequencyLeftPlace3BarH,
+        pDisplay->FrequencyLeftPlace3BarJP,
+        pDisplay->FrequencyLeftPlace3BarK,
+        pDisplay->FrequencyLeftPlace3BarQ,
+        pDisplay->FrequencyLeftPlace3BarJP,
+        pDisplay->FrequencyLeftPlace3BarN) :
+        GetSegment(
+        pDisplay->FrequencyRightPlace3BarA,
+        pDisplay->FrequencyRightPlace3BarB,
+        pDisplay->FrequencyRightPlace3BarC,
+        pDisplay->FrequencyRightPlace3BarD,
+        pDisplay->FrequencyRightPlace3BarE,
+        pDisplay->FrequencyRightPlace3BarF,
+        pDisplay->FrequencyRightPlace3BarG,
+        pDisplay->FrequencyRightPlace3BarM,
+        pDisplay->FrequencyRightPlace3BarH,
+        pDisplay->FrequencyRightPlace3BarJP,
+        pDisplay->FrequencyRightPlace3BarK,
+        pDisplay->FrequencyRightPlace3BarQ,
+        pDisplay->FrequencyRightPlace3BarJP,
+        pDisplay->FrequencyRightPlace3BarN);
+        
+        case 4: return left ?
+        GetSegment(
+        pDisplay->FrequencyLeftPlace4BarA,
+        pDisplay->FrequencyLeftPlace4BarB,
+        pDisplay->FrequencyLeftPlace4BarC,
+        pDisplay->FrequencyLeftPlace4BarD,
+        pDisplay->FrequencyLeftPlace4BarE,
+        pDisplay->FrequencyLeftPlace4BarF,
+        pDisplay->FrequencyLeftPlace4BarG,
+        pDisplay->FrequencyLeftPlace4BarM,
+        pDisplay->FrequencyLeftPlace4BarH,
+        pDisplay->FrequencyLeftPlace4BarJP,
+        pDisplay->FrequencyLeftPlace4BarK,
+        pDisplay->FrequencyLeftPlace4BarQ,
+        pDisplay->FrequencyLeftPlace4BarJP,
+        pDisplay->FrequencyLeftPlace4BarN) :
+        GetSegment(
+        pDisplay->FrequencyRightPlace4BarA,
+        pDisplay->FrequencyRightPlace4BarB,
+        pDisplay->FrequencyRightPlace4BarC,
+        pDisplay->FrequencyRightPlace4BarD,
+        pDisplay->FrequencyRightPlace4BarE,
+        pDisplay->FrequencyRightPlace4BarF,
+        pDisplay->FrequencyRightPlace4BarG,
+        pDisplay->FrequencyRightPlace4BarM,
+        pDisplay->FrequencyRightPlace4BarH,
+        pDisplay->FrequencyRightPlace4BarJP,
+        pDisplay->FrequencyRightPlace4BarK,
+        pDisplay->FrequencyRightPlace4BarQ,
+        pDisplay->FrequencyRightPlace4BarJP,
+        pDisplay->FrequencyRightPlace4BarN);
+        
+        case 5: return left ?
+        GetSegment(
+        pDisplay->FrequencyLeftPlace5BarA,
+        pDisplay->FrequencyLeftPlace5BarB,
+        pDisplay->FrequencyLeftPlace5BarC,
+        pDisplay->FrequencyLeftPlace5BarD,
+        pDisplay->FrequencyLeftPlace5BarE,
+        pDisplay->FrequencyLeftPlace5BarF,
+        pDisplay->FrequencyLeftPlace5BarG,
+        pDisplay->FrequencyLeftPlace5BarM,
+        pDisplay->FrequencyLeftPlace5BarH,
+        pDisplay->FrequencyLeftPlace5BarJP,
+        pDisplay->FrequencyLeftPlace5BarK,
+        pDisplay->FrequencyLeftPlace5BarQ,
+        pDisplay->FrequencyLeftPlace5BarJP,
+        pDisplay->FrequencyLeftPlace5BarN) :
+        GetSegment(
+        pDisplay->FrequencyRightPlace5BarA,
+        pDisplay->FrequencyRightPlace5BarB,
+        pDisplay->FrequencyRightPlace5BarC,
+        pDisplay->FrequencyRightPlace5BarD,
+        pDisplay->FrequencyRightPlace5BarE,
+        pDisplay->FrequencyRightPlace5BarF,
+        pDisplay->FrequencyRightPlace5BarG,
+        pDisplay->FrequencyRightPlace5BarM,
+        pDisplay->FrequencyRightPlace5BarH,
+        pDisplay->FrequencyRightPlace5BarJP,
+        pDisplay->FrequencyRightPlace5BarK,
+        pDisplay->FrequencyRightPlace5BarQ,
+        pDisplay->FrequencyRightPlace5BarJP,
+        pDisplay->FrequencyRightPlace5BarN);
+
+        case 6: return left ?
+        GetSegment(
+        pDisplay->FrequencyLeftPlace6BarA,
+        pDisplay->FrequencyLeftPlace6BarB,
+        pDisplay->FrequencyLeftPlace6BarC,
+        pDisplay->FrequencyLeftPlace6BarD,
+        pDisplay->FrequencyLeftPlace6BarE,
+        pDisplay->FrequencyLeftPlace6BarF,
+        pDisplay->FrequencyLeftPlace6BarG,
+        pDisplay->FrequencyLeftPlace6BarM,
+        pDisplay->FrequencyLeftPlace6BarH,
+        pDisplay->FrequencyLeftPlace6BarJP,
+        pDisplay->FrequencyLeftPlace6BarK,
+        pDisplay->FrequencyLeftPlace6BarQ,
+        pDisplay->FrequencyLeftPlace6BarJP,
+        pDisplay->FrequencyLeftPlace6BarN) :
+        GetSegment(
+        pDisplay->FrequencyRightPlace6BarA,
+        pDisplay->FrequencyRightPlace6BarB,
+        pDisplay->FrequencyRightPlace6BarC,
+        pDisplay->FrequencyRightPlace6BarD,
+        pDisplay->FrequencyRightPlace6BarE,
+        pDisplay->FrequencyRightPlace6BarF,
+        pDisplay->FrequencyRightPlace6BarG,
+        pDisplay->FrequencyRightPlace6BarM,
+        pDisplay->FrequencyRightPlace6BarH,
+        pDisplay->FrequencyRightPlace6BarJP,
+        pDisplay->FrequencyRightPlace6BarK,
+        pDisplay->FrequencyRightPlace6BarQ,
+        pDisplay->FrequencyRightPlace6BarJP,
+        pDisplay->FrequencyRightPlace6BarN);
+    }
+
+    return ' ';
+}
+
+char Controller::GetSegment(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
 {
     //    AAAAAAAA
     //   F        B
@@ -428,78 +429,52 @@ char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G)
     return ' ';
 }
 
-char Controller::Segment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N)
+char Controller::GetSegment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool P, bool N)
 {
-    //    AAAAAAA      -----
-    //   F H J K B    |\ | /|
-    //   F  HJK  B    | \|/ |
-    //    GGG MMM      -- --
-    //   E  QPN  C    | /|\ |
-    //   E Q P N C    |/ | \|
-    //    DDDDDDDD     -----
-    
-    if( A &&  B &&  C && !D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return 'A';
-    if( A &&  B &&  C &&  D && !E && !F && !G &&  M && !H &&  J && !K && !Q &&  P && !N) return 'B';
-    if( A && !B && !C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'C';
-    if( A &&  B &&  C &&  D && !E && !F && !G && !M && !H &&  J && !K && !Q &&  P && !N) return 'D';
-    if( A && !B && !C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return 'E';
-    if( A && !B && !C && !D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return 'F';
-    if( A && !B &&  C &&  D &&  E &&  F && !G &&  M && !H && !J && !K && !Q && !P && !N) return 'G';
-    if(!A &&  B &&  C && !D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return 'H';
-    if( A && !B && !C &&  D && !E && !F && !G && !M && !H &&  J && !K && !Q &&  P && !N) return 'I';
-    if( A &&  B &&  C &&  D &&  E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'J';
-    if(!A && !B && !C && !D &&  E &&  F &&  G && !M && !H && !J &&  K && !Q && !P &&  N) return 'K';
-    if(!A && !B && !C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'L';
-    if(!A &&  B &&  C && !D &&  E &&  F && !G && !M &&  H && !J &&  K && !Q && !P && !N) return 'M';
-    if(!A &&  B &&  C && !D &&  E &&  F && !G && !M &&  H && !J && !K && !Q && !P &&  N) return 'N';
-    if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'O';
-    if( A &&  B && !C && !D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return 'P';
-    if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P &&  N) return 'Q';
-    if( A &&  B && !C && !D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P &&  N) return 'R';
-    if( A && !B && !C &&  D && !E &&  F &&  G && !M && !H && !J && !K && !Q && !P &&  N) return 'S';
-    if( A && !B && !C && !D && !E && !F && !G && !M && !H &&  J && !K && !Q &&  P && !N) return 'T';
-    if(!A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J && !K && !Q && !P && !N) return 'U';
-    if(!A && !B && !C && !D &&  E &&  F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return 'V';
-    if(!A &&  B &&  C && !D &&  E &&  F && !G && !M && !H && !J && !K &&  Q && !P &&  N) return 'W';
-    if(!A && !B && !C && !D && !E && !F && !G && !M &&  H && !J &&  K &&  Q && !P &&  N) return 'X';
-    if(!A && !B && !C && !D && !E && !F && !G && !M &&  H && !J &&  K && !Q &&  P && !N) return 'Y';
-    if( A && !B && !C &&  D && !E && !F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return 'Z';
-
-    //    AAAAAAA      -----
-    //   F H J K B    |\ | /|
-    //   F  HJK  B    | \|/ |
-    //    GGG MMM      -- --
-    //   E  QPN  C    | /|\ |
-    //   E Q P N C    |/ | \|
-    //    DDDDDDDD     -----
-    
-    if(!A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '1';
-    if( A &&  B && !C &&  D &&  E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '2';
-    if( A &&  B &&  C &&  D && !E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '3';
-    if(!A &&  B &&  C && !D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '4';
-    if( A && !B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '5';
-    if( A && !B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '6';
-    if( A &&  B &&  C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '7';
-    if( A &&  B &&  C &&  D &&  E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '8';
-    if( A &&  B &&  C &&  D && !E &&  F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '9';
-    if( A &&  B &&  C &&  D &&  E &&  F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return '0';
-
-    if(!A && !B && !C && !D && !E && !F &&  G &&  M && !H &&  J && !K && !Q &&  P && !N) return '+';
-    if(!A && !B && !C && !D && !E && !F &&  G &&  M && !H && !J && !K && !Q && !P && !N) return '-';
-    if(!A && !B && !C && !D && !E && !F &&  G &&  M &&  H &&  J &&  K &&  Q &&  P &&  N) return '*';
-    if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J &&  K &&  Q && !P && !N) return '/';
-    if(!A && !B && !C && !D && !E && !F && !G && !M &&  H && !J && !K &&  Q && !P && !N) return '>';
-    if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J &&  K && !Q && !P &&  N) return '<';
-    if(!A && !B && !C && !D && !E && !F && !G && !M && !H &&  J && !K && !Q &&  P && !N) return ':';
-    if(!A && !B && !C &&  D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '_';
-    if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J &&  K && !Q && !P && !N) return '´';
-    if( A &&  B &&  C &&  D &&  E && !F &&  G && !M && !H && !J && !K && !Q && !P &&  N) return '@';
-    if( A && !B && !C &&  D &&  E && !F &&  G && !M &&  H && !J &&  K && !Q && !P &&  N) return '&';
-    if( A && !B &&  C &&  D && !E &&  F &&  G &&  M && !H &&  J && !K && !Q &&  P && !N) return '$';
-
-    if(!A && !B && !C && !D && !E && !F &&  G && !M && !H && !J && !K && !Q && !P && !N) return '\n';
-
-    //if(!A && !B && !C && !D && !E && !F && !G && !M && !H && !J && !K && !Q && !P && !N) return '';
+    for(uint8_t i = 0; i < segmentsSize; ++i)
+    {
+        if(
+        A == segments[i].A &&
+        B == segments[i].B &&
+        C == segments[i].C &&
+        D == segments[i].D &&
+        E == segments[i].E &&
+        F == segments[i].F &&
+        G == segments[i].G &&
+        M == segments[i].M &&
+        H == segments[i].H &&
+        J == segments[i].J &&
+        K == segments[i].K &&
+        Q == segments[i].Q &&
+        P == segments[i].P &&
+        N == segments[i].N )
+        return segments->Character;
+    }
 
     return ' ';
+}
+
+void Controller::SetSegment(char character, bool* A, bool* B, bool* C, bool* D, bool* E, bool* F, bool* G, bool* M, bool* H, bool* J, bool* K, bool* Q, bool* P, bool* N)
+{
+    for(uint8_t i = 0; i < segmentsSize; ++i)
+    {
+        if(character == segments[i].Character)
+        {
+            *A = segments[i].A;
+            *B = segments[i].B;
+            *C = segments[i].C;
+            *D = segments[i].D;
+            *E = segments[i].E;
+            *F = segments[i].F;
+            *G = segments[i].G;
+            *M = segments[i].M;
+            *H = segments[i].H;
+            *J = segments[i].J;
+            *K = segments[i].K;
+            *Q = segments[i].Q;
+            *P = segments[i].P;
+            *N = segments[i].N;
+            break;
+        }
+    }
 }
