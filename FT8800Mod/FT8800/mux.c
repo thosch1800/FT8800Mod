@@ -1,7 +1,7 @@
 #include "mux.h"
 #include <avr/io.h>
 
-void InitializeMux()
+inline void InitializeMux()
 {
     DDRC = 0x03;
 

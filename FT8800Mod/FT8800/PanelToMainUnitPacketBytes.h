@@ -23,6 +23,30 @@ typedef struct
     //Lautstärke rechts: Byte 5 leise 00, laut 7F
     uint8_t VolumeRight;
 
+    //1 am Mikro: Byte 6 auf 03 und Byte 9 auf 1B
+    //2 am Mikro: Byte 6 auf 03 und Byte 9 auf 32
+    //3 am Mikro: Byte 6 auf 03 und Byte 9 auf 4B
+    //A am Mikro: Byte 6 auf 03 und Byte 9 auf 66
+    //4 am Mikro: Byte 6 auf 19 und Byte 9 auf 1B
+    //5 am Mikro: Byte 6 auf 19 und Byte 9 auf 32
+    //6 am Mikro: Byte 6 auf 19 und Byte 9 auf 4B
+    //B am Mikro: Byte 6 auf 19 und Byte 9 auf 66
+    //7 am Mikro: Byte 6 auf 31 und Byte 9 auf 1B
+    //8 am Mikro: Byte 6 auf 31 und Byte 9 auf 32
+    //9 am Mikro: Byte 6 auf 31 und Byte 9 auf 4B
+    //C am Mikro: Byte 6 auf 31 und Byte 9 auf 66
+    //* am Mikro: Byte 6 auf 4B und Byte 9 auf 1C
+    //0 am Mikro: Byte 6 auf 4B und Byte 9 auf 33
+    //# am Mikro: Byte 6 auf 4B und Byte 9 auf 4B
+    //D am Mikro: Byte 6 auf 4B und Byte 9 auf 66
+
+    //P1 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 1C
+    //P2 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 33
+    //P3 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 4C
+    //P4 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 66
+
+    //UP-Taste am Mikro: Byte 6 auf 1D und Byte 9 auf 06
+    //DOWN-Taste am Mikro: Byte 6 auf 34 und Byte 9 auf 06
     uint8_t Mic06;
 
     //Lautstärke links: Byte 7 leise 00, laut 7F
@@ -31,6 +55,30 @@ typedef struct
     //Squelch links: Byte 8 offen 7F, geschlossen 00
     uint8_t SquelchLeft;
     
+    //1 am Mikro: Byte 6 auf 03 und Byte 9 auf 1B
+    //2 am Mikro: Byte 6 auf 03 und Byte 9 auf 32
+    //3 am Mikro: Byte 6 auf 03 und Byte 9 auf 4B
+    //A am Mikro: Byte 6 auf 03 und Byte 9 auf 66
+    //4 am Mikro: Byte 6 auf 19 und Byte 9 auf 1B
+    //5 am Mikro: Byte 6 auf 19 und Byte 9 auf 32
+    //6 am Mikro: Byte 6 auf 19 und Byte 9 auf 4B
+    //B am Mikro: Byte 6 auf 19 und Byte 9 auf 66
+    //7 am Mikro: Byte 6 auf 31 und Byte 9 auf 1B
+    //8 am Mikro: Byte 6 auf 31 und Byte 9 auf 32
+    //9 am Mikro: Byte 6 auf 31 und Byte 9 auf 4B
+    //C am Mikro: Byte 6 auf 31 und Byte 9 auf 66
+    //* am Mikro: Byte 6 auf 4B und Byte 9 auf 1C
+    //0 am Mikro: Byte 6 auf 4B und Byte 9 auf 33
+    //# am Mikro: Byte 6 auf 4B und Byte 9 auf 4B
+    //D am Mikro: Byte 6 auf 4B und Byte 9 auf 66
+
+    //P1 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 1C
+    //P2 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 33
+    //P3 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 4C
+    //P4 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 66
+
+    //UP-Taste am Mikro: Byte 6 auf 1D und Byte 9 auf 06
+    //DOWN-Taste am Mikro: Byte 6 auf 34 und Byte 9 auf 06
     uint8_t Mic09;
 
     //Low links: Byte 10 von 7F auf 61
@@ -59,31 +107,6 @@ typedef struct
     //Hyper Taste 5: Byte 13 auf 05
     //Hyper Taste 6: Byte 13 auf 06
     uint8_t Hyper;
-
-    //1 am Mikro: Byte 6 auf 03 und Byte 9 auf 1B
-    //2 am Mikro: Byte 6 auf 03 und Byte 9 auf 32
-    //3 am Mikro: Byte 6 auf 03 und Byte 9 auf 4B
-    //A am Mikro: Byte 6 auf 03 und Byte 9 auf 66
-    //4 am Mikro: Byte 6 auf 19 und Byte 9 auf 1B
-    //5 am Mikro: Byte 6 auf 19 und Byte 9 auf 32
-    //6 am Mikro: Byte 6 auf 19 und Byte 9 auf 4B
-    //B am Mikro: Byte 6 auf 19 und Byte 9 auf 66
-    //7 am Mikro: Byte 6 auf 31 und Byte 9 auf 1B
-    //8 am Mikro: Byte 6 auf 31 und Byte 9 auf 32
-    //9 am Mikro: Byte 6 auf 31 und Byte 9 auf 4B
-    //C am Mikro: Byte 6 auf 31 und Byte 9 auf 66
-    //* am Mikro: Byte 6 auf 4B und Byte 9 auf 1C
-    //0 am Mikro: Byte 6 auf 4B und Byte 9 auf 33
-    //# am Mikro: Byte 6 auf 4B und Byte 9 auf 4B
-    //D am Mikro: Byte 6 auf 4B und Byte 9 auf 66
-
-    //P1 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 1C
-    //P2 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 33
-    //P3 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 4C
-    //P4 Taste am Mikro: Byte 6 auf 63 und Byte 9 auf 66
-
-    //UP-Taste am Mikro: Byte 6 auf 1D und Byte 9 auf 06
-    //DOWN-Taste am Mikro: Byte 6 auf 34 und Byte 9 auf 06
 } PanelToMainUnitPacketBytes;
 
 #endif /* PANELTOMAINUNITPACKETBYTES_H_ */

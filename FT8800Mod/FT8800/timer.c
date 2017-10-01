@@ -3,7 +3,7 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 
-void InitializeTimer()
+inline void InitializeTimer()
 {
     #ifdef MEASURE_TIMINGS
     DDRA = 1 << DDA6 | 1 << DDA4 | 1 << DDA2 | 1 << DDA0;

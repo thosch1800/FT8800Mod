@@ -1,5 +1,6 @@
 #include "Controller.h"
 #include "segment.h"
+#include <string.h>
 
 Controller::Controller(PanelToMainUnitPacketBytes* pPanelPacket, MainUnitToPanelPacketBytes* pDisplayPacket)
 {
@@ -96,6 +97,22 @@ void Controller::Press(Number number)
         case Number::NumDown: pPanel->Mic06 = 0x1D; pPanel->Mic09 = 0x06; break;
         case Number::NumUp:   pPanel->Mic06 = 0x34; pPanel->Mic09 = 0x06; break;
     }
+}
+
+void Controller::SetDisplayText(const char* text, bool left, uint8_t offset)
+{
+    uint8_t txtlen = strlen(text) - offset;
+    if(txtlen > 7) txtlen = 7;
+
+    char str[7] = "      ";
+    strncpy(str, text + offset, txtlen);
+
+    SetFrequency(str[0], 1, left);
+    SetFrequency(str[1], 2, left);
+    SetFrequency(str[2], 3, left);
+    SetFrequency(str[3], 4, left);
+    SetFrequency(str[4], 5, left);
+    SetFrequency(str[5], 6, left);
 }
 
 bool Controller::IsVfoMode(bool left)
