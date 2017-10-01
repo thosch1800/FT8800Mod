@@ -170,6 +170,17 @@ void Controller::SetDisplayText(const char* text, bool left, uint8_t offset)
     SetFrequency(str[3], 4, left);
     SetFrequency(str[4], 5, left);
     SetFrequency(str[5], 6, left);
+
+    if(left)
+    {
+        pDisplay->FrequencyLeftDecimalPointMhz = 0;
+        pDisplay->FrequencyLeftDecimalPointMhz = 0;
+    }
+    else
+    {
+        pDisplay->FrequencyRightDecimalPointMhz = 0;
+        pDisplay->FrequencyRightDecimalPointMhz = 0;
+    }
 }
 
 char Controller::GetChannel(uint8_t place, bool left)
