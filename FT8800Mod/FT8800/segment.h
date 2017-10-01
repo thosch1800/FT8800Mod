@@ -13,7 +13,7 @@ typedef struct
     uint8_t G : 1;
     uint8_t M : 1;
     uint8_t H : 1;
-    uint8_t JP : 1;
+    uint8_t J : 1;
     uint8_t K : 1;
     uint8_t Q : 1;
     uint8_t N : 1;
@@ -26,6 +26,9 @@ typedef struct
 //   E  QPN  C    | /|\ |
 //   E Q P N C    |/ | \|
 //    DDDDDDDD     -----
+//
+// NOTE: J is J and P
+// 
 
 const Segment segments[] = {
     //     A B C D E F G M H J K Q N

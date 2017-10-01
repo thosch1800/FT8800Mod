@@ -99,22 +99,6 @@ void Controller::Press(Number number)
     }
 }
 
-void Controller::SetDisplayText(const char* text, bool left, uint8_t offset)
-{
-    uint8_t txtlen = strlen(text) - offset;
-    if(txtlen > 7) txtlen = 7;
-
-    char str[7] = "      ";
-    strncpy(str, text + offset, txtlen);
-
-    SetFrequency(str[0], 1, left);
-    SetFrequency(str[1], 2, left);
-    SetFrequency(str[2], 3, left);
-    SetFrequency(str[3], 4, left);
-    SetFrequency(str[4], 5, left);
-    SetFrequency(str[5], 6, left);
-}
-
 bool Controller::IsVfoMode(bool left)
 {
     char channel = GetChannel(3, left);
@@ -156,6 +140,36 @@ bool Controller::IsBusy(bool left)
 {
     bool isBusy = left ? pDisplay->BusyLeft : pDisplay->BusyRight;
     return isBusy != 0;
+}
+
+void Controller::GetDisplayText(char* text, bool left)
+{
+    char str[7];
+    str[0] = GetFrequency(1, left);
+    str[1] = GetFrequency(2, left);
+    str[2] = GetFrequency(3, left);
+    str[3] = GetFrequency(4, left);
+    str[4] = GetFrequency(5, left);
+    str[5] = GetFrequency(6, left);
+    str[6] = '\0';
+
+    strncpy(text, str, 7);
+}
+
+void Controller::SetDisplayText(const char* text, bool left, uint8_t offset)
+{
+    uint8_t txtlen = strlen(text) - offset;
+    if(txtlen > 7) txtlen = 7;
+
+    char str[7] = "      ";
+    strncpy(str, text + offset, txtlen);
+
+    SetFrequency(str[0], 1, left);
+    SetFrequency(str[1], 2, left);
+    SetFrequency(str[2], 3, left);
+    SetFrequency(str[3], 4, left);
+    SetFrequency(str[4], 5, left);
+    SetFrequency(str[5], 6, left);
 }
 
 char Controller::GetChannel(uint8_t place, bool left)
@@ -261,7 +275,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyLeftPlace1BarG,
         pDisplay->FrequencyLeftPlace1BarM,
         pDisplay->FrequencyLeftPlace1BarH,
-        pDisplay->FrequencyLeftPlace1BarJP,
+        pDisplay->FrequencyLeftPlace1BarJ,
         pDisplay->FrequencyLeftPlace1BarK,
         pDisplay->FrequencyLeftPlace1BarQ,
         pDisplay->FrequencyLeftPlace1BarN) :
@@ -275,7 +289,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyRightPlace1BarG,
         pDisplay->FrequencyRightPlace1BarM,
         pDisplay->FrequencyRightPlace1BarH,
-        pDisplay->FrequencyRightPlace1BarJP,
+        pDisplay->FrequencyRightPlace1BarJ,
         pDisplay->FrequencyRightPlace1BarK,
         pDisplay->FrequencyRightPlace1BarQ,
         pDisplay->FrequencyRightPlace1BarN);
@@ -291,7 +305,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyLeftPlace2BarG,
         pDisplay->FrequencyLeftPlace2BarM,
         pDisplay->FrequencyLeftPlace2BarH,
-        pDisplay->FrequencyLeftPlace2BarJP,
+        pDisplay->FrequencyLeftPlace2BarJ,
         pDisplay->FrequencyLeftPlace2BarK,
         pDisplay->FrequencyLeftPlace2BarQ,
         pDisplay->FrequencyLeftPlace2BarN) :
@@ -305,7 +319,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyRightPlace2BarG,
         pDisplay->FrequencyRightPlace2BarM,
         pDisplay->FrequencyRightPlace2BarH,
-        pDisplay->FrequencyRightPlace2BarJP,
+        pDisplay->FrequencyRightPlace2BarJ,
         pDisplay->FrequencyRightPlace2BarK,
         pDisplay->FrequencyRightPlace2BarQ,
         pDisplay->FrequencyRightPlace2BarN);
@@ -321,7 +335,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyLeftPlace3BarG,
         pDisplay->FrequencyLeftPlace3BarM,
         pDisplay->FrequencyLeftPlace3BarH,
-        pDisplay->FrequencyLeftPlace3BarJP,
+        pDisplay->FrequencyLeftPlace3BarJ,
         pDisplay->FrequencyLeftPlace3BarK,
         pDisplay->FrequencyLeftPlace3BarQ,
         pDisplay->FrequencyLeftPlace3BarN) :
@@ -335,7 +349,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyRightPlace3BarG,
         pDisplay->FrequencyRightPlace3BarM,
         pDisplay->FrequencyRightPlace3BarH,
-        pDisplay->FrequencyRightPlace3BarJP,
+        pDisplay->FrequencyRightPlace3BarJ,
         pDisplay->FrequencyRightPlace3BarK,
         pDisplay->FrequencyRightPlace3BarQ,
         pDisplay->FrequencyRightPlace3BarN);
@@ -351,7 +365,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyLeftPlace4BarG,
         pDisplay->FrequencyLeftPlace4BarM,
         pDisplay->FrequencyLeftPlace4BarH,
-        pDisplay->FrequencyLeftPlace4BarJP,
+        pDisplay->FrequencyLeftPlace4BarJ,
         pDisplay->FrequencyLeftPlace4BarK,
         pDisplay->FrequencyLeftPlace4BarQ,
         pDisplay->FrequencyLeftPlace4BarN) :
@@ -365,7 +379,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyRightPlace4BarG,
         pDisplay->FrequencyRightPlace4BarM,
         pDisplay->FrequencyRightPlace4BarH,
-        pDisplay->FrequencyRightPlace4BarJP,
+        pDisplay->FrequencyRightPlace4BarJ,
         pDisplay->FrequencyRightPlace4BarK,
         pDisplay->FrequencyRightPlace4BarQ,
         pDisplay->FrequencyRightPlace4BarN);
@@ -381,7 +395,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyLeftPlace5BarG,
         pDisplay->FrequencyLeftPlace5BarM,
         pDisplay->FrequencyLeftPlace5BarH,
-        pDisplay->FrequencyLeftPlace5BarJP,
+        pDisplay->FrequencyLeftPlace5BarJ,
         pDisplay->FrequencyLeftPlace5BarK,
         pDisplay->FrequencyLeftPlace5BarQ,
         pDisplay->FrequencyLeftPlace5BarN) :
@@ -395,7 +409,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyRightPlace5BarG,
         pDisplay->FrequencyRightPlace5BarM,
         pDisplay->FrequencyRightPlace5BarH,
-        pDisplay->FrequencyRightPlace5BarJP,
+        pDisplay->FrequencyRightPlace5BarJ,
         pDisplay->FrequencyRightPlace5BarK,
         pDisplay->FrequencyRightPlace5BarQ,
         pDisplay->FrequencyRightPlace5BarN);
@@ -411,7 +425,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyLeftPlace6BarG,
         pDisplay->FrequencyLeftPlace6BarM,
         pDisplay->FrequencyLeftPlace6BarH,
-        pDisplay->FrequencyLeftPlace6BarJP,
+        pDisplay->FrequencyLeftPlace6BarJ,
         pDisplay->FrequencyLeftPlace6BarK,
         pDisplay->FrequencyLeftPlace6BarQ,
         pDisplay->FrequencyLeftPlace6BarN) :
@@ -425,7 +439,7 @@ char Controller::GetFrequency(uint8_t place, bool left)
         pDisplay->FrequencyRightPlace6BarG,
         pDisplay->FrequencyRightPlace6BarM,
         pDisplay->FrequencyRightPlace6BarH,
-        pDisplay->FrequencyRightPlace6BarJP,
+        pDisplay->FrequencyRightPlace6BarJ,
         pDisplay->FrequencyRightPlace6BarK,
         pDisplay->FrequencyRightPlace6BarQ,
         pDisplay->FrequencyRightPlace6BarN);
@@ -436,8 +450,8 @@ char Controller::GetFrequency(uint8_t place, bool left)
 
 void Controller::SetFrequency(char character, uint8_t place, bool left)
 {
-    bool A, B, C, D, E, F, G, M, H, JP, K, Q, N;
-    SetSegment(character, &A, &B, &C, &D, &E, &F, &G, &M, &H, &JP, &K, &Q, &N);
+    bool A, B, C, D, E, F, G, M, H, J, K, Q, N;
+    SetSegment(character, &A, &B, &C, &D, &E, &F, &G, &M, &H, &J, &K, &Q, &N);
 
     switch(place)
     {
@@ -453,7 +467,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyLeftPlace1BarG = G;
             pDisplay->FrequencyLeftPlace1BarM = M;
             pDisplay->FrequencyLeftPlace1BarH = H;
-            pDisplay->FrequencyLeftPlace1BarJP = JP;
+            pDisplay->FrequencyLeftPlace1BarJ = J;
             pDisplay->FrequencyLeftPlace1BarK = K;
             pDisplay->FrequencyLeftPlace1BarQ = Q;
             pDisplay->FrequencyLeftPlace1BarN = N;
@@ -469,7 +483,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyRightPlace1BarG = G;
             pDisplay->FrequencyRightPlace1BarM = M;
             pDisplay->FrequencyRightPlace1BarH = H;
-            pDisplay->FrequencyRightPlace1BarJP = JP;
+            pDisplay->FrequencyRightPlace1BarJ = J;
             pDisplay->FrequencyRightPlace1BarK = K;
             pDisplay->FrequencyRightPlace1BarQ = Q;
             pDisplay->FrequencyRightPlace1BarN = N;
@@ -487,7 +501,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyLeftPlace2BarG = G;
             pDisplay->FrequencyLeftPlace2BarM = M;
             pDisplay->FrequencyLeftPlace2BarH = H;
-            pDisplay->FrequencyLeftPlace2BarJP = JP;
+            pDisplay->FrequencyLeftPlace2BarJ = J;
             pDisplay->FrequencyLeftPlace2BarK = K;
             pDisplay->FrequencyLeftPlace2BarQ = Q;
             pDisplay->FrequencyLeftPlace2BarN = N;
@@ -503,7 +517,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyRightPlace2BarG = G;
             pDisplay->FrequencyRightPlace2BarM = M;
             pDisplay->FrequencyRightPlace2BarH = H;
-            pDisplay->FrequencyRightPlace2BarJP = JP;
+            pDisplay->FrequencyRightPlace2BarJ = J;
             pDisplay->FrequencyRightPlace2BarK = K;
             pDisplay->FrequencyRightPlace2BarQ = Q;
             pDisplay->FrequencyRightPlace2BarN = N;
@@ -521,7 +535,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyLeftPlace3BarG = G;
             pDisplay->FrequencyLeftPlace3BarM = M;
             pDisplay->FrequencyLeftPlace3BarH = H;
-            pDisplay->FrequencyLeftPlace3BarJP = JP;
+            pDisplay->FrequencyLeftPlace3BarJ = J;
             pDisplay->FrequencyLeftPlace3BarK = K;
             pDisplay->FrequencyLeftPlace3BarQ = Q;
             pDisplay->FrequencyLeftPlace3BarN = N;
@@ -537,7 +551,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyRightPlace3BarG = G;
             pDisplay->FrequencyRightPlace3BarM = M;
             pDisplay->FrequencyRightPlace3BarH = H;
-            pDisplay->FrequencyRightPlace3BarJP = JP;
+            pDisplay->FrequencyRightPlace3BarJ = J;
             pDisplay->FrequencyRightPlace3BarK = K;
             pDisplay->FrequencyRightPlace3BarQ = Q;
             pDisplay->FrequencyRightPlace3BarN = N;
@@ -555,7 +569,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyLeftPlace4BarG = G;
             pDisplay->FrequencyLeftPlace4BarM = M;
             pDisplay->FrequencyLeftPlace4BarH = H;
-            pDisplay->FrequencyLeftPlace4BarJP = JP;
+            pDisplay->FrequencyLeftPlace4BarJ = J;
             pDisplay->FrequencyLeftPlace4BarK = K;
             pDisplay->FrequencyLeftPlace4BarQ = Q;
             pDisplay->FrequencyLeftPlace4BarN = N;
@@ -571,7 +585,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyRightPlace4BarG = G;
             pDisplay->FrequencyRightPlace4BarM = M;
             pDisplay->FrequencyRightPlace4BarH = H;
-            pDisplay->FrequencyRightPlace4BarJP = JP;
+            pDisplay->FrequencyRightPlace4BarJ = J;
             pDisplay->FrequencyRightPlace4BarK = K;
             pDisplay->FrequencyRightPlace4BarQ = Q;
             pDisplay->FrequencyRightPlace4BarN = N;
@@ -589,7 +603,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyLeftPlace5BarG = G;
             pDisplay->FrequencyLeftPlace5BarM = M;
             pDisplay->FrequencyLeftPlace5BarH = H;
-            pDisplay->FrequencyLeftPlace5BarJP = JP;
+            pDisplay->FrequencyLeftPlace5BarJ = J;
             pDisplay->FrequencyLeftPlace5BarK = K;
             pDisplay->FrequencyLeftPlace5BarQ = Q;
             pDisplay->FrequencyLeftPlace5BarN = N;
@@ -605,7 +619,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyRightPlace5BarG = G;
             pDisplay->FrequencyRightPlace5BarM = M;
             pDisplay->FrequencyRightPlace5BarH = H;
-            pDisplay->FrequencyRightPlace5BarJP = JP;
+            pDisplay->FrequencyRightPlace5BarJ = J;
             pDisplay->FrequencyRightPlace5BarK = K;
             pDisplay->FrequencyRightPlace5BarQ = Q;
             pDisplay->FrequencyRightPlace5BarN = N;
@@ -623,7 +637,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyLeftPlace6BarG = G;
             pDisplay->FrequencyLeftPlace6BarM = M;
             pDisplay->FrequencyLeftPlace6BarH = H;
-            pDisplay->FrequencyLeftPlace6BarJP = JP;
+            pDisplay->FrequencyLeftPlace6BarJ = J;
             pDisplay->FrequencyLeftPlace6BarK = K;
             pDisplay->FrequencyLeftPlace6BarQ = Q;
             pDisplay->FrequencyLeftPlace6BarN = N;
@@ -639,7 +653,7 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
             pDisplay->FrequencyRightPlace6BarG = G;
             pDisplay->FrequencyRightPlace6BarM = M;
             pDisplay->FrequencyRightPlace6BarH = H;
-            pDisplay->FrequencyRightPlace6BarJP = JP;
+            pDisplay->FrequencyRightPlace6BarJ = J;
             pDisplay->FrequencyRightPlace6BarK = K;
             pDisplay->FrequencyRightPlace6BarQ = Q;
             pDisplay->FrequencyRightPlace6BarN = N;
@@ -647,31 +661,33 @@ void Controller::SetFrequency(char character, uint8_t place, bool left)
     }
 }
 
-char Controller::GetSegment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool JP, bool K, bool Q, bool N)
+char Controller::GetSegment(bool A, bool B, bool C, bool D, bool E, bool F, bool G, bool M, bool H, bool J, bool K, bool Q, bool N)
 {
     for(uint8_t i = 0; i < segmentsSize; ++i)
     {
         if(
-        A == segments[i].A &&
-        B == segments[i].B &&
-        C == segments[i].C &&
-        D == segments[i].D &&
-        E == segments[i].E &&
-        F == segments[i].F &&
-        G == segments[i].G &&
-        M == segments[i].M &&
-        H == segments[i].H &&
-        JP == segments[i].JP &&
-        K == segments[i].K &&
-        Q == segments[i].Q &&
-        N == segments[i].N )
-        return segments->Character;
+        segments[i].A == A &&
+        segments[i].B == B &&
+        segments[i].C == C &&
+        segments[i].D == D &&
+        segments[i].E == E &&
+        segments[i].F == F &&
+        segments[i].G == G &&
+        segments[i].M == M &&
+        segments[i].H == H &&
+        segments[i].J == J &&
+        segments[i].K == K &&
+        segments[i].Q == Q &&
+        segments[i].N == N )
+        {
+            return segments[i].Character;
+        }
     }
 
     return ' ';
 }
 
-void Controller::SetSegment(char character, bool* A, bool* B, bool* C, bool* D, bool* E, bool* F, bool* G, bool* M, bool* H, bool* JP, bool* K, bool* Q, bool* N)
+void Controller::SetSegment(char character, bool* A, bool* B, bool* C, bool* D, bool* E, bool* F, bool* G, bool* M, bool* H, bool* J, bool* K, bool* Q, bool* N)
 {
     for(uint8_t i = 0; i < segmentsSize; ++i)
     {
@@ -686,7 +702,7 @@ void Controller::SetSegment(char character, bool* A, bool* B, bool* C, bool* D, 
             *G = segments[i].G;
             *M = segments[i].M;
             *H = segments[i].H;
-            *JP = segments[i].JP;
+            *J = segments[i].J;
             *K = segments[i].K;
             *Q = segments[i].Q;
             *N = segments[i].N;

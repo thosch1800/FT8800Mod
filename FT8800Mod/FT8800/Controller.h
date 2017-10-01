@@ -19,13 +19,15 @@ class Controller
     void Turn(Direction direction, bool left);
     void Press(Key key, bool left = true);
     void Press(Number number);
-    void SetDisplayText(const char* text, bool left, uint8_t offset = 0);
     
     bool IsVfoMode(bool left);
     bool IsChannelMode(bool left);
     bool IsMain(bool left);
     bool IsInInputMode(bool left);
     bool IsBusy(bool left);
+
+    void GetDisplayText(char* text, bool left);
+    void SetDisplayText(const char* text, bool left, uint8_t offset = 0);
 
     private:
     char GetChannel(uint8_t place, bool left);

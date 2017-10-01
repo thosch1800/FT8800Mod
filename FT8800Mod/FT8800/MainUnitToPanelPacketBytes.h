@@ -53,7 +53,7 @@ typedef struct
     // 03    01    Frequenz links Stelle 6 Balken D
     uint8_t FrequencyLeftPlace6BarD : 1;
     // 03    02    Frequenz links Stelle 6 Balken J+P
-    uint8_t FrequencyLeftPlace6BarJP : 1;
+    uint8_t FrequencyLeftPlace6BarJ : 1;
     // 03    04    S-Meter links Balken 8
     uint8_t SignalLeftBar8 : 1;
     // 03    08    Frequenz links Stelle 6 Balken Q
@@ -91,7 +91,7 @@ typedef struct
     // 05    04    Frequenz links Stelle 5 Balken D
     uint8_t FrequencyLeftPlace5BarD : 1;
     // 05    08    Frequenz links Stelle 5 Balken J+P
-    uint8_t FrequencyLeftPlace5BarJP : 1;
+    uint8_t FrequencyLeftPlace5BarJ : 1;
     // 05    10    S-Meter links Balken 6
     uint8_t SignalLeftBar6 : 1;
     // 05    20    Frequenz links Stelle 5 Balken Q
@@ -129,7 +129,7 @@ typedef struct
     // 07    10    Frequenz links Stelle 4 Balken D
     uint8_t FrequencyLeftPlace4BarD : 1;
     // 07    20    Frequenz links Stelle 4 Balken J+P
-    uint8_t FrequencyLeftPlace4BarJP : 1;
+    uint8_t FrequencyLeftPlace4BarJ : 1;
     // 07    40    S-Meter links Balken 4
     uint8_t SignalLeftBar4 : 1;
     // 07    80    ???
@@ -182,7 +182,7 @@ typedef struct
     // 10    20    Frequenz links Stelle 3 Balken D
     uint8_t FrequencyLeftPlace3BarD : 1;
     // 10    40    Frequenz links Stelle 3 Balken J+P
-    uint8_t FrequencyLeftPlace3BarJP : 1;
+    uint8_t FrequencyLeftPlace3BarJ : 1;
     // 10    80    ???
     uint8_t Unknown1080 : 1;
 
@@ -223,7 +223,7 @@ typedef struct
     // 13    01    Frequenz links Stelle 2 Balken D
     uint8_t FrequencyLeftPlace2BarD : 1;
     // 13    02    Frequenz links Stelle 2 Balken J+P
-    uint8_t FrequencyLeftPlace2BarJP : 1;
+    uint8_t FrequencyLeftPlace2BarJ : 1;
     // 13    04    BUSY links
     uint8_t BusyLeft : 1;
     // 13    08    Frequenz links Stelle 2 Balken Q
@@ -261,7 +261,7 @@ typedef struct
     // 15    04    Frequenz links Stelle 1 Balken D
     uint8_t FrequencyLeftPlace1BarD : 1;
     // 15    08    Frequenz links Stelle 1 Balken J+P
-    uint8_t FrequencyLeftPlace1BarJP : 1;
+    uint8_t FrequencyLeftPlace1BarJ : 1;
     // 15    10    ???
     uint8_t Unknown1510 : 1;
     // 15    20    Frequenz links Stelle 1 Balken Q
@@ -325,7 +325,7 @@ typedef struct
     // 19    01    Frequenz rechts Stelle 6 Balken D
     uint8_t FrequencyRightPlace6BarD : 1;
     // 19    02    Frequenz rechts Stelle 6 Balken J+P
-    uint8_t FrequencyRightPlace6BarJP : 1;
+    uint8_t FrequencyRightPlace6BarJ : 1;
     // 19    04    S-Meter rechts Balken 8
     uint8_t SignalRightBar8 : 1;
     // 19    08    Frequenz rechts Stelle 6 Balken Q
@@ -363,7 +363,7 @@ typedef struct
     // 21    04    Frequenz rechts Stelle 5 Balken D
     uint8_t FrequencyRightPlace5BarD : 1;
     // 21    08    Frequenz rechts Stelle 5 Balken J+P
-    uint8_t FrequencyRightPlace5BarJP : 1;
+    uint8_t FrequencyRightPlace5BarJ : 1;
     // 21    10    S-Meter rechts Balken 6
     uint8_t SignalRightBar6 : 1;
     // 21    20    Frequenz rechts Stelle 5 Balken Q
@@ -401,7 +401,7 @@ typedef struct
     // 23    10    Frequenz rechts Stelle 4 Balken D
     uint8_t FrequencyRightPlace4BarD : 1;
     // 23    20    Frequenz rechts Stelle 4 Balken J+P
-    uint8_t FrequencyRightPlace4BarJP : 1;
+    uint8_t FrequencyRightPlace4BarJ : 1;
     // 23    40    S-Meter rechts Balken 4
     uint8_t SignalRightBar4 : 1;
     // 23    80    ???
@@ -454,7 +454,7 @@ typedef struct
     // 26    20    Frequenz rechts Stelle 3 Balken D
     uint8_t FrequencyRightPlace3BarD : 1;
     // 26    40    Frequenz rechts Stelle 3 Balken J+P
-    uint8_t FrequencyRightPlace3BarJP : 1;
+    uint8_t FrequencyRightPlace3BarJ : 1;
     // 26    80    ???
     uint8_t Unknwon2680 : 1;
 
@@ -495,7 +495,7 @@ typedef struct
     // 29    01    Frequenz rechts Stelle 2 Balken D
     uint8_t FrequencyRightPlace2BarD : 1;
     // 29    02    Frequenz rechts Stelle 2 Balken J+P
-    uint8_t FrequencyRightPlace2BarJP : 1;
+    uint8_t FrequencyRightPlace2BarJ : 1;
     // 29    04    BUSY rechts
     uint8_t BusyRight : 1;
     // 29    08    Frequenz rechts Stelle 2 Balken Q
@@ -533,7 +533,7 @@ typedef struct
     // 31    04    Frequenz rechts Stelle 1 Balken D
     uint8_t FrequencyRightPlace1BarD : 1;
     // 31    08    Frequenz rechts Stelle 1 Balken J+P
-    uint8_t FrequencyRightPlace1BarJP : 1;
+    uint8_t FrequencyRightPlace1BarJ : 1;
     // 31    10    Keypad Lock
     uint8_t KeypadLocked : 1;
     // 31    20    Frequenz rechts Stelle 1 Balken Q
