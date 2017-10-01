@@ -220,6 +220,9 @@
     <Compile Include="PanelToMainUnitPacketBytes.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="segment.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="state.h">
       <SubType>compile</SubType>
     </Compile>
