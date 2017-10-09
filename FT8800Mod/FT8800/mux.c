@@ -3,7 +3,7 @@
 
 inline void InitializeMux()
 {
-    DDRC = 0x03;
+    DDRC |= 0x03;
 
     SetMuxBit0(0);
     SetMuxBit1(0);

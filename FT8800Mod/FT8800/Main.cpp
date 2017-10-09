@@ -13,6 +13,7 @@ extern "C"
     #include "uart.h"
     #include "utilities.h"
     #include "mux.h"
+    #include "modem.h"
 }
 
 State panelState = None;
@@ -29,6 +30,7 @@ int main()
     InitializeTimer();
     InitializeUart();
     InitializeMux();
+    InitializeModem();
 
     sei();
 
@@ -37,6 +39,15 @@ int main()
 
     while(true)
     {
+        if(IsModemPTT())
+        {
+            //SetDataPTT(1);
+        }
+        else
+        {
+            //SetDataPTT(0);
+        }
+
         if(panelState == Received)
         {
             //TODO: add logic here

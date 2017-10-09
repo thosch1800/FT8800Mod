@@ -211,6 +211,12 @@
     <Compile Include="MainUnitToPanelPacketBytes.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="modem.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modem.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="mux.c">
       <SubType>compile</SubType>
     </Compile>
